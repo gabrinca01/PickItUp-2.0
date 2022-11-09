@@ -1,0 +1,167 @@
+#SCHEMA DATABASE PICKITUP
+
+    USERS (username, password, nome, cognome, immagine*, dataNascita, email, gender, timestamp)
+    	username: primary key
+    	username, password: key
+
+    POINTS (username, points)
+    	username: primary key
+    	POINTS[username] c  USERS[username]
+
+    POSTS (username, url, timestamp)
+    	url: primary key
+    	POSTS[username] c USERS[username]
+
+    CHALLENGES (creator, url, nPartecipanti, position, timestamp)
+    	url: primary key
+    	CHALLENGES[creator] c USERS[username]
+
+    AZIENDE(codice, nome, url)
+
+    PREMI (azienda, premio, prezzo, url)
+    	PREMI[azienda] c AZIENDE[codice]
+
+    PARTECIPA(challenge, user)
+    	PARTECIPA[challenge] c CHALLENGES[url]
+    	PARTECIPA[user] c USERS[username]
+
+#QUERY
+    create table User_profile (
+    	username varchar(30) primary key,
+    	password varchar(50),
+    	email varchar(50),
+    	gender varchar(10),
+    	nome varchar(30),
+    	cognome varchar(30),
+    	times timestamp default current_timestamp,
+    	birthday date,
+    	picture text,
+    	points integer default 0,
+    	unique (email)
+    );
+
+    create table Friendship(
+    	profile_accept varchar(30) not null,
+    	profile_request varchar(30) not null,
+    	foreign key(profile_accept) 
+    		references user_profile(username) ON UPDATE CASCADE ON DELETE CASCADE,
+    	foreign key(profile_request) 
+    		references user_profile(username) ON UPDATE CASCADE ON DELETE CASCADE,
+    	primary key (profile_accept, profile_request)
+    );
+
+    CREATE TABLE messages (
+      message_id  SERIAL PRIMARY KEY,
+      username varchar(30) not null,
+      challenge_id int NOT NULL,
+      msg text not null,
+      times timestamp  default current_timestamp,
+      foreign key (username) references 
+      	user_profile(username) ON UPDATE CASCADE ON DELETE CASCADE,
+      foreign key (challenge_id) references 
+    	challenges(challenge_id) ON UPDATE CASCADE ON DELETE CASCADE
+    )
+
+
+    create table post (
+    	post_id SERIAL primary key,
+    	profile_id varchar(30),
+    	written_text text,
+    	media_location text,
+    	times timestamp default current_timestamp,
+    	foreign key(profile_id)
+    		references user_profile(username) ON UPDATE CASCADE ON DELETE CASCADE
+    );
+
+    create table challenges(
+    	challenge_id SERIAL primary key,
+    	creator varchar(30),
+    	description text,
+    	times timestamp default current_timestamp,
+    	luogo text,
+    	nPartecipanti integer default 0,
+    	foreign key(creator) 
+    		references user_profile(username) ON UPDATE CASCADE ON DELETE CASCADE,
+    	points integer default 10
+    );
+
+    create table partecipa(
+    	profile_id varchar(30),
+    	challenge_id SERIAL,
+    	foreign key(profile_id)
+    		references user_profile(username) ON UPDATE CASCADE ON DELETE CASCADE,
+    	foreign key(challenge_id)
+    		references challenges(challenge_id) ON UPDATE CASCADE ON DELETE CASCADE,
+    	primary key(profile_id, challenge_id)
+    );
+
+    create table aziende(
+    	codice varchar(20) primary key,
+    	nome varchar(20),
+    	logo text,
+    	sito text
+    );
+
+    create table premi(
+    	premio_id SERIAL primary key,
+    	prezzo integer,
+    	azienda_id varchar(20),
+    	premio text,
+    	quantita integer,
+    	foreign key(azienda_id)
+    		references aziende(codice) ON UPDATE CASCADE ON DELETE CASCADE
+    );
+
+    create table premio_acquisito(
+    	profile_id varchar(30),
+    	premio SERIAL,
+    	foreign key(profile_id)
+    		references user_profile(username) ON UPDATE CASCADE ON DELETE CASCADE,
+    	foreign key(premio)
+    		references premi(premio_id) ON UPDATE CASCADE ON DELETE CASCADE,
+    	primary key(profile_id, premio)
+    );
+    create or replace function incrementa_nPart()
+    returns trigger as 
+    $$
+    begin
+    update challenges
+    set nPartecipanti = nPartecipanti+1
+    where challenge_id=new.challenge_id;
+    return null;
+    end;
+    $$ language plpgsql;
+    create trigger trigger_nPart after insert on partecipa
+    for each row execute procedure incrementa_nPart();
+
+
+    create or replace function decrementa_quantita()
+    returns trigger as
+    $$
+    begin
+    update premi
+    set quantita= quantita -1
+    where premio_id=new.premio;
+    return null;
+    end;
+    $$ language plpgsql;
+    create trigger trigger_quantita after insert on premio_acquisito
+    for each row execute procedure decrementa_quantita();
+
+    create or replace function decrementa_punti()
+    returns trigger as
+    $$
+    begin
+    update user_profile
+    set points = points - new.prezzo
+    where username = new.profile_id;
+    return null;
+    end;
+    $$ language plpgsql;
+    create trigger trigger_points after insert on premio_acquisito
+    for each row execute procedure decrementa_punti();
+
+    /*I cosi s' fanu giusti na vota e basta!
+
+
+    insert into aziende values ('1', 'ennel', 'example.com'), ('2', 'azienda', 'example.com');
