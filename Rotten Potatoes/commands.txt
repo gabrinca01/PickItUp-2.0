@@ -5,8 +5,9 @@ bin/rake webpacker:install # RISPONDERE n !!!!
 bin/rake db:migrate
 bin/rake db:seed
 #bin/rails generate migration CreateMoviegoers name:string
-#bin/rails generate migration CreateReviews potatoes:interger comments:text movie:belongs_to moviegoer:belongs_to
+#bin/rails generate migration CreateReviews potatoes:integer comments:text movie:belongs_to moviegoer:belongs_to
 #wsl.exe -t <DistroName> # restart distro WSL
 EDITOR="code --wait" bin/rails credentials:edit
 # Rails.application.credentials
 # https://github.com/httprb/http
+72c8a1e4436dd3c3d32208756a69c8af
