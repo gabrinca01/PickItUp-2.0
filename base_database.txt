@@ -1,4 +1,4 @@
-#SCHEMA DATABASE PICKITUP
+cd#SCHEMA DATABASE PICKITUP
 
     USERS (username, password, nome, cognome, immagine*, dataNascita, email, gender, timestamp)
     	username: primary key
