@@ -13,7 +13,9 @@
   <body>
      <p class="notice"><%= notice %></p>
       <p class="alert"><%= alert %></p>
-      <%= render 'home/sidebar' %>      
+      <% if !user_signed_in? %>
+      <%= render 'home/sidebar' %> 
+      <%end%>    
       <%= yield %>
   </body>
 </html>
