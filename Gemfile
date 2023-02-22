@@ -10,7 +10,7 @@ gem 'bootstrap', '~> 5.2.3'
 
 gem 'execjs'
 
-gem 'therubyracer'
+
 
 gem 'devise'
 
