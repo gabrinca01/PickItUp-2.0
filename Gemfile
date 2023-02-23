@@ -8,11 +8,15 @@ gem 'bootstrap', '~> 5.2.3'
 
 
 
-gem 'execjs'
 
 
+gem 'turbolinks', '~> 5'
 
 gem 'devise'
+gem 'webpacker', '~> 5.0'
+
+
+
 
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem "rails", "~> 7.0.4"
