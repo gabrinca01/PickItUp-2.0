@@ -1,1 +1,27 @@
-<h1>Ciao</h1>
+<div id= "timeline">
+	<%@posts.each do |post| %>
+		<div class="post">
+			<div class="post up_banner">
+			<%user_name = User.find(post.user_id) %>
+			<%picture = user_name.profile_picture %>
+			<%text = post.written_text %>
+			</div>
+			<div class="carousel">
+				<%media = post.media_location %>
+			</div>
+			<div class= "post down_banner">
+
+				
+			</div>
+		</div>
+	<%end%> 
+	
+</div>
+<div id = "awards">
+	<%@awards.each do |award| %>
+		<div class= "award">
+			
+		</div>
+	<%end %>
+	
+</div>

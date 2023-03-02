@@ -1,2 +1,45 @@
-<h1>Map#index</h1>
-<p>Find me in app/views/map/index.html.erb</p>
+<style>
+  #map {
+    height: 100%;
+  }
+  html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+  }
+  #create_challenge{
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 16px;
+    padding-right: 16px;
+    background-color: green;
+    color: white;
+    width: 200px;
+    height: 50px;
+    cursor: pointer;
+  }
+</style>
+
+    
+
+    
+    <script type="module" src="./index.js"></script>
+    <div id="map"></div>
+
+    <!-- 
+      The `defer` attribute causes the callback to execute after the full HTML
+      document has been parsed. For non-blocking uses, avoiding race conditions,
+      and consistent behavior across browsers, consider loading using Promises
+      with https://www.npmjs.com/package/@googlemaps/js-api-loader.
+      -->
+    <script
+      src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap&v=weekly"
+      defer
+    ></script>
+
+
+  
+
+
+
+

@@ -42,6 +42,11 @@
   <!-- Sidebar -->
   <nav id="sidebarMenu" class="collapse d-lg-block sidebar collapse bg-green">
     <div class="position-sticky">
+      <div id="logo">
+          <a href="../home" class="list-group-item list-group-item-action py-2 ripple ">
+          <i class="fas fa-chart-area fa-fw me-3"></i><span>PickItUp</span>
+        </a>
+      </div>
       <div class="list-group list-group-flush mx-3 mt-4">
         <a
           href="#"
@@ -60,24 +65,46 @@
         <span class="input-group-text border-0"><i class="fas fa-search"></i></span>
       </form>
         </a>
-        <a href="#" class="list-group-item list-group-item-action py-2 ripple active">
+        <%if params[:controller] == 'home' %>
+        <a href="leaderboard/index" class="list-group-item list-group-item-action py-2 ripple ">
           <i class="fas fa-chart-area fa-fw me-3"></i><span>LeaderBoard</span>
         </a>
-        <a href="#" class="list-group-item list-group-item-action py-2 ripple"
+        <a href="map/index" class="list-group-item list-group-item-action py-2 ripple"
           ><i class="fas fa-lock fa-fw me-3"></i><span>Map</span></a
         >
-        <a href="#" class="list-group-item list-group-item-action py-2 ripple"
+        <a href="news/index" class="list-group-item list-group-item-action py-2 ripple"
           ><i class="fas fa-chart-line fa-fw me-3"></i><span>News</span></a
         >
-        <a href="#" class="list-group-item list-group-item-action py-2 ripple">
+        <a href="challenges/index" class="list-group-item list-group-item-action py-2 ripple">
           <i class="fas fa-chart-pie fa-fw me-3"></i><span>Challenges</span>
         </a>
-        <a href="#" class="list-group-item list-group-item-action py-2 ripple"
+        <a href="sponsors/index" class="list-group-item list-group-item-action py-2 ripple"
           ><i class="fas fa-chart-bar fa-fw me-3"></i><span>Sponsors</span></a
         >
-        <a href="#" class="list-group-item list-group-item-action py-2 ripple"
+        <a href="settings/index" class="list-group-item list-group-item-action py-2 ripple"
           ><i class="fas fa-globe fa-fw me-3"></i><span>Settings</span></a
         >
+        <%else%>
+        <a href="../leaderboard/index" class="list-group-item list-group-item-action py-2 ripple ">
+          <i class="fas fa-chart-area fa-fw me-3"></i><span>LeaderBoard</span>
+        </a>
+        <a href="../map/index" class="list-group-item list-group-item-action py-2 ripple"
+          ><i class="fas fa-lock fa-fw me-3"></i><span>Map</span></a
+        >
+        <a href="../news/index" class="list-group-item list-group-item-action py-2 ripple"
+          ><i class="fas fa-chart-line fa-fw me-3"></i><span>News</span></a
+        >
+        <a href="../challenges/index" class="list-group-item list-group-item-action py-2 ripple">
+          <i class="fas fa-chart-pie fa-fw me-3"></i><span>Challenges</span>
+        </a>
+        <a href="../sponsors/index" class="list-group-item list-group-item-action py-2 ripple"
+          ><i class="fas fa-chart-bar fa-fw me-3"></i><span>Sponsors</span></a
+        >
+        <a href="../settings/index" class="list-group-item list-group-item-action py-2 ripple"
+          ><i class="fas fa-globe fa-fw me-3"></i><span>Settings</span></a
+        >
+
+        <%end%>
         
       </div>
     </div>

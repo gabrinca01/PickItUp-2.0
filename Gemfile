@@ -1,7 +1,7 @@
 source "https://rubygems.org"
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby "3.2.1"
+ruby ">=3.1.2"
 
 #bootstap Gem
 gem 'bootstrap', '~> 5.2.3'
@@ -14,6 +14,8 @@ gem 'turbolinks', '~> 5'
 
 gem 'devise'
 gem 'webpacker', '~> 5.0'
+
+#gem 'mini_racer'
 
 
 
@@ -72,7 +74,18 @@ end
 
 group :development do
   # Use console on exceptions pages [https://github.com/rails/web-console]
-  gem "web-console"
+  
+  gem 'web-console', '>= 4.1.0'
+  # Display performance information such as SQL time and flame graphs for each request in your browser.
+  # Can be configured to work on production as well see: https://github.com/MiniProfiler/rack-mini-profiler/blob/master/README.md
+  gem 'rack-mini-profiler', '~> 2.0'
+  gem 'listen', '~> 3.3'
+  # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
+  gem 'spring'
+  # VS-code debugging
+  gem "ruby-debug-ide", require: false
+  gem "debase", '0.2.5.beta2', require: false
+ 
 
 
 end

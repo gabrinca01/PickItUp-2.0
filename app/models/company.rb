@@ -1,2 +1,3 @@
-class Company < ActiveRecord::Base
+class Company < ApplicationRecord
+	has_many :awards
 end

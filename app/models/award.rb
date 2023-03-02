@@ -1,2 +1,3 @@
-class Award < ActiveRecord::Base
+class Award < ApplicationRecord
+	belongs_to :company
 end
