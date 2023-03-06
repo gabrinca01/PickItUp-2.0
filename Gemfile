@@ -7,7 +7,8 @@ ruby ">=3.1.2"
 gem 'bootstrap', '~> 5.2.3'
 
 
-
+gem 'shrine', '~> 3.3'
+gem 'image_processing', '~> 1.12', '>= 1.12.1'
 
 
 gem 'turbolinks', '~> 5'
@@ -16,7 +17,8 @@ gem 'devise'
 gem 'webpacker', '~> 5.0'
 
 #gem 'mini_racer'
-
+gem 'omniauth-facebook'
+gem 'omniauth-rails_csrf_protection'
 
 
 

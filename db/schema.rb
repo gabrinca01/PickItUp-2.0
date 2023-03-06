@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_03_02_095234) do
+ActiveRecord::Schema[7.0].define(version: 2023_03_06_105345) do
   create_table "awards", force: :cascade do |t|
     t.integer "price"
     t.integer "company_id"
@@ -34,6 +34,13 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_02_095234) do
     t.string "nome"
     t.string "logo"
     t.string "sito"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "join_challenges", force: :cascade do |t|
+    t.integer "challenge_id"
+    t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -63,6 +70,12 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_02_095234) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "profile_picture"
+    t.string "num_tel"
+    t.decimal "accumulated_points"
+    t.decimal "points"
+    t.string "username"
+    t.string "provider"
+    t.string "uid"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

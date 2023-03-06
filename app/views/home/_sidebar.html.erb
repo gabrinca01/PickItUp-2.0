@@ -48,61 +48,55 @@
         </a>
       </div>
       <div class="list-group list-group-flush mx-3 mt-4">
-        <a
-          href="#"
-          class="list-group-item list-group-item-action py-2 ripple"
-          aria-current="true"
-        >
-          <i class="fas fa-tachometer-alt fa-fw me-3"></i>
-          <form class="d-none d-md-flex input-group w-auto my-auto">
-        <input
-          autocomplete="off"
-          type="search"
-          class="form-control rounded"
-          placeholder='Search'
-          style="min-width: 225px;"
-        />
-        <span class="input-group-text border-0"><i class="fas fa-search"></i></span>
-      </form>
-        </a>
+        <%= form_tag(home_search_path, :method => "get") do %>
+        <div class="input-group">
+          <%= search_field_tag :search,params[:search],placeholder: "Search User ", class: "form-control" %>
+          <div class="input-group-btn">
+            <%= button_tag "Search" ,:class => 'btn btn-info glyphicon glyphicon-search',:name => nil %>
+          </div>
+        <% end %>
         <%if params[:controller] == 'home' %>
-        <a href="leaderboard/index" class="list-group-item list-group-item-action py-2 ripple ">
-          <i class="fas fa-chart-area fa-fw me-3"></i><span>LeaderBoard</span>
-        </a>
-        <a href="map/index" class="list-group-item list-group-item-action py-2 ripple"
-          ><i class="fas fa-lock fa-fw me-3"></i><span>Map</span></a
-        >
-        <a href="news/index" class="list-group-item list-group-item-action py-2 ripple"
-          ><i class="fas fa-chart-line fa-fw me-3"></i><span>News</span></a
-        >
-        <a href="challenges/index" class="list-group-item list-group-item-action py-2 ripple">
-          <i class="fas fa-chart-pie fa-fw me-3"></i><span>Challenges</span>
-        </a>
-        <a href="sponsors/index" class="list-group-item list-group-item-action py-2 ripple"
-          ><i class="fas fa-chart-bar fa-fw me-3"></i><span>Sponsors</span></a
-        >
-        <a href="settings/index" class="list-group-item list-group-item-action py-2 ripple"
-          ><i class="fas fa-globe fa-fw me-3"></i><span>Settings</span></a
-        >
+            <a href="leaderboard/index" class="list-group-item list-group-item-action py-2 ripple ">
+              <i class="fas fa-chart-area fa-fw me-3"></i><span>LeaderBoard</span>
+            </a>
+            <a href="map/index" class="list-group-item list-group-item-action py-2 ripple"
+              ><i class="fas fa-lock fa-fw me-3"></i><span>Map</span></a
+            >
+            <a href="news/index" class="list-group-item list-group-item-action py-2 ripple"
+              ><i class="fas fa-chart-line fa-fw me-3"></i><span>News</span></a
+            >
+            <a href="challenges/index" class="list-group-item list-group-item-action py-2 ripple">
+              <i class="fas fa-chart-pie fa-fw me-3"></i><span>Challenges</span>
+            </a>
+            <a href="sponsors/index" class="list-group-item list-group-item-action py-2 ripple"
+              ><i class="fas fa-chart-bar fa-fw me-3"></i><span>Sponsors</span></a
+            >
+            <a href="users/edit" class="list-group-item list-group-item-action py-2 ripple"
+              ><i class="fas fa-globe fa-fw me-3"></i><span>Settings</span></a
+            >
+            <i class="fas fa-globe fa-fw me-3"></i><span><%= link_to 'Logout',
+                destroy_user_session_path, :method => :delete%></span>
         <%else%>
-        <a href="../leaderboard/index" class="list-group-item list-group-item-action py-2 ripple ">
-          <i class="fas fa-chart-area fa-fw me-3"></i><span>LeaderBoard</span>
-        </a>
-        <a href="../map/index" class="list-group-item list-group-item-action py-2 ripple"
-          ><i class="fas fa-lock fa-fw me-3"></i><span>Map</span></a
-        >
-        <a href="../news/index" class="list-group-item list-group-item-action py-2 ripple"
-          ><i class="fas fa-chart-line fa-fw me-3"></i><span>News</span></a
-        >
-        <a href="../challenges/index" class="list-group-item list-group-item-action py-2 ripple">
-          <i class="fas fa-chart-pie fa-fw me-3"></i><span>Challenges</span>
-        </a>
-        <a href="../sponsors/index" class="list-group-item list-group-item-action py-2 ripple"
-          ><i class="fas fa-chart-bar fa-fw me-3"></i><span>Sponsors</span></a
-        >
-        <a href="../settings/index" class="list-group-item list-group-item-action py-2 ripple"
-          ><i class="fas fa-globe fa-fw me-3"></i><span>Settings</span></a
-        >
+            <a href="../leaderboard/index" class="list-group-item list-group-item-action py-2 ripple ">
+              <i class="fas fa-chart-area fa-fw me-3"></i><span>LeaderBoard</span>
+            </a>
+            <a href="../map/index" class="list-group-item list-group-item-action py-2 ripple"
+              ><i class="fas fa-lock fa-fw me-3"></i><span>Map</span></a
+            >
+            <a href="../news/index" class="list-group-item list-group-item-action py-2 ripple"
+              ><i class="fas fa-chart-line fa-fw me-3"></i><span>News</span></a
+            >
+            <a href="../challenges/index" class="list-group-item list-group-item-action py-2 ripple">
+              <i class="fas fa-chart-pie fa-fw me-3"></i><span>Challenges</span>
+            </a>
+            <a href="../sponsors/index" class="list-group-item list-group-item-action py-2 ripple"
+              ><i class="fas fa-chart-bar fa-fw me-3"></i><span>Sponsors</span></a
+            >
+            <a href="../users/edit" class="list-group-item list-group-item-action py-2 ripple"
+              ><i class="fas fa-globe fa-fw me-3"></i><span>Settings</span></a
+            >
+             <i class="fas fa-globe fa-fw me-3"></i><span><%= link_to 'Logout',
+                destroy_user_session_path, :method => :delete%></span>
 
         <%end%>
         

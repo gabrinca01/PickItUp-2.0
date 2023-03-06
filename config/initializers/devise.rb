@@ -60,6 +60,11 @@ Devise.setup do |config|
   # to authenticate or find a user. Default is :email.
   config.case_insensitive_keys = [:email]
 
+
+
+  config.omniauth :facebook, '171264671919022', '215d3b48779fe53400f89f2d5a478cdf'
+
+
   # Configure which authentication keys should have whitespace stripped.
   # These keys will have whitespace before and after removed upon creating or
   # modifying a user and when used to authenticate or find a user. Default is :email.

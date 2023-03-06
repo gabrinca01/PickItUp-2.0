@@ -9,5 +9,11 @@ Rails.application.routes.draw do
   root 'home#index'
   devise_for :users
   get "/home", to: "home#index"
+  get "/home/search", to: "home#search"
+  devise_scope :user do
+     get "/users/sign_out", to: "devise/sessions#destroy"
+  end
+  devise_for :users, :controllers => { :omniauth_callbacks => "users/
+  omniauth_callbacks" }
   
 end
