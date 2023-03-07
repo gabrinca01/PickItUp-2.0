@@ -1,5 +1,5 @@
 class User < ApplicationRecord  
-  #acts_as_user :roles => [ :user_level1,:user_level2, :admin ]
+
 
    
   devise :database_authenticatable, :registerable,
@@ -12,6 +12,7 @@ class User < ApplicationRecord
   has_many :join_challenges
   has_many :messages
 
+  enum role: [:level0, :level1, :level2,:admin]
  
 
   def self.from_omniauth(auth)
