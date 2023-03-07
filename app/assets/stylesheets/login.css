@@ -1,0 +1,45 @@
+body{
+    background-image: url("grass.png");
+    background-position: bottom;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.container_row{
+        display: grid;
+        justify-content: center;
+}
+
+h2{
+    font-size: 100px;
+    color:rgb(0, 0, 0);
+    text-align: center;
+}
+.panel{
+    font-family: Arial, Helvetica, sans-serif;
+    position: relative;
+    left:-40px;
+    width: 150%;
+    margin:0 0 50% 0;
+    grid-column: 1;
+    grid-row: 0;
+    background-image: url("grad.jpeg");
+    background-position: center;
+    background-size: cover;
+    border-color: black;
+    border-style: solid;
+    border-radius: 10px;
+}
+.field{
+    margin:auto;
+    text-align: center;
+}
+.title{
+    grid-column: 1;
+    grid-row: 1;
+}
+.alert{
+    position:absolute;
+    left:0%;
+    bottom:0%;
+}
