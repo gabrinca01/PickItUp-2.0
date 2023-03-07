@@ -1,17 +1,18 @@
-class User < ApplicationRecord
-  # Include default devise modules. Others available are:
-  # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
+class User < ApplicationRecord  
+  #acts_as_user :roles => [ :user_level1,:user_level2, :admin ]
+
+   
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable,
          :omniauthable, :omniauth_providers => [:facebook]
-  has_many :posts, -> { order(updated_at: :desc) },dependent: :destroy
-  has_many :challenges ,through: :join_challenges
+  has_many :posts, -> { order(created_at: :desc) },dependent: :destroy
+  has_many :challenges ,through: :join_challenges,dependent: :destroy
   has_many :likes
   has_many :follows
   has_many :join_challenges
   has_many :messages
 
-
+ 
 
   def self.from_omniauth(auth)
     where(provider: auth.provider, uid: auth.uid).first_or_create do |user|

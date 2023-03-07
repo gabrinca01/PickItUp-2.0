@@ -12,5 +12,5 @@ Rails.application.routes.draw do
   devise_scope :user do
      get "/users/sign_out", to: "devise/sessions#destroy"
   end
-  devise_for :users, :controller => { :omniauth_callbacks => "devise/omniauth_callbacks" }
+  devise_for :users, :controller => { :omniauth_callbacks => "users/omniauth_callbacks" }, :strategy_class => OmniAuth::Strategies::Facebook
 end

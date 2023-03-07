@@ -14,11 +14,13 @@ gem 'image_processing', '~> 1.12', '>= 1.12.1'
 gem 'turbolinks', '~> 5'
 
 gem 'devise'
-gem 'webpacker', '~> 5.0'
 
-#gem 'mini_racer'
+
+
 gem 'omniauth-facebook'
 gem 'omniauth-rails_csrf_protection'
+gem 'canard','~> 0.6.2.pre'
+
 
 
 
