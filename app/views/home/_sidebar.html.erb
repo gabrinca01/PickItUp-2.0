@@ -2,6 +2,11 @@
   <!-- Sidebar -->
   <nav id="sidebarMenu" class="collapse d-lg-block sidebar collapse bg-green">
     <div class="position-sticky">
+      <div id="profile_picture">
+        <%if current_user.image.attached? %>
+        <%= image_tag(current_user.image)%>
+        <% end%>
+      </div>
       <div id="logo">
           <a href="../home" class="list-group-item list-group-item-action py-2 ripple ">
           <i class="fas fa-chart-area fa-fw me-3"></i><span>PickItUp</span>

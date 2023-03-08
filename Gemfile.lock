@@ -322,7 +322,7 @@ DEPENDENCIES
   capybara
   debase (= 0.2.5.beta2)
   debug
-  devise
+  devise (>= 4)
   image_processing (~> 1.12, >= 1.12.1)
   importmap-rails
   jbuilder

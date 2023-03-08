@@ -1,6 +1,6 @@
 class User < ApplicationRecord  
 
-
+  has_one_attached :image
    
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable,
@@ -13,6 +13,14 @@ class User < ApplicationRecord
   has_many :messages
 
   enum role: [:level0, :level1, :level2,:admin]
+
+  after_initialize do
+    if self.new_record?
+      self.role ||= :level0
+      self.points ||= 0
+      self.accumulated_points ||= 0
+    end
+  end
  
 
   def self.from_omniauth(auth)

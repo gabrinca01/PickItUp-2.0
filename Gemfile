@@ -13,7 +13,7 @@ gem 'image_processing', '~> 1.12', '>= 1.12.1'
 
 gem 'turbolinks', '~> 5'
 
-gem 'devise'
+gem 'devise','>=4'
 
 
 

@@ -1,11 +1,14 @@
 class ChallengesController < ApplicationController
-  def index
-
-    @challenges = JoinChallenge.where(user_id: current_user.id)
-  end
-  def chat(challenge_id)
-    @challenge = Challenge.find(challenge_id)
-    @messages = Message.where(challenge_id: challenge_id)
-
+  def destroy
+      @challenge = Challenge.find(params[:id])
+      authorize @challenge
+      
+      if @challenge.destroy
+        flash[:notice] = "\"#{@challenge.id}\" was successfully deleted."
+        redirect_to @challenge
+      else
+        flash.now[:alert] = "There was an error deleting the challenge."
+        render :show
+      end
   end
 end

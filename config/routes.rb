@@ -11,7 +11,10 @@ Rails.application.routes.draw do
   get "/home", to: "home#index"
   get "/home/search", to: "home#search"
   devise_scope :user do
-     get "/users/sign_out", to: "devise/sessions#destroy"
+     get "/users/sign_out", to: "users/sessions#destroy"
   end
-  devise_for :users, :controller => { :omniauth_callbacks => "users/omniauth_callbacks" }, :strategy_class => OmniAuth::Strategies::Facebook
+  
+  devise_for :users,controllers: {
+        sessions: 'users/sessions',registrations: 'users/registrations'
+      }, :controller => { :omniauth_callbacks => "users/omniauth_callbacks" }, :strategy_class => OmniAuth::Strategies::Facebook
 end

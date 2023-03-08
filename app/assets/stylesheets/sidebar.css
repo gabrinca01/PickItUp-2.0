@@ -89,3 +89,14 @@ body {
 
 
   }
+
+  #profile_picture {
+
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+  }
+  img {
+    max-width:100%;
+    max-height:100%;
+  }

@@ -1,6 +1,7 @@
 class HomeController < ApplicationController
   
   before_action :authenticate_user!
+  protect_from_forgery prepend: true
   def index
     @posts = Post.all.where.not(user_id: current_user.id)
     @awards = Award.all

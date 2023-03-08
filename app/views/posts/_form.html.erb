@@ -1,0 +1,30 @@
+<%= form_with(model: post, local: true) do |form| %>
+
+  <div class="mb-3">
+    <%= form.label :title, class: 'form-label' %>
+    <%= form.text_field :title, class: 'form-control' %>
+  </div>
+
+  <div class="mb-3">
+    <%= form.label :written_text, class: 'form-label' %>
+    <%= form.rich_text_area :written_text, class: 'form-control' %>
+  </div>
+  <div class="mb-3">
+    <%= form.label :image %>
+    <%= form.file_field :image %>
+  </div>
+
+  <div class="mb-3">
+    <% if post.persisted? %>
+      <div class="float-end">
+        <%= link_to 'Destroy', post, method: :delete, class: "text-danger", data: { confirm: 'Are you sure?' } %>
+      </div>
+    <% end %>
+    <%= form.submit class: 'btn btn-primary' %>
+    <% if post.persisted? %>
+      <%= link_to "Cancel", post, class: "btn btn-link" %>
+    <% else %>
+      <%= link_to "Cancel", posts_path, class: "btn btn-link" %>
+    <% end %>
+  </div>
+<% end %>
