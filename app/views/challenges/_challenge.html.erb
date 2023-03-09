@@ -1,0 +1,12 @@
+<div class="challenge">
+  <%= link_to challenge.body, challenge_path(challenge) %>
+  <div class="challenge__actions">
+    <%= button_to "Delete",
+                  challenge_path(challenge),
+                  method: :delete,
+                  class: "btn btn--light" %>
+    <%= link_to "Edit",
+                edit_challenge_path(challenge),
+                class: "btn btn--light" %>
+  </div>
+</div>

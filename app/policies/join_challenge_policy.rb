@@ -4,4 +4,10 @@ class JoinChallengePolicy < ApplicationPolicy
     # they can access the delete action”.
     user.role == 'admin' || record.user == user
   end
+
+  def create?
+    user.role >= 'level0' || record.user
+  end
+  
+
 end

@@ -1,0 +1,9 @@
+<main class="container">
+  <%= link_to sanitize("&larr; Back to quote"), comment_path(@comment) %>
+
+  <div class="header">
+    <h1>Edit comment</h1>
+  </div>
+
+  <%= render "form", comment: @comment %>
+</main>

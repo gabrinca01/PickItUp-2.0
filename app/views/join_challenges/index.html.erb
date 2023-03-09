@@ -1,0 +1,10 @@
+<main class="container">
+  <div class="header">
+    <h1>join_challenges</h1>
+    <%= link_to "New quote",
+                new_join_challenge_path,
+                class: "btn btn--primary" %>
+  </div>
+
+  <%= render @join_challenges %>
+</main>

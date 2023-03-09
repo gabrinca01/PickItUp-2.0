@@ -1,0 +1,9 @@
+<main class="container">
+  <%= link_to sanitize("&larr; Back to awards"), awards_path %>
+
+  <div class="header">
+    <h1>New award</h1>
+  </div>
+
+  <%= render "form", award: @award %>
+</main>

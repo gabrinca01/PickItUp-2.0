@@ -1,0 +1,12 @@
+<div class="message">
+  <%= link_to message.body, message_path(message) %>
+  <div class="message__actions">
+    <%= button_to "Delete",
+                  message_path(message),
+                  method: :delete,
+                  class: "btn btn--light" %>
+    <%= link_to "Edit",
+                edit_message_path(message),
+                class: "btn btn--light" %>
+  </div>
+</div>

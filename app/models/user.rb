@@ -11,8 +11,9 @@ class User < ApplicationRecord
   has_many :follows
   has_many :join_challenges
   has_many :messages
+  has_many :comments
 
-  enum role: [:level0, :level1, :level2,:admin]
+  enum role: [:level0, :level1, :level2,:company,:admin]
 
   after_initialize do
     if self.new_record?
@@ -24,11 +25,11 @@ class User < ApplicationRecord
  
 
   def self.from_omniauth(auth)
-    where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
-      user.email = auth.info.email
-      user.password = Devise.friendly_token[0,20]
-    end
-  end
+  name_split = auth.info.name.split(" ")
+  user = User.where(email: auth.info.email).first
+  user ||= User.create!(provider: auth.provider, uid: auth.uid, last_name: name_split[0], first_name: name_split[1], email: auth.info.email, password: Devise.friendly_token[0, 20])
+    user
+end
 
   def self.new_with_session(params, session)
     super.tap do |user|

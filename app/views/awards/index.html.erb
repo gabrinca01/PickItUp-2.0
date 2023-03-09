@@ -1,0 +1,10 @@
+<main class="container">
+  <div class="header">
+    <h1>awards</h1>
+    <%= link_to "New quote",
+                new_award_path,
+                class: "btn btn--primary" %>
+  </div>
+
+  <%= render @awards %>
+</main>

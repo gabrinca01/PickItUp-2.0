@@ -1,0 +1,9 @@
+<main class="container">
+  <%= link_to sanitize("&larr; Back to quote"), award_path(@award) %>
+
+  <div class="header">
+    <h1>Edit award</h1>
+  </div>
+
+  <%= render "form", award: @award %>
+</main>

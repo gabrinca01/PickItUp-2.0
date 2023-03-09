@@ -1,0 +1,10 @@
+<main class="container">
+  <div class="header">
+    <h1>Comments</h1>
+    <%= link_to "New quote",
+                new_comment_path,
+                class: "btn btn--primary" %>
+  </div>
+
+  <%= render @comments %>
+</main>

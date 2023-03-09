@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  resources :roles
+  
   get 'profilepage/index'
   get 'news/index'
   get 'leaderboard/index'
@@ -12,9 +12,18 @@ Rails.application.routes.draw do
   get "/home/search", to: "home#search"
   devise_scope :user do
      get "/users/sign_out", to: "users/sessions#destroy"
+     get "/users/sign_in", to: "users/sessions#new"
   end
+  resources :comments
+  resources :posts
+  resources :challenges
+  resources :awards
+  resources :join_challenges
+  resources :messages
+  resources :news
+
+
   
   devise_for :users,controllers: {
-        sessions: 'users/sessions',registrations: 'users/registrations'
-      }, :controller => { :omniauth_callbacks => "users/omniauth_callbacks" }, :strategy_class => OmniAuth::Strategies::Facebook
+        sessions: 'users/sessions',registrations: 'users/registrations',omniauth_callbacks:  'users/omniauth_callbacks'}, :strategy_class => OmniAuth::Strategies::Facebook
 end

@@ -1,0 +1,9 @@
+<main class="container">
+  <%= link_to sanitize("&larr; Back to quote"), challenge_path(@challenge) %>
+
+  <div class="header">
+    <h1>Edit challenge</h1>
+  </div>
+
+  <%= render "form", challenge: @challenge %>
+</main>

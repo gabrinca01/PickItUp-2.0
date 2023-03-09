@@ -1,0 +1,10 @@
+<main class="container">
+  <div class="header">
+    <h1>Challenges</h1>
+    <%= link_to "New quote",
+                new_challenge_path,
+                class: "btn btn--primary" %>
+  </div>
+
+  <%= render @challenges %>
+</main>

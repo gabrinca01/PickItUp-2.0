@@ -1,0 +1,9 @@
+<main class="container">
+  <%= link_to sanitize("&larr; Back to comments"), join_challenges_path %>
+
+  <div class="header">
+    <h1>New join_challenge</h1>
+  </div>
+
+  <%= render "form", join_challenge: @join_challenge %>
+</main>
