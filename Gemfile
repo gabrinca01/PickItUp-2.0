@@ -6,22 +6,22 @@ ruby ">=3.1.2"
 #bootstap Gem
 gem 'bootstrap', '~> 5.2.3'
 
-
+gem 'dotenv-rails', groups: [:development, :test]
 gem 'shrine', '~> 3.3'
-gem 'image_processing', '~> 1.12', '>= 1.12.1'
-
+gem "image_processing", ">= 1.2"
+gem 'twilio-ruby', '~> 5.46'
 
 gem 'turbolinks', '~> 5'
 
 gem 'devise','>=4'
 gem "simple_form", "~> 5.1.0"
-
+gem 'pry-rails' 
 
 
 gem 'omniauth-facebook'
 gem 'omniauth-rails_csrf_protection'
 #gem 'canard','~> 0.6.2.pre'
-
+gem 'jwt','~> 2.4.0'
 
 
 

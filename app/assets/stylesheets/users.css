@@ -1,0 +1,14 @@
+.user{
+	flex-direction: row;
+	max-width: 100%;
+	max-height: 60px;
+	display: inline-flex;
+	border-color: black;
+	background-color: whitesmoke;
+	margin-left: 0;
+	float:left;
+
+}
+.user__actions{
+
+}

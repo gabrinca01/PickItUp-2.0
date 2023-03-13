@@ -29,7 +29,7 @@ class ChallengesController < ApplicationController
   end
 
   def update
-    @challenge = Challenge.find(params[:id])
+   
     authorize @challenge
     if @challenge.update(challenge_params)
       redirect_to challenges_path, notice: "challenge was successfully updated."
@@ -39,7 +39,7 @@ class ChallengesController < ApplicationController
   end
 
   def destroy
-        @challenge = Challenge.find(params[:id])
+
         authorize @challenge
         
         if @challenge.destroy

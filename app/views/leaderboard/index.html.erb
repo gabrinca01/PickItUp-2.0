@@ -1,17 +1,2 @@
-<div id="leaderboard" style="display: flex;">
-	<%@leaderboard.each do |user| %>
-	<div class="leaderboard_element">
-		<%points = user.accumulated_points %>
-		<%username = user.username %>
-		<%picture = user.image %>
-	</div>
-	<%end %>
-</div>
-<div id = "awards" style="display: flex;">
-	<%@awards.each do |award| %>
-		<div class= "award">
-			
-		</div>
-	<%end %>
-	
-</div>
+<%=render @leaderboard %>
+

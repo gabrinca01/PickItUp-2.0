@@ -4,7 +4,7 @@ class PostController < ApplicationController
     redirect_to root_path, alert: "You aren't allowed to do that"
   end
   def index
-    @posts = Post.all
+    
   end
 
   def show
@@ -29,7 +29,7 @@ class PostController < ApplicationController
   end
 
   def update
-    @post = Post.find(params[:id])
+     PictureAttachmentService.attach(@post, params['post']['image'])
     authorize @post
     if @post.update(post_params)
       redirect_to posts_path, notice: "post was successfully updated."
@@ -39,7 +39,7 @@ class PostController < ApplicationController
   end
 
   def destroy
-        @post = Post.find(params[:id])
+        
         authorize @post
         
         if @post.destroy
@@ -50,6 +50,8 @@ class PostController < ApplicationController
           render :show
         end
   end
+
+ 
   private
 
   def set_post
@@ -57,6 +59,6 @@ class PostController < ApplicationController
   end
 
   def post_params
-    params.require(:post).permit(:nome)
+    params.require(:post).permit(images: [],videos: [],:image)
   end
 end

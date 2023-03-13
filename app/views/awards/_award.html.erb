@@ -1,12 +1,18 @@
 <div class="award">
-  <%= link_to award.body, award_path(award) %>
+  <%= link_to award.description, award_path(award) %>
   <div class="award__actions">
-    <%= button_to "Delete",
+    
+    <% if Pundit.policy(Current.user,award).destroy? %>
+      <%= button_to "Delete",
                   award_path(award),
                   method: :delete,
                   class: "btn btn--light" %>
-    <%= link_to "Edit",
-                edit_award_path(award),
+    <% end %>
+    
+    <% if Pundit.policy(Current.user,award).update? %>
+      <%= link_to "Edit",
+                 edit_award_path(award),
                 class: "btn btn--light" %>
+    <% end %>
   </div>
 </div>

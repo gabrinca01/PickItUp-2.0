@@ -1,3 +1,4 @@
+<%= stylesheet_link_tag "posts" %>
 <%= simple_form_for post, html: { class: "post form" } do |f| %>
   <% if post.errors.any? %>
     <div class="error-message">
@@ -6,5 +7,26 @@
   <% end %>
 
   <%= f.input :written_text, input_html: { autofocus: true } %>
+  <div class="display-cover">
+    <video autoplay></video>
+    <canvas class="d-none"></canvas>
+
+    <div class="video-options">
+        <select name="" id="" class="custom-select">
+            <option value="">Select camera</option>
+        </select>
+    </div>
+
+    <img class="screenshot-image d-none" alt="">
+
+    <div class="controls">
+        <button class="btn btn-danger play" title="Play"><i data-feather="play-circle"></i></button>
+        <button class="btn btn-info pause d-none" title="Pause"><i data-feather="pause"></i></button>
+        <button class="btn btn-outline-success screenshot d-none" title="ScreenShot"><i data-feather="image"></i></button>
+    </div>
+</div>
+
+<script src="https://unpkg.com/feather-icons"></script>
+<script src="script.js"></script>
   <%= f.submit class: "btn btn--secondary" %>
 <% end %>

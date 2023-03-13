@@ -24,7 +24,7 @@
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
     <div class = "site-action" >
-      <% if user_signed_in? %>
+      <% if user_signed_in? && current_user.verified == true %>
     
         <%= render 'home/sidebar' %> 
       <%end%>   

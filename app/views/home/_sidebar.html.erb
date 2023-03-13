@@ -8,9 +8,8 @@
         <% end%>
       </div>
       <div id="logo">
-          <a href="../home" class="list-group-item list-group-item-action py-2 ripple ">
-          <i class="fas fa-chart-area fa-fw me-3"></i><span>PickItUp</span>
-        </a>
+          <i class="fas fa-chart-bar fa-fw me-3"></i><%=link_to 'PickItUp',root_path,:method => :get,class: "list-group-item list-group-item-action py-2 ripple"  %>
+            
       </div>
       <div class="list-group list-group-flush mx-3 mt-4">
         <%= form_tag(home_search_path, :method => "get") do %>
@@ -20,50 +19,24 @@
             <%= button_tag "Search" ,:class => 'btn btn-info glyphicon glyphicon-search',:name => nil %>
           </div>
         <% end %>
-        <%if params[:controller] == 'home' %>
-            <a href="leaderboard/index" class="list-group-item list-group-item-action py-2 ripple ">
-              <i class="fas fa-chart-area fa-fw me-3"></i><span>LeaderBoard</span>
-            </a>
-            <a href="map/index" class="list-group-item list-group-item-action py-2 ripple"
-              ><i class="fas fa-lock fa-fw me-3"></i><span>Map</span></a
-            >
-            <a href="news/index" class="list-group-item list-group-item-action py-2 ripple"
-              ><i class="fas fa-chart-line fa-fw me-3"></i><span>News</span></a
-            >
-            <a href="challenges/index" class="list-group-item list-group-item-action py-2 ripple">
-              <i class="fas fa-chart-pie fa-fw me-3"></i><span>Challenges</span>
-            </a>
-            <a href="sponsors/index" class="list-group-item list-group-item-action py-2 ripple"
-              ><i class="fas fa-chart-bar fa-fw me-3"></i><span>Sponsors</span></a
-            >
-            <a href="users/edit" class="list-group-item list-group-item-action py-2 ripple"
-              ><i class="fas fa-globe fa-fw me-3"></i><span>Settings</span></a
-            >
-            <i class="fas fa-globe fa-fw me-3" ></i><span><a><%= link_to 'Logout',
-                destroy_user_session_path, :method => :delete%></a></span>
-        <%else%>
-            <a href="../leaderboard/index" class="list-group-item list-group-item-action py-2 ripple ">
-              <i class="fas fa-chart-area fa-fw me-3"></i><span>LeaderBoard</span>
-            </a>
-            <a href="../map/index" class="list-group-item list-group-item-action py-2 ripple"
-              ><i class="fas fa-lock fa-fw me-3"></i><span>Map</span></a
-            >
-            <a href="../news/index" class="list-group-item list-group-item-action py-2 ripple"
-              ><i class="fas fa-chart-line fa-fw me-3"></i><span>News</span></a
-            >
-            <a href="../challenges/index" class="list-group-item list-group-item-action py-2 ripple">
-              <i class="fas fa-chart-pie fa-fw me-3"></i><span>Challenges</span>
-            </a>
-            <a href="../sponsors/index" class="list-group-item list-group-item-action py-2 ripple"
-              ><i class="fas fa-chart-bar fa-fw me-3"></i><span>Sponsors</span></a
-            >
-            <a href="../users/edit" class="list-group-item list-group-item-action py-2 ripple"
-              ><i class="fas fa-globe fa-fw me-3"></i><span>Settings</span></a
-            >
-             <i class="fas fa-globe fa-fw me-3" style="text-decoration:none"></i><span><%= link_to 'Logout',
-                destroy_user_session_path, :method => :delete%></span>
-
-        <%end%>
+        
+            <i class="fas fa-chart-bar fa-fw me-3"></i><%=link_to 'LeaderBoard',leaderboard_index_path,:method => :get,class: "list-group-item list-group-item-action py-2 ripple"  %>
+            <br>
+            <i class="fas fa-chart-bar fa-fw me-3"></i><%=link_to 'Map',map_index_path,:method => :get,class: "list-group-item list-group-item-action py-2 ripple"  %>
+            <br>
+            <i class="fas fa-chart-bar fa-fw me-3"></i><%=link_to 'News',news_index_path,:method => :get,class: "list-group-item list-group-item-action py-2 ripple"  %>
+            <br>
+            <i class="fas fa-chart-bar fa-fw me-3"></i><%=link_to 'Challenges',challenges_path,:method => :get,class: "list-group-item list-group-item-action py-2 ripple"  %>
+            <br>
+            
+            <i class="fas fa-chart-bar fa-fw me-3"></i><%=link_to 'Sponsors',companies_path,:method => :get,class: "list-group-item list-group-item-action py-2 ripple"  %>
+            <br>
+            <i class="fas fa-globe fa-fw me-3"></i><%= link_to 'Settings',edit_user_registration_path,:method => :get, class: "list-group-item list-group-item-action py-2 ripple" %></br>
+            <i class="fas fa-globe fa-fw me-3" ></i><%= link_to 'Logout',
+                destroy_user_session_path, :method => :delete,class: "list-group-item list-group-item-action py-2 ripple"%>
+            
+        
+            
         
       </div>
     </div>

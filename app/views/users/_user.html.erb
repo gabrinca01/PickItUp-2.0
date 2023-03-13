@@ -1,0 +1,22 @@
+<%= stylesheet_link_tag "users" %>
+<div class="user">
+  <div id = "profile_picture">
+  <%if user.image.attached? %>
+        <%= image_tag(user.image)%>
+        <% end%>
+  </div>
+  <%= link_to user.username, profilepage_index_path(user) %>
+  &nbsp&nbsp&nbsp&nbsp
+  <%= user.accumulated_points %>
+
+  <div class="user__actions">
+    
+    <% if Pundit.policy(Current.user,user).edit? %>
+      <%= link_to "Edit",
+                 edit_user_registration_path(user),
+                class: "btn btn--light" %>
+    <% end %>
+   
+   
+  </div>
+</div>
