@@ -16,7 +16,7 @@ class User < ApplicationRecord
   #has_many :challenges ,through: :join_challenges,dependent: :destroy
   has_many :likes
   has_many :follows
-  #has_many :join_challenges
+  has_many :join_challenges
   has_many :messages
   has_many :comments
 

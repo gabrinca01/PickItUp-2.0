@@ -1,5 +1,5 @@
 <div class="challenge">
-  <%= link_to challenge.body, challenge_path(challenge) %>
+  <%= link_to challenge.description, challenge_path(challenge) %>
   <div class="challenge__actions">
     <%= button_to "Delete",
                   challenge_path(challenge),

@@ -12,7 +12,7 @@ Rails.application.routes.draw do
      get 'users/sign_out', to: 'devise/sessions#destroy'
      
   end
-  
+  resources :follows
   resources :comments
   resources :posts
   resources :challenges

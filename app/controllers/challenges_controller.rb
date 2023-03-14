@@ -17,13 +17,20 @@ class ChallengesController < ApplicationController
 
   def create
     @challenge = Challenge.new(challenge_params)
+    @challenge.num_partecipanti = 1
     
-    if @challenge.save
+    if @challenge.save 
+      @join_challenge=JoinChallenge.new
+      @join_challenge.challenge_id = @challenge.id
+      @join_challenge.user_id = @challenge.user_id
+      if @join_challenge.save
       redirect_to challenges_path, notice: "challenge was successfully created."
+      end
     else
       render :new
     end
   end
+
 
   def edit
   end
@@ -39,9 +46,6 @@ class ChallengesController < ApplicationController
   end
 
   def destroy
-
-        authorize @challenge
-        
         if @challenge.destroy
           flash[:notice] = "\"#{@challenge.id}\" was successfully deleted."
           redirect_to challenges_path,notice: "challenge was successfully destroyed."
@@ -54,11 +58,14 @@ class ChallengesController < ApplicationController
 
   def set_challenge
     @challenge = Challenge.find(params[:id])
+    @user = Current.user
   end
 
   def challenge_params
-    params.require(:challenge).permit(:description,:luogo)
+    params.require(:challenge).permit(:user_id,:description,:luogo,:raggio,:temp_time,:temp_date)
   end
+  
+
   
   
 end

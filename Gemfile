@@ -10,7 +10,9 @@ gem 'dotenv-rails', groups: [:development, :test]
 gem 'shrine', '~> 3.3'
 gem "image_processing", ">= 1.2"
 gem 'twilio-ruby', '~> 5.46'
-
+gem 'bootstrap-sass', '~> 3.3.7'
+gem 'jquery-rails'
+gem 'sass-rails'
 gem 'turbolinks', '~> 5'
 
 gem 'devise','>=4'

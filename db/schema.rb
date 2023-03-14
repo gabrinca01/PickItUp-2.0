@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_03_11_143550) do
+ActiveRecord::Schema[7.0].define(version: 2023_03_14_191420) do
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
     t.string "record_type", null: false
@@ -56,6 +56,11 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_11_143550) do
     t.integer "points"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.date "temp_date"
+    t.time "temp_time"
+    t.string "raggio"
+    t.date "def_date"
+    t.time "def_time"
   end
 
   create_table "comments", force: :cascade do |t|
@@ -70,6 +75,13 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_11_143550) do
     t.string "nome"
     t.string "logo"
     t.string "sito"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "follows", force: :cascade do |t|
+    t.integer "follower"
+    t.integer "followee"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
