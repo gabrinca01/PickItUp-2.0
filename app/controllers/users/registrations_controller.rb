@@ -23,7 +23,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
         set_flash_message! :notice, :signed_up
         sign_up(resource_name, resource)
         start_verification(resource.num_tel, params[:channel])
-        redirect_to verify_path(id: resource.id)
+        redirect_to verify_path
       else
         set_flash_message! :notice, :"signed_up_but_#{resource.inactive_message}"
         expire_data_after_sign_in!
@@ -116,7 +116,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
       @client = Twilio::REST::Client.new(ENV['TWILIO_ACCOUNT_SID'], ENV['TWILIO_AUTH_TOKEN'])
   end
   def sign_up_params
-    params.require(:user).permit(:email , :password, :password_confirmation,:num_tel)
+    params.require(:user).permit(:username,:email , :password, :password_confirmation,:num_tel)
   end  
   
    

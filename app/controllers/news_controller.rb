@@ -4,7 +4,7 @@ before_action :set_news, only: [:show, :edit, :update, :destroy]
     redirect_to root_path, alert: "You aren't allowed to do that"
   end
   def index
-    @newss = News.all
+    @news = News.all
   end
 
   def show

@@ -56,11 +56,9 @@ body {
 .site-action {
   width: 100%;
   min-height: 700px;
-  display:-webkit-flex;
-  display:-moz-flex;
-  display:-ms-flex;
+
   display: flex;
-  -webkit-justify-content:center;
+
   justify-content:center; 
   
   border-style: hidden;

@@ -1,41 +1,21 @@
-<style>
-  #map {
-    height: 100%;
-  }
-  html, body {
-    height: 100%;
-    margin: 0;
-    padding: 0;
-  }
-  #create_challenge{
-    padding-top: 10px;
-    padding-bottom: 10px;
-    padding-left: 16px;
-    padding-right: 16px;
-    background-color: green;
-    color: white;
-    width: 200px;
-    height: 50px;
-    cursor: pointer;
-  }
-</style>
+<% content_for :head do %>
+  <%= javascript_import_module_tag "map" %>
+  <%= stylesheet_link_tag 'map' %>
+ 
+  </style>
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+<% end %>
 
-    
 
-    
-    <script type="module" src="./index.js"></script>
     <div id="map"></div>
 
-    <!-- 
-      The `defer` attribute causes the callback to execute after the full HTML
-      document has been parsed. For non-blocking uses, avoiding race conditions,
-      and consistent behavior across browsers, consider loading using Promises
-      with https://www.npmjs.com/package/@googlemaps/js-api-loader.
-      -->
     <script
-      src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap&v=weekly"
+      src="https://maps.googleapis.com/maps/api/js?key=<%=ENV['GOOGLE_MAPS_API_KEY']%>&callback=initMap&v=beta"
       defer
     ></script>
+
+
+
 
 
   

@@ -12,12 +12,12 @@ class ChallengesController < ApplicationController
 
   def new
     @challenge = Challenge.new
-    authorize @challenge
+    
   end
 
   def create
     @challenge = Challenge.new(challenge_params)
-    authorize @challenge
+    
     if @challenge.save
       redirect_to challenges_path, notice: "challenge was successfully created."
     else
