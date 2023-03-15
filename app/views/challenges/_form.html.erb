@@ -11,7 +11,18 @@
   <%= f.hidden_field :user_id,:value => current_user.id %>
   <%= f.hidden_field :raggio,value: params['radius'].to_s %>
   <%= f.hidden_field :luogo,value:  params['coord'].to_s.tr('()','') %>
-  <%= current_user.id %>
-  <div id="weather"></div>
+  <%= @response %>
+  
   <%= f.submit class: "btn btn--secondary" %>
 <% end %>
+<div id="weather">
+    <div  id = "rain" style="display:none;width: 30px;height: 30px;border-radius: 5px; background-image: url('weather(1).png');background-size: contain;
+    background-repeat: no-repeat;">
+    <div  id = "sun" style="display:none;width: 30px;height: 30px;border-radius: 5px; background-image: url('weather(2).png');background-size: contain;
+    background-repeat: no-repeat;">
+    <div  id = "cloud" style="display:none;width: 30px;height: 30px;border-radius: 5px; background-image: url('weather(3).png');background-size: contain;
+    background-repeat: no-repeat;">
+    <div  id = "part_cloud" style="display:none;width: 30px;height: 30px;border-radius: 5px; background-image: url('weather(4).png');background-size: contain;
+    background-repeat: no-repeat;">
+   
+  </div>

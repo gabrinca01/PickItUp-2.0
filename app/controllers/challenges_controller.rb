@@ -12,10 +12,10 @@ class ChallengesController < ApplicationController
 
   def new
     @challenge = Challenge.new
-    
   end
 
   def create
+    
     @challenge = Challenge.new(challenge_params)
     @challenge.num_partecipanti = 1
     
