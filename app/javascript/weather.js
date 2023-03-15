@@ -1,5 +1,9 @@
 var url_string = window.location.href;
 var url = new URL(url_string);
+
+$('#challenge_temp_date_3i').on('change', get_weather)
+$('#challenge_temp_time_4i').on('change', get_weather)
+
 function get_weather(){
 	let year = document.getElementById("challenge_temp_date_1i").value;
 	let month = "0"+document.getElementById("challenge_temp_date_2i").value;
@@ -25,17 +29,24 @@ function get_weather(){
 		let icona = response.currently.icon;
 		switch (icona) {
 		  case 'partly-cloudy-day':
-		    document.getElementById('part_cloud').style.display = "block";
+		    document.getElementById('weather').innerHTML="<div  id = 'part_cloud' class= 'part_cloud_c' style='display:block;'>";
 		    break;
+		  case 'partly-cloudy-night':
+		    document.getElementById('weather').innerHTML="<div  id = 'part_cloud' class= 'part_cloud_c' style='display:block;'>";
+		    break; 
 		  case 'clear-day':
-		  	document.getElementById('sun').style.display = "block";
+			document.getElementById('weather').innerHTML="<div  id = 'sun' class= 'sun_c' style='display:block;'>";
 		  	console.log("sun");
 		  	break;
+		  case 'clear-night':
+			document.getElementById('weather').innerHTML="<div  id = 'sun' class= 'sun_c' style='display:block;'>";
+			console.log("sun");
+			break;
 		  case 'cloudy':
-		    document.getElementById('cloud').style.display = "block";
+		    document.getElementById('weather').innerHTML="<div  id = 'cloud' class= 'cloud_c' style='display:block;'>";
 		    break;
 		   case 'rain':
-		   	document.getElementById('rain').style.display = "block";
+			document.getElementById('weather').innerHTML="<div  id = 'rain' class= 'rain_c' style='display:block;'>";
 		   	break;
 		  default:
 		    console.log('Sorry, we are out of icons.');

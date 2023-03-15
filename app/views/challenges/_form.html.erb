@@ -1,3 +1,4 @@
+<%= stylesheet_link_tag "weather" %>
 <%= simple_form_for challenge, html: { class: "challenge form" } do |f| %>
   <% if challenge.errors.any? %>
     <div class="error-message">
@@ -15,14 +16,10 @@
   
   <%= f.submit class: "btn btn--secondary" %>
 <% end %>
-<div id="weather">
-    <div  id = "rain" style="display:none;width: 30px;height: 30px;border-radius: 5px; background-image: url('weather(1).png');background-size: contain;
-    background-repeat: no-repeat;">
-    <div  id = "sun" style="display:none;width: 30px;height: 30px;border-radius: 5px; background-image: url('weather(2).png');background-size: contain;
-    background-repeat: no-repeat;">
-    <div  id = "cloud" style="display:none;width: 30px;height: 30px;border-radius: 5px; background-image: url('weather(3).png');background-size: contain;
-    background-repeat: no-repeat;">
-    <div  id = "part_cloud" style="display:none;width: 30px;height: 30px;border-radius: 5px; background-image: url('weather(4).png');background-size: contain;
-    background-repeat: no-repeat;">
+<div id="weather" style= "display:flex">
+    <div  id = "rain" class= "rain_c" style="display: none;">
+    <div  id = "sun" class= "sun_c" style="display: none;">
+    <div  id = "cloud" class= "cloud_c" style="display: none;">
+    <div  id = "part_cloud" class= "part_cloud_c" style="display: none;">
    
-  </div>
+</div>

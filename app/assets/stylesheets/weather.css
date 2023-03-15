@@ -1,0 +1,41 @@
+.rain_c
+{
+    background-image: url("weather (1).png");
+    width: 120px;
+    height:120px;
+    border-radius: 5px; 
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.sun_c
+{
+    background-image: url("weather (2).png");
+    width: 120px;
+    height:120px;
+    border-radius: 5px; 
+    background-size: contain;
+    background-repeat: no-repeat;
+
+}
+
+.cloud_c
+{ 
+    background-image: url("weather (3).png");
+    width: 120px;
+    height:120px;
+    border-radius: 5px; 
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.part_cloud_c
+{
+    display:none;
+    background-image: url("weather (4).png");
+    width: 120px;
+    height:120px;
+    border-radius: 5px; 
+    background-size: contain;
+    background-repeat: no-repeat;
+}
