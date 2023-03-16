@@ -33,10 +33,12 @@
           draggable : false,
         });
       var username = url.searchParams.get("username"); 
-      
+      const token = document.getElementsByName(
+  "csrf-token"
+)[0].content;
         challenge_zone.addListener('click', () => {
            const contentString ='<main class="container">'+
-  '<form class="simple_form join_challenge form" id="new_join_challenge" novalidate="novalidate" action="/join_challenges" accept-charset="UTF-8" method="post"><input type="hidden" name="authenticity_token" value="kPxGs-i0FKf6ycBsKe73DnM7e3TPStO2CM_YKlErIeZD2i1sGL2Z9YY4DYL9icTbGxBRLjHtFwHXhViFaM8hKg" autocomplete="off" />'+
+  '<form class="simple_form join_challenge form" id="new_join_challenge" novalidate="novalidate" action="/join_challenges" accept-charset="UTF-8" method="post"><input type="hidden" name="authenticity_token" value="'+ token+'" autocomplete="off" />'+
 
   '<input autocomplete="off" type="hidden" name="join_challenge[challenge_id]" id="join_challenge_challenge_id" value="<%=params[:id] %>" />'+
   '<input type="submit" name="commit" value="Create Join challenge" class="btn btn--secondary" data-disable-with="Create Join challenge" />'+
