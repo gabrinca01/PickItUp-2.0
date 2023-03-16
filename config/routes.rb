@@ -11,6 +11,7 @@ Rails.application.routes.draw do
      post 'verify', to: 'users/registrations#verify'
      get 'sign_in', to: 'devise/sessions#new'
      post 'sign_in',to: 'devise/sessions#create'
+     get 'users/sign_out',to: 'devise/sessions#destroy'
   end
   resources :follows
   resources :comments

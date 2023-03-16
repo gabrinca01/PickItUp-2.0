@@ -16,5 +16,8 @@ class MapController < ApplicationController
       @to_join.push(Challenge.find(c.challenge_id))
     end
     
+      @join_challenge = JoinChallenge.new
+
+    
   end
 end

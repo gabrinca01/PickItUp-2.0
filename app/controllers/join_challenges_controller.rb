@@ -1,7 +1,7 @@
-class JoinChallengeController < ApplicationController
-  before_action :set_join_challenge, only: [:show, :edit, :update, :destroy]
+class JoinChallengesController < ApplicationController
+  #before_action :set_join_challenge, only: [:show, :edit, :update, :destroy]
   rescue_from Pundit::NotAuthorizedError do
-    redirect_to root_path, alert: "You aren't allowed to do that"
+    redirect_to challenges_path, alert: "You aren't allowed to do that"
   end
   def index
     @join_challenges = JoinChallenge.all
@@ -11,17 +11,17 @@ class JoinChallengeController < ApplicationController
   end
 
   def new
-    @join_challenge = JoinChallenge.new
-    authorize @join_challenge
   end
 
   def create
-    @join_challenge = JoinChallenge.new(join_challenge_params)
-    authorize @join_challenge
+    @join_challenge = JoinChallenge.new
+    @join_challenge.challenge_id = params[:join_challenge][:challenge_id]
+    @join_challenge.user_id = current_user.id
     if @join_challenge.save
-      redirect_to join_challenges_path, notice: "join_challenge was successfully created."
+      redirect_to challenges_path,challenge_id: params[:id], notice: "You can chat with other Challenge memebers now"
     else
-      render :new
+
+      redirect_to root_path, notice: "join challenge was not created successfully"
     end
   end
 
@@ -52,12 +52,7 @@ class JoinChallengeController < ApplicationController
   end
   private
 
-  def set_join_challenge
-    @join_challenge = JoinChallenge.find(params[:id])
-  end
-
-  def join_challenge_params
-    params.require(:join_challenge).permit(:nome)
-  end
+ 
+  
 
 end

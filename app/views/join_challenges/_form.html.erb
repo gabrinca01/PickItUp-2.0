@@ -1,10 +1,11 @@
-<%= simple_form_for join_challenge, html: { class: "join_challenge form" } do |f| %>
-  <% if join_challenge.errors.any? %>
+<%= simple_form_for @join_challenge, html: { class: "join_challenge form" } do |f| %>
+  <% if @join_challenge.errors.any? %>
     <div class="error-message">
-      <%= join_challenge.errors.full_messages.to_sentence.capitalize %>
+      <%= @join_challenge.errors.full_messages.to_sentence.capitalize %>
     </div>
   <% end %>
 
-  <%= f.input :body, input_html: { autofocus: true } %>
+  <%= f.hidden_field :challenge_id,value: params[:id] %>
+  <%= f.hidden_field :user_id,value: current_user.id %>
   <%= f.submit class: "btn btn--secondary" %>
 <% end %>
