@@ -9,8 +9,8 @@ Rails.application.routes.draw do
   devise_scope :user do
      get 'verify', to: 'users/registrations#verify', as: 'verify'
      post 'verify', to: 'users/registrations#verify'
-     get 'users/sign_out', to: 'devise/sessions#destroy'
-     
+     get 'sign_in', to: 'devise/sessions#new'
+     post 'sign_in',to: 'devise/sessions#create'
   end
   resources :follows
   resources :comments

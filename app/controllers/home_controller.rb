@@ -4,7 +4,7 @@ class HomeController < ApplicationController
   protect_from_forgery prepend: true
   def index
     @awards = Award.all
-    @timeline_posts = Post.all.where.not(user_id: Current.user.id)
+    @timeline_posts = Post.all.where.not(user_id: current_user.id)
 
 
      
