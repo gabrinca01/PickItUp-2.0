@@ -1,3 +1,4 @@
+import "@hotwired/turbo-rails"
 var url_string = window.location.href;
 var url = new URL(url_string);
 
@@ -55,4 +56,3 @@ function get_weather(){
 	});
 }
 get_weather();
-//set_interval(get_weather,3000);

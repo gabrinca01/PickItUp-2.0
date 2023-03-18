@@ -123,13 +123,13 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_14_191420) do
     t.datetime "remember_created_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "profile_picture"
     t.decimal "accumulated_points"
     t.decimal "points"
     t.string "username"
     t.string "provider"
     t.string "uid"
     t.integer "role"
-    t.text "image_data"
     t.string "country_code"
     t.boolean "verified", default: false
     t.string "num_tel"

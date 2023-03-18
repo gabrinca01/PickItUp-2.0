@@ -3,11 +3,15 @@ class ChallengesController < ApplicationController
   rescue_from Pundit::NotAuthorizedError do
     redirect_to root_path, alert: "You aren't allowed to do that"
   end
-  def index
-    @challenges=Challenge.all
+  def index  
+    @message = Message.new  
   end
 
   def show
+    @joined_challenges = Challenge.joins(:join_challenges).where(user_id: current_user.id)
+    @messages = @challenge.messages
+    @message = Message.new
+    render :index
   end
 
   def new
@@ -24,7 +28,7 @@ class ChallengesController < ApplicationController
       @join_challenge.challenge_id = @challenge.id
       @join_challenge.user_id = @challenge.user_id
       if @join_challenge.save
-      redirect_to challenges_path, notice: "challenge was successfully created."
+      redirect_to @challenge, notice: "challenge was successfully created."
       end
     else
       render :new
@@ -58,7 +62,6 @@ class ChallengesController < ApplicationController
 
   def set_challenge
     @challenge = Challenge.find(params[:id])
-    @user = Current.user
   end
 
   def challenge_params

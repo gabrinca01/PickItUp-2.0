@@ -13,8 +13,6 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable,
          :omniauthable, :omniauth_providers => [:facebook]
   has_many :posts, -> { order(created_at: :desc) },dependent: :destroy
-  #has_many :challenges ,through: :join_challenges,dependent: :destroy
-  has_many :likes
   has_many :follows
   has_many :join_challenges
   has_many :messages

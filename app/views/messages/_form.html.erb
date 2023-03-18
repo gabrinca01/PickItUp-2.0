@@ -1,10 +1,7 @@
-<%= simple_form_for message, html: { class: "message form" } do |f| %>
-  <% if message.errors.any? %>
-    <div class="error-message">
-      <%= message.errors.full_messages.to_sentence.capitalize %>
-    </div>
-  <% end %>
 
-  <%= f.input :body, input_html: { autofocus: true } %>
-  <%= f.submit class: "btn btn--secondary" %>
-<% end %>
+<div class="form-group msg-form">
+  <%= form_with(model: [@challenge ,@message], remote: true, class: "d-flex" ) do |f| %>
+    <%= f.text_field :msg_txt, id: 'chat-text', class: "form-control msg-content", autocomplete: 'off' %>
+    <%= f.submit data: { disable_with: false }, class: "btn btn-primary" %>
+  <% end %>
+</div>

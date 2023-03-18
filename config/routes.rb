@@ -16,10 +16,11 @@ Rails.application.routes.draw do
   resources :follows
   resources :comments
   resources :posts
-  resources :challenges
+  resources :challenges do 
+    resources :messages
+  end
   resources :awards
   resources :join_challenges
-  resources :messages
   resources :news
   resources :companies
 

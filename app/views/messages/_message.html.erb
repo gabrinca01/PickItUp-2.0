@@ -1,12 +1,8 @@
-<div class="message">
-  <%= link_to message.body, message_path(message) %>
-  <div class="message__actions">
-    <%= button_to "Delete",
-                  message_path(message),
-                  method: :delete,
-                  class: "btn btn--light" %>
-    <%= link_to "Edit",
-                edit_message_path(message),
-                class: "btn btn--light" %>
+<div class="cont-<%= message.user.id %>">
+  <div class="message-box msg-<%= message.user.id %> " >
+    
+      <h6 class="name"> <%= message.user.username %> </h6>
+
+  <%= message.msg_txt %>
   </div>
 </div>

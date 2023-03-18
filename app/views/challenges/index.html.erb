@@ -1,7 +1,31 @@
-<main class="container">
-  <div class="header">
-    <h1>Challenges</h1>
-  </div>
+<% content_for :head do %>
+<%= stylesheet_link_tag "challenges" %>
+<style>
+  <%= ".msg-#{current_user.id}" %> {
+  background-color: #007bff !important;
+  padding: 10px;
+  }
+  <%= ".cont-#{current_user.id}" %> {
+  display: flex;
+  justify-content: flex-end
+  }
+</style>
+<% end %>
 
-  <%= render @challenges %>
+
+
+<div class="col-md-10 bg-dark text-light" style="flex: 7">
+  <% if @challenge %>
+    <h4 class="text-center"> <%= @challenge.description %> </h4>
+    <%= turbo_stream_from @challenge %>
+    <%= turbo_stream_from "messages" %>
+      <div id="messages">
+        <%= render @messages %>
+      </div>
+  <%= render partial: 'messages/form' %>
+  <% end %>
+</div>
+<main class="container" id="challenges" style="flex:2">
+  <%= render @joined_challenges %>
 </main>
+

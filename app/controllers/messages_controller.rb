@@ -1,4 +1,4 @@
-class MessageController < ApplicationController
+class MessagesController < ApplicationController
  before_action :set_message, only: [:show, :edit, :update, :destroy]
  rescue_from Pundit::NotAuthorizedError do
     redirect_to root_path, alert: "You aren't allowed to do that"
@@ -11,18 +11,10 @@ class MessageController < ApplicationController
   end
 
   def new
-    @message = Message.new
-    authorize @message
   end
 
   def create
-    @message = Message.new(message_params)
-    authorize @message
-    if @message.save
-      redirect_to messages_path, notice: "message was successfully created."
-    else
-      render :new
-    end
+    @message = current_user.messages.create(msg_txt: msg_params[:msg_txt], challenge_id: params[:challenge_id])
   end
 
   def edit
@@ -56,7 +48,7 @@ class MessageController < ApplicationController
     @message = Message.find(params[:id])
   end
 
-  def message_params
-    params.require(:message).permit(:nome)
+ def msg_params
+    params.require(:message).permit(:msg_txt)
   end
 end
