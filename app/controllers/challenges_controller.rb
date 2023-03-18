@@ -5,6 +5,8 @@ class ChallengesController < ApplicationController
   end
   def index  
     @message = Message.new  
+    @joined_challenges = Challenge.joins(:join_challenges).where(user_id: current_user.id)
+
   end
 
   def show
