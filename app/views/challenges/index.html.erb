@@ -13,7 +13,7 @@
 <% end %>
 
 
-
+<%= turbo_frame_tag "challenge" do %>
 <div class="col-md-10 bg-dark text-light" style="flex: 7">
   <% if @challenge %>
     <h4 class="text-center"> <%= @challenge.description %> </h4>
@@ -25,6 +25,7 @@
   <%= render partial: 'messages/form' %>
   <% end %>
 </div>
+<%end%>
 <main class="container" id="challenges" style="flex:2">
   <%= render @joined_challenges %>
 </main>

@@ -130,7 +130,7 @@
         challenge_zone.addListener('click',() =>  {
           challenge_zone.setEditable(false);
           const contentString ='<div id="create_challenge"><a href="../challenges/new?' +
-        '&lat='+lat+'&lng='+lng+'&coord='+p+'&radius='+radius+ '">Create Challenge here</a>'+
+        '&lat='+lat+'&lng='+lng+'&coord='+p+'&radius='+radius+ '" data-turbo="false">Create Challenge here</a>'+
         "</div>";
         infowindow.setContent(contentString);
           

@@ -13,7 +13,7 @@ gem 'twilio-ruby', '~> 5.46'
 
 gem 'jquery-rails'
 
-gem 'turbolinks', '~> 5'
+
 
 gem 'devise'
 gem "simple_form", "~> 5.1.0"
@@ -30,7 +30,7 @@ gem 'jwt','~> 2.4.0'
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem "rails", "~> 7.0.4"
 
-
+gem "hotwire-rails"
 
 # Use sqlite3 as the database for Active Record
 gem "sqlite3", "~> 1.4"
