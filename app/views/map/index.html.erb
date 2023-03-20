@@ -36,6 +36,7 @@
       const token = document.getElementsByName(
   "csrf-token"
 )[0].content;
+<% if !JoinChallenge.where(user_id: current_user.id,challenge_id: params[:id])%>
         challenge_zone.addListener('click', () => {
            const contentString ='<main class="container">'+
   '<form class="simple_form join_challenge form" id="new_join_challenge" novalidate="novalidate" action="/join_challenges" accept-charset="UTF-8" method="post"><input type="hidden" name="authenticity_token" value="'+ token+'" autocomplete="off" />'+
@@ -64,8 +65,9 @@
           
         });
     
-      
+      <% end %>
     }
+    
 
 }else{
 

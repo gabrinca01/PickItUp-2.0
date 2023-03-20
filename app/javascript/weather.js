@@ -1,18 +1,33 @@
-import "@hotwired/turbo-rails"
+
 var url_string = window.location.href;
 var url = new URL(url_string);
 
 $('#challenge_temp_date_3i').on('change', get_weather)
 $('#challenge_temp_time_4i').on('change', get_weather)
+$('#challenge_def_date_3i').on('change', get_weather)
+$('#challenge_def_time_4i').on('change', get_weather)
 
 function get_weather(){
-	let year = document.getElementById("challenge_temp_date_1i").value;
-	let month = "0"+document.getElementById("challenge_temp_date_2i").value;
-	let day = document.getElementById("challenge_temp_date_3i").value;
-	let hour = document.getElementById("challenge_temp_time_4i").value;
-	let minute = document.getElementById("challenge_temp_time_5i").value;
-	let lat=url.searchParams.get('lat');
-	let lng = url.searchParams.get('lng');
+	
+	if(window.location.href.indexOf("edit") > -1) {
+		var year = document.getElementById("challenge_def_date_1i").value;
+		var month = "0"+document.getElementById("challenge_def_date_2i").value;
+		var day = document.getElementById("challenge_def_date_3i").value;
+		var hour = document.getElementById("challenge_def_time_4i").value;
+		var minute = document.getElementById("challenge_def_time_5i").value;
+		var lat=url.searchParams.get('lat');
+		var lng = url.searchParams.get('lng');
+		
+       
+	}else{
+		var year = document.getElementById("challenge_temp_date_1i").value;
+		var month = "0"+document.getElementById("challenge_temp_date_2i").value;
+		var day = document.getElementById("challenge_temp_date_3i").value;
+		var hour = document.getElementById("challenge_temp_time_4i").value;
+		var minute = document.getElementById("challenge_temp_time_5i").value;
+		var lat=url.searchParams.get('lat');
+		var lng = url.searchParams.get('lng');
+	}
 
 	const settings = {
 		"async": true,
@@ -23,11 +38,11 @@ function get_weather(){
 			"X-RapidAPI-Key": "dd42f26b3emshac94e324c873f7bp132f7cjsn86b7b4d80c16",
 			"X-RapidAPI-Host": "dark-sky.p.rapidapi.com"
 		}
-	};
+		};
 
 	$.ajax(settings).done(function (response) {
 		console.log(response);
-		let icona = response.currently.icon;
+		var icona = response.currently.icon;
 		switch (icona) {
 		  case 'partly-cloudy-day':
 		    document.getElementById('weather').innerHTML="<div  id = 'part_cloud' class= 'part_cloud_c' style='display:block;'>";

@@ -1,9 +1,25 @@
+<% content_for :head do %>
+  
+  <%= javascript_import_module_tag "weather" %>
+  
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
+ <%= stylesheet_link_tag "weather" %>
+ <% end %>
 <main class="container">
-  <%= link_to sanitize("&larr; Back to quote"), challenge_path(@challenge) %>
-
-  <div class="header">
-    <h1>Edit challenge</h1>
-  </div>
-
-  <%= render "form", challenge: @challenge %>
+ 
+<%= simple_form_for @challenge, html: { class: "challenge form" } do |f| %>
+  
+  <%= f.input :def_date, input_html: { autofocus: true } %>
+  <%= f.input :def_time, input_html: { autofocus: true } %>
+  <%= f.input :durata,input_html: {autofocus: true} %>
+  
+  <%= f.submit class: "btn btn--secondary" %>
+<% end %>
+<div id="weather" style= "display:flex">
+    <div  id = "rain" class= "rain_c" style="display: none;">
+    <div  id = "sun" class= "sun_c" style="display: none;">
+    <div  id = "cloud" class= "cloud_c" style="display: none;">
+    <div  id = "part_cloud" class= "part_cloud_c" style="display: none;">
+   
+</div>
 </main>

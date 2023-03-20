@@ -11,12 +11,16 @@
   }
 </style>
 <% end %>
-
-
+<% if @challenge %>
+<% lat = @challenge.luogo.split(',')[0]%>
+<% lng = @challenge.luogo.split(',')[1]%>
+<h4 class="text-center" > <%= @challenge.description %>&nbsp&nbsp&nbsp&nbsp<%= link_to 'Set Date/Time/Duration',edit_challenge_path(@challenge,lat: lat,lng:lng) ,data: { turbo: false}%> 
+  
+        <%= link_to 'See challenge location', map_index_path(l: @l,id: @challenge.id) %></h4>
 <%= turbo_frame_tag "challenge" do %>
 <div class="col-md-10 bg-dark text-light" style="flex: 7">
-  <% if @challenge %>
-    <h4 class="text-center"> <%= @challenge.description %> </h4>
+  
+   
     <%= turbo_stream_from @challenge %>
     <%= turbo_stream_from "messages" %>
       <div id="messages">

@@ -1,5 +1,7 @@
 class ChallengesController < ApplicationController
+  
   before_action :set_challenge, only: [:show, :edit, :update, :destroy]
+  
   rescue_from Pundit::NotAuthorizedError do
     redirect_to root_path, alert: "You aren't allowed to do that"
   end
@@ -13,6 +15,10 @@ class ChallengesController < ApplicationController
     @joined_challenges = Challenge.joins(:join_challenges).where(user_id: current_user.id)
     @messages = @challenge.messages
     @message = Message.new
+    lat = @challenge.luogo.split(',')[0] 
+    long = @challenge.luogo.split(',')[1]
+    rad  =@challenge.raggio.to_s 
+    @l =lat+':'+long+':'+rad  
     render :index
   end
 
@@ -42,14 +48,33 @@ class ChallengesController < ApplicationController
   end
 
   def update
-   
-    authorize @challenge
-    if @challenge.update(challenge_params)
-      redirect_to challenges_path, notice: "challenge was successfully updated."
-    else
-      render :edit
-    end
+    durata = params[:challenge][:durata].to_i 
+    @challenge.durata = durata
+      assign_points(@challenge)
+      
+      year=params[:challenge]['def_time(1i)'].to_i 
+      
+
+      month=params[:challenge]["def_time(2i)"].to_i
+
+      day=params[:challenge]['def_time(3i)'].to_i
+      hour=params[:challenge]['def_time(4i)'].to_i
+      minute=params[:challenge]['def_time(5i)'].to_i
+      date_time1=DateTime.new(year,month,day,hour,minute,0)
+      date_time2 = date_time1 + (durata/2).hours
+      date_time3 = date_time1 + durata.hours
+      @challenge.date_time1=date_time1
+      @challenge.date_time2=date_time2
+      @challenge.date_time2=date_time3
+      @challenge.send_messages
+      redirect_to @challenge, notice: "You set the definite details successfully"
   end
+  def assign_points (challenge)
+      ratio  = challenge.raggio.to_f / challenge.num_partecipanti 
+      challenge.points = ratio
+      challenge.save
+   end 
+  
 
   def destroy
         if @challenge.destroy
@@ -61,7 +86,7 @@ class ChallengesController < ApplicationController
         end
   end
   private
-
+ 
   def set_challenge
     @challenge = Challenge.find(params[:id])
   end

@@ -13,7 +13,7 @@ gem 'twilio-ruby', '~> 5.46'
 
 gem 'jquery-rails'
 
-
+gem 'delayed_job_active_record'
 
 gem 'devise'
 gem "simple_form", "~> 5.1.0"
