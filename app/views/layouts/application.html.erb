@@ -7,6 +7,8 @@
     <%= csp_meta_tag %>
   
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag "activestorage" %>
+    
     
     
     <link href="https://fonts.googleapis.com/css2?family=Square+Peg&family=Tapestry&display=swap" rel="stylesheet">
@@ -42,6 +44,7 @@
       
     
     </div>
-   
+
   </body>
+  <%= yield (:body) %>
 </html>
