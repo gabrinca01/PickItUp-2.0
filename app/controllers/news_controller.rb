@@ -4,7 +4,64 @@ before_action :set_news, only: [:show, :edit, :update, :destroy]
     redirect_to root_path, alert: "You aren't allowed to do that"
   end
   def index
-    @news = News.all
+    url = URI("https://climate-news-feed.p.rapidapi.com/?source=Nasa%20Climate&limit=50&exclude=The%20Guardian")
+
+    http = Net::HTTP.new(url.host, url.port)
+    http.use_ssl = true
+    http.verify_mode = OpenSSL::SSL::VERIFY_NONE
+
+    request = Net::HTTP::Get.new(url)
+    request["X-RapidAPI-Key"] = '17f85b831cmsh2c8d4e31a76ab27p1fc81cjsnf7593b684a89'
+    request["X-RapidAPI-Host"] = 'climate-news-feed.p.rapidapi.com'
+
+    response = http.request(request)
+    puts response.read_body
+
+    ris = JSON.parse(response.read_body)
+    
+    #puts "---------- put dell'array-----------"
+  
+    #ris.each do |article|
+      
+    #  puts "-----------ciclo principale------------"
+      
+    #  article.each do |elem|
+        
+    #    puts elem
+    #    puts "----------------------------------------"
+          
+    #  end
+      
+      #puts article
+      #@news = News.create(published: DateTime.parse(article.published) ,title: article.title , url: article.url)
+
+    
+    #end
+
+    puts "-----------------------aaaa-----------------------"
+    tem = ris.find {1}
+    news = tem.find {9}
+    puts tem
+
+    notizie = 0
+    puts "-----------------------aaaa-----------------------"
+    tem.each do |neww|
+
+      puts neww
+
+      notizie = neww
+      puts "---------------------------------------------fffff------------------------------"
+    end
+
+    puts "---------------------stampo notizie--------------------------"
+    puts notizie
+
+    notizie.each do |notizia|
+      puts "-----------nn---------------"
+      puts notizia[:title]
+    end
+    
+    @news = News.all.order(published: :desc)
   end
 
   def show
