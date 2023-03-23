@@ -1,5 +1,19 @@
+<%= turbo_frame_tag "post" do %>
+
 <div class="post">
-  <%= link_to post.body, post_path(post) %>
+<div class="post_header" style="display: inline-flex;">
+  <%user =User.find(post.user_id) %>
+</div>
+<div class="post_body">
+  <%if post.images.attached? %>
+    <% post.images.each do |image| %>
+        <%= image_tag(image) %>
+    <% end %>
+  <% end%>
+</div>
+<div class= "post_footer">
+  <div class="fb-share-button" data-href="https://developers.facebook.com/docs/plugins/" data-layout="" data-size=""><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">Condividi</a></div>
+</div>
   <div class="post__actions">
     <%= button_to "Delete",
                   post_path(post),
@@ -8,5 +22,9 @@
     <%= link_to "Edit",
                 edit_post_path(post),
                 class: "btn btn--light" %>
+    <% if post.verified == false %>
+      <%= button_to "Verify", action: "verify",method: :post,id: post.id %>
+    <% end %>
   </div>
 </div>
+<% end %>

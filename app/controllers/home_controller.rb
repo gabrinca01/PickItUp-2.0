@@ -4,11 +4,8 @@ class HomeController < ApplicationController
   protect_from_forgery prepend: true
   def index
     @awards = Award.all
-    @timeline_posts = Post.all.where.not(user_id: current_user.id)
-
-
-     
-
+    @follows  = Follow.select(:followee).where(follower: current_user.id)
+    @timeline_posts = Post.where(verified: true).where("user_id in (?)", @follows)
   end
   def search
     if params[:search].blank?

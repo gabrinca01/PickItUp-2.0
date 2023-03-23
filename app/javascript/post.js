@@ -20,6 +20,7 @@ click_button.addEventListener('click', function() {
             images.value =old + image_data_url;
         }else
             images.value = image_data_url
+        
     });
     console.log(image_data_url);
 });

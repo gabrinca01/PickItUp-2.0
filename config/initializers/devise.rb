@@ -76,7 +76,7 @@ Devise.setup do |config|
 
 
 
-  config.omniauth :facebook, '171264671919022', '215d3b48779fe53400f89f2d5a478cdf'
+  config.omniauth :facebook, '2366483176861220', '5028297eb10bbcf81b194bc0f9819e02'
 
 
   # Configure which authentication keys should have whitespace stripped.

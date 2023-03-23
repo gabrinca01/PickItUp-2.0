@@ -116,7 +116,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
       @client = Twilio::REST::Client.new(ENV['TWILIO_ACCOUNT_SID'], ENV['TWILIO_AUTH_TOKEN'])
   end
   def sign_up_params
-    params.require(:user).permit(:username,:email , :password, :password_confirmation,:num_tel)
+    params.require(:user).permit(:username,:email , :password, :password_confirmation,:num_tel,:image)
   end  
   
    

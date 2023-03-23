@@ -6,6 +6,8 @@ Rails.application.routes.draw do
   root 'home#index'
   get "/home", to: "home#index"
   get "/home/search", to: "home#search"
+  get "posts/to_verify", to: "posts#to_verify"
+  post "posts/verify",to: "posts#verify"
   devise_scope :user do
      get 'verify', to: 'users/registrations#verify', as: 'verify'
      post 'verify', to: 'users/registrations#verify'

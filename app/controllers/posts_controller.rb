@@ -1,5 +1,5 @@
 class PostsController < ApplicationController
-  before_action :post, only: [:show, :edit, :update, :destroy]
+  before_action :set_post, only: [:show, :edit, :update, :destroy,:verify]
   rescue_from Pundit::NotAuthorizedError do
     redirect_to root_path, alert: "You aren't allowed to do that"
   end
@@ -60,6 +60,13 @@ class PostsController < ApplicationController
         end
   end
 
+  def to_verify
+    @to_verify_posts = Post.where(verified: false)
+  end
+  def verify
+    @post.verified = true
+    @post.save 
+  end
  
   private
 
