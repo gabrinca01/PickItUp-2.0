@@ -1,5 +1,5 @@
 require_relative "boot"
-
+require "active_storage/engine"
 require "rails/all"
 
 # Require the gems listed in Gemfile, including any gems
@@ -14,6 +14,7 @@ module Pickitup
       g.test_framework = false
     end
     config.active_job.queue_adapter = :delayed_job
+    
     # Configuration for the application, engines, and railties goes here.
     #
     # These settings can be overridden in specific environments using the files

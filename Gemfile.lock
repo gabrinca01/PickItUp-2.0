@@ -216,8 +216,6 @@ GEM
       activesupport (>= 3.0.0)
     racc (1.6.2)
     rack (2.2.6.3)
-    rack-mini-profiler (2.3.4)
-      rack (>= 1.2.0)
     rack-protection (3.0.5)
       rack
     rack-test (2.0.2)
@@ -359,7 +357,6 @@ DEPENDENCIES
   pry-rails
   puma (~> 5.0)
   pundit (~> 2.3)
-  rack-mini-profiler (~> 2.0)
   rails (~> 7.0.4)
   redis (~> 4.0)
   ruby-debug-ide

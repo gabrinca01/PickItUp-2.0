@@ -7,6 +7,8 @@
     <%= csp_meta_tag %>
   
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag "activestorage" %>
+    
     
     
     <link href="https://fonts.googleapis.com/css2?family=Square+Peg&family=Tapestry&display=swap" rel="stylesheet">
@@ -21,6 +23,9 @@
   </head>
 
   <body>
+    <%= yield(:body) %>
+    <div id="fb-root"></div>
+<script async defer crossorigin="anonymous" src="https://connect.facebook.net/it_IT/sdk.js#xfbml=1&version=v16.0&appId=2366483176861220&autoLogAppEvents=1" nonce="mOcZxjrQ"></script>
     <% if notice %>
   <p class="alert alert-success"><%= notice %></p>
 <% end %>
@@ -42,6 +47,7 @@
       
     
     </div>
-   
+
   </body>
+  <%= yield (:body) %>
 </html>

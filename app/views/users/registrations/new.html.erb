@@ -1,5 +1,24 @@
-<h2>Sign up</h2>
+<h2>Sign up to PickItUp</h2>
+<% content_for :body do %>
+    <script>
+  window.fbAsyncInit = function() {
+    FB.init({
+      appId      : '2366483176861220',
+      xfbml      : true,
+      version    : 'v16.0'
+    });
+    FB.AppEvents.logPageView();
+  };
 
+  (function(d, s, id){
+     var js, fjs = d.getElementsByTagName(s)[0];
+     if (d.getElementById(id)) {return;}
+     js = d.createElement(s); js.id = id;
+     js.src = "https://connect.facebook.net/en_US/sdk.js";
+     fjs.parentNode.insertBefore(js, fjs);
+   }(document, 'script', 'facebook-jssdk'));
+</script>
+<%end%>
 <%= simple_form_for(resource, as: resource_name, url: user_registration_path(resource_name)) do |f| %>
   <%= f.error_notification %>
 
@@ -21,6 +40,7 @@
                 input_html: { autocomplete: "new-password" } %>
     <%= f.input :num_tel,
                 required: true%>
+    <%=f.input :image ,input_html: { autocomplete: "upload profile picture" }%>
   <div class="field">
     <label for="channel">Verification Method</label>
     <label><input type="radio" name="channel" value="sms" checked>SMS</label>

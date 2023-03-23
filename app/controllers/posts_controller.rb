@@ -1,5 +1,5 @@
-class PostController < ApplicationController
-  before_action :post, only: [:show, :edit, :update, :destroy]
+class PostsController < ApplicationController
+  before_action :set_post, only: [:show, :edit, :update, :destroy,:verify]
   rescue_from Pundit::NotAuthorizedError do
     redirect_to root_path, alert: "You aren't allowed to do that"
   end
@@ -12,25 +12,34 @@ class PostController < ApplicationController
 
   def new
     @post = Post.new
-    authorize @post
   end
 
   def create
     @post = Post.new(post_params)
-    authorize @post
+    @post.user_id = current_user.id
+    @post.verified = false
+    @pictures = params['post']['images']
+    @pictures.each do |picture|
+      PictureAttachmentService.attach(@post,picture)
+    end
+    respond_to do |format|
     if @post.save
-      redirect_to posts_path, notice: "post was successfully created."
+      format.html { redirect_to root_path, notice: 'post was successfully updated.' }
+      format.json { render :show, status: :ok, location: @user }
+      
     else
       render :new
     end
+    end
+    
+      
   end
 
   def edit
   end
 
   def update
-     PictureAttachmentService.attach(@post, params['post']['image'])
-    authorize @post
+    
     if @post.update(post_params)
       redirect_to posts_path, notice: "post was successfully updated."
     else
@@ -51,6 +60,13 @@ class PostController < ApplicationController
         end
   end
 
+  def to_verify
+    @to_verify_posts = Post.where(verified: false)
+  end
+  def verify
+    @post.verified = true
+    @post.save 
+  end
  
   private
 
@@ -59,6 +75,6 @@ class PostController < ApplicationController
   end
 
   def post_params
-    params.require(:post).permit(images: [],videos: [],:image)
+    params.require(:post).permit(:written_text)
   end
 end

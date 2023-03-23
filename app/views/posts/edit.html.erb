@@ -1,7 +1,33 @@
-<main class="container">
-  <%= link_to sanitize("&larr; Back to quote"), post_path(@post) %>
-
+<% content_for :head do %>
   
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
+  <%= javascript_import_module_tag "post" %>
+ 
+  
+<% end %>
+<% content_for :body do %>
 
-  <%= render "form", post: @post %>
-</main>
+<% end %>
+
+
+<main class="container">
+  <%= link_to sanitize("&larr; Back to posts"), posts_path %>
+
+  <div class="header">
+    <h1>New post</h1>
+  </div>
+
+<%= simple_form_for @post, html: { class: "post form" },action: "/posts" do |f| %>
+  <% if post.errors.any? %>
+    <div class="error-message">
+      <%= post.errors.full_messages.to_sentence.capitalize %>
+    </div>
+  <% end %>
+  <%= f.hidden_field :images, multiple: true ,value: @post.images,required: true %>
+  <%= f.submit 'Upload Pictures',class: "btn btn--secondary" %>
+<% end %>
+ <button id="start-camera">Start Camera</button>
+<video id="video" width="320" height="240" autoplay></video>
+<button id="click-photo">Click Photo</button>
+<canvas id="canvas" width="320" height="240"></canvas>
+<button id="upload">Upload</button>
