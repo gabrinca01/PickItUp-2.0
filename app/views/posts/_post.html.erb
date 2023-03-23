@@ -13,6 +13,13 @@
 </div>
 <div class= "post_footer">
   <div class="fb-share-button" data-href="https://developers.facebook.com/docs/plugins/" data-layout="" data-size=""><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">Condividi</a></div>
+  <% pre_like = post.likes.find { |like| like.user_id == current_user.id} %>
+<% if pre_like %>
+  <%= button_to 'Unlike', post_like_path(post, pre_like), method: :delete %>
+<% else %>
+  <%= button_to 'Like', post_likes_path(post), method: :post %>
+<% end %>
+  <p><%= post.likes.count %> <%= (post.likes.count) == 1 ? 'Like' : 'Likes'%></p>
 </div>
   <div class="post__actions">
     <%= button_to "Delete",

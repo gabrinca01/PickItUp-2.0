@@ -19,6 +19,14 @@
 </script>
 <% end %>
 <div id= "timeline">
+	
+	
+	<%= simple_form_for @post, html: { class: "post form" },action: "/posts" do |f| %>
+
+  <%= f.input :written_text, input_html: { autofocus: true } %>
+  <%= f.input :images, multiple: true ,value: @post.images,required: true %>
+  <%= f.submit 'Post',class: "btn btn--secondary" %>
+<% end %>
 	<%= render @timeline_posts %>
 	
 </div>

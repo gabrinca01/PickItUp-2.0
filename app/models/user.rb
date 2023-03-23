@@ -13,11 +13,11 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable,
          :omniauthable, :omniauth_providers => [:facebook]
   has_many :posts, -> { order(created_at: :desc) },dependent: :destroy
-  has_many :follows
-  has_many :join_challenges
-  has_many :messages
-  has_many :comments
-
+  has_many :follows,dependent: :destroy
+  has_many :join_challenges,dependent: :destroy
+  has_many :messages,dependent: :destroy
+  has_many :comments,dependent: :destroy
+  has_many :likes, dependent: :destroy
   
   def to_json(options={})
     options[:except] ||= [:verified]

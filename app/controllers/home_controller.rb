@@ -3,6 +3,7 @@ class HomeController < ApplicationController
   before_action :authenticate_user!
   protect_from_forgery prepend: true
   def index
+    @post = Post.new 
     @awards = Award.all
     @follows  = Follow.select(:followee).where(follower: current_user.id)
     @timeline_posts = Post.where(verified: true).where("user_id in (?)", @follows)

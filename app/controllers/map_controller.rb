@@ -10,12 +10,9 @@ class MapController < ApplicationController
     end
     @other_challenges = @other_challenges.to_json.html_safe
 
-    @query = JoinChallenge.where.not(user_id: current_user.id).distinct
-    @to_join = Array.new
-    @query.each do |c|
-      @to_join.push(Challenge.find(c.challenge_id))
-    end
     
+    @query=JoinChallenge.select(:challenge_id).where.not(user_id:current_user.id).distinct
+    @to_join = Challenge.where('id in (?)',@query)
       @join_challenge = JoinChallenge.new
 
     
