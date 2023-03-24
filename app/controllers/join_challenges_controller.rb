@@ -40,7 +40,7 @@ class JoinChallengesController < ApplicationController
 
   def destroy
         @join_challenge = JoinChallenge.find(params[:id])
-        authorize @join_challenge
+        
         
         if @join_challenge.destroy
           flash[:notice] = "\"#{@join_challenge.id}\" was successfully deleted."

@@ -17,7 +17,7 @@ Rails.application.routes.draw do
   end
   resources :follows
   resources :posts do 
-    resources :comments
+    resources :comments, only: %i[create]
     resources :likes
   end
   resources :challenges do 

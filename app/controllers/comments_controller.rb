@@ -12,18 +12,24 @@ class CommentsController < ApplicationController
 
   def new
     @comment = Comment.new
-    authorize @comment
   end
-
   def create
-    @comment = Comment.new(comment_params)
-    authorize @comment
-    if @comment.save
-      redirect_to comments_path, notice: "comment was successfully created."
-    else
-      render :new
+    @post = Post.find(params[:post_id])
+    @comment = @post.comments.new(comment_params)
+    @comment.user_id = current_user.id
+
+    respond_to do |format|
+      if @comment.save
+        format.turbo_stream { render turbo_stream: turbo_stream.replace('comment_form', partial: 'comments/form', locals: { comment: Comment.new }) }
+        format.html { render partial: 'comments/form', locals: { comment: Comment.new }}
+      else
+        format.turbo_stream { render turbo_stream: turbo_stream.replace('comment_form', partial: 'comments/form', locals: { comment: @comment }) }
+        format.html { render partial: 'comments/form', locals: { comment: @comment }}
+      end
     end
   end
+
+  
 
   def edit
   end
