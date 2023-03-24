@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
   
-  get 'profilepage/index'
   get 'leaderboard/index'
   get 'map/index'
   root 'home#index'
@@ -27,6 +26,13 @@ Rails.application.routes.draw do
   resources :join_challenges
   resources :news
   resources :companies
+  resources :users, only: %i[show]
+  resources :users do
+    member do
+      get :following, :followers
+    end
+  end
+  resources :relationships,       only: [:create, :destroy]
 
   
 

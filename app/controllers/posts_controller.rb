@@ -1,5 +1,6 @@
 class PostsController < ApplicationController
   before_action :set_post, only: [:show, :edit, :update, :destroy,:verify]
+  #before_action :set_challenge, only: [:verify]
   rescue_from Pundit::NotAuthorizedError do
     redirect_to root_path, alert: "You aren't allowed to do that"
   end
@@ -31,7 +32,7 @@ class PostsController < ApplicationController
     respond_to do |format|
     if @post.save
       format.html { redirect_to root_path, notice: 'post was successfully updated.' }
-      format.json { render :show, status: :ok, location: @user }
+      format.json { render :show, status: :ok, location: @post }
       
     else
       render :new

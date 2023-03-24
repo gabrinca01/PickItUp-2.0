@@ -18,8 +18,9 @@ class CommentsController < ApplicationController
     @comment = @post.comments.new(comment_params)
     @comment.user_id = current_user.id
 
-    respond_to do |format|
-      if @comment.save
+    #respond_to do |format|
+   @comment.save
+=begin       
         format.turbo_stream { render turbo_stream: turbo_stream.replace('comment_form', partial: 'comments/form', locals: { comment: Comment.new }) }
         format.html { render partial: 'comments/form', locals: { comment: Comment.new }}
       else
@@ -27,6 +28,7 @@ class CommentsController < ApplicationController
         format.html { render partial: 'comments/form', locals: { comment: comment }}
       end
     end
+=end
   end
 
   

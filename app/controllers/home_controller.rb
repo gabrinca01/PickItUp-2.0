@@ -5,7 +5,7 @@ class HomeController < ApplicationController
   def index
     @post = Post.new 
     @awards = Award.all
-    @follows  = Follow.select(:followee).where(follower: current_user.id)
+    @follows  = current_user.following.select(:followed_id)
     @timeline_posts = Post.where(verified: true).where("user_id in (?)", @follows)
   end
   def search
