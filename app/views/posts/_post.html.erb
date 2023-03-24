@@ -13,6 +13,7 @@
 </div>
 <div class= "post_footer">
   <div class="fb-share-button" data-href="https://developers.facebook.com/docs/plugins/" data-layout="" data-size=""><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">Condividi</a></div>
+ <div id="<%= "#{dom_id(post)}_likes" %>">
   <% pre_like = post.likes.find { |like| like.user_id == current_user.id} %>
 <% if pre_like %>
   <%= button_to 'Unlike', post_like_path(post, pre_like), method: :delete %>
@@ -21,6 +22,7 @@
 <% end %>
   <p><%= post.likes.count %> <%= (post.likes.count) == 1 ? 'Like' : 'Likes'%></p>
   <div>
+</div>
     <%= render partial: "comments/form", locals: { comment: Comment.new , post: post} %>
   <%= turbo_stream_from post, :comments %>
 <div id="<%= "#{dom_id(post)}_comments" %>">
@@ -28,7 +30,7 @@
 </div>
 </div>
 </div>
-  <div class="post__actions">
+  <div class="post_actions">
     <%= button_to "Delete",
                   post_path(post),
                   method: :delete,

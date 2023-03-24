@@ -1,5 +1,8 @@
 <div class="news">
-  <%= link_to news.body, news_path(news) %>
+  
+
+  <%= link_to news.title, news_path(news) %>
+ 
   <div class="news__actions">
     <%= button_to "Delete",
                   news_path(news),
