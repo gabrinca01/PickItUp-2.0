@@ -19,46 +19,47 @@ before_action :set_news, only: [:show, :edit, :update, :destroy]
 
     ris = JSON.parse(response.read_body)
     
-    #puts "---------- put dell'array-----------"
-  
-    #ris.each do |article|
-      
-    #  puts "-----------ciclo principale------------"
-      
-    #  article.each do |elem|
-        
-    #    puts elem
-    #    puts "----------------------------------------"
-          
-    #  end
-      
-      #puts article
-      #@news = News.create(published: DateTime.parse(article.published) ,title: article.title , url: article.url)
-
-    
-    #end
-
-    puts "-----------------------aaaa-----------------------"
     tem = ris.find {1}
-    news = tem.find {9}
     puts tem
 
-    notizie = 0
-    puts "-----------------------aaaa-----------------------"
+    notizie = 0  
     tem.each do |neww|
-
       puts neww
-
       notizie = neww
-      puts "---------------------------------------------fffff------------------------------"
     end
 
-    puts "---------------------stampo notizie--------------------------"
-    puts notizie
+    #puts notizie
 
+    title_ = 0;
+    url_ = 0;   
+    published_ = 0;   
     notizie.each do |notizia|
-      puts "-----------nn---------------"
-      puts notizia[:title]
+      n = 0  
+      notizia.each do |elem|
+        if n == 0
+          elem.each do |t|
+            title_ = t
+          end
+
+        elsif n == 1
+          elem.each do |u|
+            url_ = u
+          end
+
+        elsif n == 3
+          elem.each do |d|
+            published_ = d
+          end
+        end
+
+        n=n+1;
+      end
+      
+      puts title_
+      puts url_
+      puts published_
+
+      @news = News.create(published: DateTime.parse(published_) ,title: title_ , url: url_)
     end
     
     @news = News.all.order(published: :desc)
