@@ -7,12 +7,14 @@ class ChallengesController < ApplicationController
   end
   def index  
     @message = Message.new  
-    @joined_challenges = Challenge.joins(:join_challenges).where(user_id: current_user.id)
+    @query = JoinChallenge.select(:challenge_id).where(user_id: current_user.id )
+    @joined_challenges = Challenge.where('id in (?)',@query)
 
   end
 
   def show
-    @joined_challenges = Challenge.joins(:join_challenges).where(user_id: current_user.id)
+    @query = JoinChallenge.select(:challenge_id).where(user_id: current_user.id )
+    @joined_challenges = Challenge.where('id in (?)',@query)
     @messages = @challenge.messages
     @message = Message.new
     lat = @challenge.luogo.split(',')[0] 

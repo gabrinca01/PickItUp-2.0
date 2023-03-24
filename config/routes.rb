@@ -16,8 +16,10 @@ Rails.application.routes.draw do
      get 'users/sign_out',to: 'devise/sessions#destroy'
   end
   resources :follows
-  resources :comments
-  resources :posts
+  resources :posts do 
+    resources :comments, only: %i[create]
+    resources :likes
+  end
   resources :challenges do 
     resources :messages
   end

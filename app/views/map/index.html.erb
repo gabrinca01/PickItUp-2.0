@@ -2,7 +2,7 @@
   
   <%= stylesheet_link_tag 'map' %>
  <script type="text/javascript">
-  let map;
+  
   var url_string = window.location.href;
   var url = new URL(url_string);
   if (url.searchParams.has("l") == true)  {
@@ -36,7 +36,7 @@
       const token = document.getElementsByName(
   "csrf-token"
 )[0].content;
-<% if !JoinChallenge.where(user_id: current_user.id,challenge_id: params[:id])%>
+<% if JoinChallenge.where(user_id: current_user.id,challenge_id: params[:id]).empty?%>
         challenge_zone.addListener('click', () => {
            const contentString ='<main class="container">'+
   '<form class="simple_form join_challenge form" id="new_join_challenge" novalidate="novalidate" action="/join_challenges" accept-charset="UTF-8" method="post"><input type="hidden" name="authenticity_token" value="'+ token+'" autocomplete="off" />'+
@@ -73,7 +73,7 @@
 
   function initMap() {
     const myLatlng = { lat: 41.9028, lng: 12.4964 };
-     map = new google.maps.Map(document.getElementById("map"), {
+     const map = new google.maps.Map(document.getElementById("map"), {
       zoom: 17,
       center: myLatlng,
       mapTypeId: 'terrain'

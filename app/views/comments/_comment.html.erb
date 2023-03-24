@@ -1,12 +1,5 @@
-<div class="comment">
-  <%= link_to comment.body, comment_path(comment) %>
-  <div class="comment__actions">
-    <%= button_to "Delete",
-                  comment_path(comment),
-                  method: :delete,
-                  class: "btn btn--light" %>
-    <%= link_to "Edit",
-                edit_comment_path(comment),
-                class: "btn btn--light" %>
-  </div>
+<div id="<%= dom_id(comment) %>">
+
+  <%= comment.user.username %>
+  <%= comment.body %>
 </div>

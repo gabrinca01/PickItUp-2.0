@@ -17,10 +17,16 @@ class PostsController < ApplicationController
   def create
     @post = Post.new(post_params)
     @post.user_id = current_user.id
-    @post.verified = false
-    @pictures = params['post']['images']
-    @pictures.each do |picture|
-      PictureAttachmentService.attach(@post,picture)
+    
+    if params['commit'] != 'Post'
+      @pictures = params['post']['images']
+      @pictures.each do |picture|
+        PictureAttachmentService.attach(@post,picture)
+      end
+      @post.verified = false
+    else
+      @post.verified = true
+      @post.images.attach(params['post']['images'])
     end
     respond_to do |format|
     if @post.save

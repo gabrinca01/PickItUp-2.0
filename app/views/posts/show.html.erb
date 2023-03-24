@@ -21,7 +21,7 @@
 <% end %>
   <p><%= post.likes.count %> <%= (post.likes.count) == 1 ? 'Like' : 'Likes'%></p>
   <div>
-    <%= render partial: "comments/form", locals: { comment: Comment.new , post: post} %>
+    <%= render partial: "comments/form", locals: { comment: Comment.new } %>
   <%= turbo_stream_from post, :comments %>
 <div id="<%= "#{dom_id(post)}_comments" %>">
   <%= render post.comments.order(created_at: :desc) %>
