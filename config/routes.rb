@@ -26,12 +26,7 @@ Rails.application.routes.draw do
   resources :join_challenges
   resources :news
   resources :companies
-  resources :users, only: %i[show]
-  resources :users do
-    member do
-      get :following, :followers
-    end
-  end
+  
   resources :relationships,       only: [:create, :destroy]
 
   
@@ -39,4 +34,10 @@ Rails.application.routes.draw do
   
   devise_for :users,controllers: {
         registrations: 'users/registrations',omniauth_callbacks:  'users/omniauth_callbacks'}, :strategy_class => OmniAuth::Strategies::Facebook
+resources :users, only: %i[show]
+  resources :users do
+    member do
+      get :following, :followers
+    end
+  end
 end

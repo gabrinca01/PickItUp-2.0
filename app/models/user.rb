@@ -1,13 +1,13 @@
 class User < ApplicationRecord  
 
   has_one_attached :image
-  #validates :role, inclusion: { in: %w(level0 level1 level2 company admin),
- #  message: "%{value} is not a valid role" }
+  validates :role, inclusion: { in: %w(level0 level1 level2 company admin),
+   message: "%{value} is not a valid role" }
   validates :username, presence: true, uniqueness: true
   validates :email,presence:true,uniqueness:true
   validates :num_tel, presence: true, uniqueness: true
   
-
+  enum :role, [:level0,:level1, :level2 ,:company,:admin]
   
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable,
