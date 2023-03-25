@@ -1,3 +1,4 @@
+
 <div class="stats">
   <a href="<%= following_user_path(@user) %>">
     <strong id="following" class="stat">
@@ -12,7 +13,7 @@
     followers
   </a>
 </div>
-<% unless current_user.id ==@user.id %>
+<% if current_user.id != @user.id %>
   <div id="follow_form">
   <% if current_user.following?(@user) %>
     <%= render 'unfollow' %>
