@@ -15,7 +15,9 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # POST /resource
   def create
     build_resource(sign_up_params)
-
+    if(params[:company] == 'on')
+      resource.role = :company
+    end
     resource.save
     yield resource if block_given?
     if resource.persisted?

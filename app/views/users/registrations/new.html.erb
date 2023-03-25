@@ -42,6 +42,16 @@
                 required: true%>
     <%=f.input :image ,input_html: { autocomplete: "upload profile picture" }%>
   <div class="field">
+    <fieldset>
+    <legend>Sei un'azienda?</legend>
+
+    <div>
+      <input type="checkbox" id="company" name="company" >
+      
+    </div>
+
+</fieldset>
+
     <label for="channel">Verification Method</label>
     <label><input type="radio" name="channel" value="sms" checked>SMS</label>
     <label><input type="radio" name="channel" value="voice">Call</label>
