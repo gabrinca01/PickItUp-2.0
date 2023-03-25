@@ -1,5 +1,5 @@
-<h2>Edit <%= resource_name.to_s.humanize %></h2>
-
+<h2 class = "editTitle" >Edit <%= resource_name.to_s.humanize %></h2>
+<%= stylesheet_link_tag 'edit' %>
 <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
   <%= f.error_notification %>
 
@@ -11,26 +11,25 @@
     <% end %>
 
     <%= f.input :password,
-                hint: "leave it blank if you don't want to change it",
+                placeholder: "Leave it blank if you don't want to change it",
                 required: false,
                 input_html: { autocomplete: "new-password" } %>
     <%= f.input :password_confirmation,
                 required: false,
                 input_html: { autocomplete: "new-password" } %>
     <%= f.input :current_password,
-                hint: "we need your current password to confirm your changes",
+                placeholder: "We need your current password to confirm your changes",
                 required: true,
                 input_html: { autocomplete: "current-password" } %>
     <%=f.input :image ,input_html: { autocomplete: "upload profile picture" }%>
   </div>
 
   <div class="form-actions">
-    <%= f.button :submit, "Update" %>
+    <%= f.submit "Update", class: 'mybutton'%>
   </div>
 <% end %>
 
-<h3>Cancel my account</h3>
 
-<div>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?", turbo_confirm: "Are you sure?" }, method: :delete %></div>
+<div class = "toolbox" style="margin-left:290px;">Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?", turbo_confirm: "Are you sure?" }, method: :delete, class: "genButton" %></div>
 
 <%= link_to "Back", :back %>

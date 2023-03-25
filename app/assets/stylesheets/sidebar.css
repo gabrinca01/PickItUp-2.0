@@ -24,6 +24,7 @@ body {
     background-position: bottom;
     background-size: contain;
     background-repeat: no-repeat;
+    overflow:auto;
   }
   
   @media (max-width: 991.98px) {
@@ -70,7 +71,7 @@ body {
     transition-duration: 0.3s;
   }
   a:hover{
-    color:green;
+    color:rgb(255, 255, 255);
   }
   .input-group .btn{
     background-color: green;
@@ -100,3 +101,39 @@ body {
     max-width:100%;
     max-height:100%;
   }
+
+  .input-group > :not(:first-child):not(.dropdown-menu):not(.valid-tooltip):not(.valid-feedback):not(.invalid-tooltip):not(.invalid-feedback){
+    border-top-color: black;
+    border-left-color: black;
+    border-right-color: black;
+  }
+
+  .title{
+    background-color: #fbfbfb;
+    border-color: #fbfbfb;
+    font-size: 60px;
+    width: 260px;
+    display: block;
+    margin-left: auto;
+  }
+
+  .title:hover{
+    background-image: url("tree.png");
+    background-position: right;
+    background-size: contain;
+    background-repeat: no-repeat;
+    color:green;
+  }
+  
+input{
+  margin-left: 50px;
+  height: 30px;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  font-size: large;
+  width: 400px;
+  border-radius: none;
+}
+input:focus{
+  border-color: green;
+  outline: none;
+}

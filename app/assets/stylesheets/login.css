@@ -1,45 +1,88 @@
-body{
-    background-image: url("grass.png");
-    background-position: bottom;
-    background-size: contain;
-    background-repeat: no-repeat;
-}
 
-.container_row{
-        display: grid;
-        justify-content: center;
-}
-
-h2{
+.loginTitle{
+    display: inline-block;
     font-size: 100px;
-    color:rgb(0, 0, 0);
-    text-align: center;
+    background-color: green;
+    border-top-left-radius: 15px;
+    border-bottom-left-radius: 15px;
+    text-align: left;
+    color: rgb(255, 255, 255);
+    border-color: white;
+    box-shadow: 0px 7px 5px -2px #888888;
+    height: 160px;
+    margin: auto 0;
+    padding:20px;
+
 }
-.panel{
-    font-family: Arial, Helvetica, sans-serif;
-    position: relative;
-    left:-40px;
-    width: 150%;
-    margin:0 0 50% 0;
-    grid-column: 1;
-    grid-row: 0;
-    background-image: url("grad.jpeg");
-    background-position: center;
-    background-size: cover;
-    border-color: black;
-    border-style: solid;
-    border-radius: 10px;
+
+.leftBlock{
+    display: inline-block;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, .5), 0 8px 16px rgba(0, 0, 0, .1);
+    border: 1px solid;
+    border-color: rgb(253, 253, 253);
+    background-color: white;
+    border-radius: 5px;
+    margin: 0 auto;
+    width: 700px;
+    height: fit-content;
+    margin-top: 50px;
 }
-.field{
-    margin:auto;
-    text-align: center;
-}
-.title{
-    grid-column: 1;
-    grid-row: 1;
-}
+
 .alert{
     position:absolute;
     left:0%;
     bottom:0%;
+}
+.mybutton{
+    background-color: green;
+    color: white;
+    font-size: 35px;
+    height: fit-content;
+    width: 300px;
+    border-radius: 10px;
+    border-style: solid;
+    font-family:Square peg;
+    margin-top: 30px;
+    margin-left: 200px;
+    margin-right: 200px;
+    margin-bottom: 60px;
+    padding: 2px;
+    border-color:green;
+}
+
+.mybutton:hover{
+    border-style: solid;
+    border-color: green;
+    background-color: white;
+    color: green;
+}
+
+boolean.optional:checked{
+    color: green;
+}
+
+.input{
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+
+.boolean.optional:checked{
+    accent-color: green;
+}
+
+input{
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+.radio{
+    width: 50px;
+    accent-color: green;
+}
+
+input:not(label){
+    padding: 23px 7px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: 17px;
+    border-radius: 5px;
+    border-color: rgb(185, 185, 185);
+    margin-top:10px;
 }

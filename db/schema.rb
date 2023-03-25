@@ -120,7 +120,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_24_181948) do
   end
 
 # Could not dump table "news" because of following StandardError
-#   Unknown type 'stringe' for column 'url'
+#   Unknown type '' for column 'url'
 
   create_table "posts", force: :cascade do |t|
     t.integer "user_id"
@@ -148,13 +148,13 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_24_181948) do
     t.datetime "remember_created_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "profile_picture"
     t.decimal "accumulated_points"
     t.decimal "points"
     t.string "username"
     t.string "provider"
     t.string "uid"
     t.integer "role"
+    t.text "image"
     t.string "country_code"
     t.boolean "verified", default: false
     t.string "num_tel"

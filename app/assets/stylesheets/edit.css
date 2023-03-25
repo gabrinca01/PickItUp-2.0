@@ -1,0 +1,65 @@
+
+input{
+    margin-left: 50px;
+    height: 30px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: large;
+    width: 400px;
+    border-radius: none;
+}
+input:focus{
+    border-color: green;
+    outline: none;  
+}
+
+label{
+    min-width: 160px;
+}
+.user_email:focus {
+    border-color: #28a745;
+    box-shadow: 0 0 0 0.2rem rgba(40, 167, 69, 0.25);
+} 
+.editTitle{
+    margin:0 300px;
+    background-color: green;
+    border-top-right-radius: 5px;
+    border-top-left-radius: 5px;
+    text-align: left;
+    color: rgb(255, 255, 255);
+    font-size: larger;
+    width:fit-content;
+    padding:5px;
+    border-color: white;
+    box-shadow: 10px 0 5px -2px #888888;
+
+}
+.edit_user{
+    box-shadow: 3px 3px 3px 3px #888888;
+    border: 1px solid;
+    border-color: rgb(253, 253, 253);
+    border-radius: 5px;
+    padding: 10px;
+    margin: 0 auto;
+    width: 700px;
+  }
+.mybutton{
+    background-color: green;
+    color: white;
+    font-size: 35px;
+    height: fit-content;
+    width: 300px;
+    border-radius: 10px;
+    border-style: solid;
+    font-family:Square peg;
+    margin-top: 30px;
+    margin-left: 200px;
+    margin-right: 200px;
+    padding: 2px;
+    border-color:green;
+}
+.mybutton:hover{
+    border-style: solid;
+    border-color: green;
+    background-color: white;
+    color: green;
+}

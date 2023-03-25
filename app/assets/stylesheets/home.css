@@ -1,0 +1,22 @@
+.simple_form.post.form{
+    margin-left:auto;
+    margin-right: auto;
+    margin-top: 0;
+}
+
+.postTitle{
+    color: white;
+    background-color: green;
+    height: 45px;
+    width: fit-content;
+    border-bottom-right-radius: 10px;
+}
+
+#post_written_text{
+    width:700px;
+    min-height: 70px;
+    height: fit-content;
+}
+#post_written_text:focus{
+    border-color: green;
+}
