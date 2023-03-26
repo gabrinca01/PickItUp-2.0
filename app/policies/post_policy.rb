@@ -13,6 +13,6 @@ class PostPolicy < ApplicationPolicy
     @user.role == 'level2' || @user.role == 'company' || @user.role == 'admin'
   end
   def edit?
-    @user.role == 'admin' || (@record.user == @user && (@user.role == 'level2' || @user.role == 'company' ||@user.role == 'admin' )
+    @user.role == 'admin' || (@record.user == @user && (@user.role == 'level2' || @user.role == 'company' ||@user.role == 'admin' ))
   end
 end
