@@ -4,13 +4,15 @@
   <%= link_to news.title, news_path(news) %>
  
   <div class="news__actions">
-    <%= button_to "Delete",
+    <% if Pundit.policy(Current.user,news).destroy? %>
+      <%= button_to "Delete",
                   news_path(news),
                   method: :delete,
                   class: "btn btn--light" %>
-    <%= link_to "Edit",
-                edit_news_path(news),
-                class: "btn btn--light" %>
+    <% end %>
+    <div class="fb-share-button" data-href=<%= news.url %> data-layout="" data-size=""><a target=<%= news.url %> href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">Condividi</a></div>
+    
+    
     <br>
   </div>
 </div>

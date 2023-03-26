@@ -34,6 +34,7 @@ class ChallengesController < ApplicationController
     @challenge.num_partecipanti = 1
     
     if @challenge.save 
+      @post = Post.create(user_id: current_user.id,challenge_id:@challenge.id)
       @join_challenge=JoinChallenge.new
       @join_challenge.challenge_id = @challenge.id
       @join_challenge.user_id = @challenge.user_id

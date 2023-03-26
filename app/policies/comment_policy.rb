@@ -1,4 +1,4 @@
-class PostPolicy < ApplicationPolicy
+class CommentPolicy < ApplicationPolicy
   def destroy?
     #if the user is an admin or the owner of the wiki,
     # they can access the delete action”.
@@ -8,6 +8,6 @@ class PostPolicy < ApplicationPolicy
     user.role >= 'level2'
   end
   def edit?
-    user.role == 'admin' || (record.user == user && user.role <= 'level2')
+     (record.user == user && user.role >= 'level1')
   end
 end

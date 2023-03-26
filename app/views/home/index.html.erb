@@ -27,7 +27,7 @@
 <% end %>
 <div id= "timeline">
 
-	
+<% if Pundit.policy(Current.user,@post).create? %>	
 	<%= simple_form_for @post, html: { class: "post form" },action: "/posts" do |f| %>
   <h2 class="postTitle">Write what you're thinking &nbsp;</h2>
   <%= f.input :written_text, input_html: { autofocus: true }, wrapper: false, label: false, class:"postText"%>
@@ -36,6 +36,7 @@
   <%= f.submit 'Post',class: "genButton", style:"margin-right:10px"%>
   </div>
 <% end %>
+<%end %>
 	<%= render @timeline_posts %>
 	
   

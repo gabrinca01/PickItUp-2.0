@@ -72,7 +72,6 @@ before_action :set_news, only: [:show, :edit, :update, :destroy]
 
   def new
     @news = News.new
-    authorize @news
   end
 
   def create

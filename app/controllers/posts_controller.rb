@@ -72,7 +72,12 @@ class PostsController < ApplicationController
   end
   def verify
     @post.verified = true
-    @post.save 
+    @post.save
+    @points = Challenge.find(@post.challenge_id).points
+    @user = User.find(@post.user_id)
+    @user.points += @points
+    @user.accumulated_points += @points
+    @user.save  
   end
  
   private

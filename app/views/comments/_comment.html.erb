@@ -2,4 +2,9 @@
 
   <%= comment.user.username %>
   <%= comment.body %>
+  <% if Pundit.policy(Current.user,comment).edit?%>
+  <%= link_to "Edit",
+                edit_comment_path(comment),
+                class: "btn btn--light" %>
+  <%end %>
 </div>

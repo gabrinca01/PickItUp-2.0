@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_03_25_112845) do
+ActiveRecord::Schema[7.0].define(version: 2023_03_26_171414) do
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
     t.string "record_type", null: false
@@ -112,7 +112,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_25_112845) do
   end
 
 # Could not dump table "news" because of following StandardError
-#   Unknown type '' for column 'url'
+#   Unknown type 'stringe' for column 'url'
 
   create_table "posts", force: :cascade do |t|
     t.integer "user_id"
@@ -120,6 +120,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_25_112845) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.boolean "verified"
+    t.integer "challenge_id"
   end
 
   create_table "relationships", force: :cascade do |t|
@@ -140,13 +141,13 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_25_112845) do
     t.datetime "remember_created_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "profile_picture"
     t.decimal "accumulated_points"
     t.decimal "points"
     t.string "username"
     t.string "provider"
     t.string "uid"
     t.integer "role"
-    t.text "image"
     t.string "country_code"
     t.boolean "verified", default: false
     t.string "num_tel"

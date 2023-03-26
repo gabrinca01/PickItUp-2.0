@@ -18,7 +18,10 @@ class JoinChallengesController < ApplicationController
     @join_challenge.challenge_id = params[:join_challenge][:challenge_id]
     @join_challenge.user_id = current_user.id
     if @join_challenge.save
-      redirect_to challenges_path,challenge_id: params[:id], notice: "You can chat with other Challenge memebers now"
+      @post = Post.create(user_id: current_user.id,challenge_id: params[:join_challenge][:challenge_id] )
+      if @post.persisted?
+        redirect_to challenges_path,challenge_id: params[:id], notice: "You can chat with other Challenge memebers now"
+      end
     else
 
       redirect_to root_path, notice: "join challenge was not created successfully"
