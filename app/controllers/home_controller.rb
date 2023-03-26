@@ -16,4 +16,5 @@ class HomeController < ApplicationController
       @results = User.all.where("lower(username) LIKE :search", search: "%#{@parameter}%")
     end
   end
+
 end
