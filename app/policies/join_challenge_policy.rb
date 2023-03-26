@@ -10,9 +10,7 @@ class JoinChallengePolicy < ApplicationPolicy
     @user.role == 'admin' || @record.user == @user
   end
 
-  def create?
-    @user.role >= 'level0' 
-  end
+  
   
 
 end

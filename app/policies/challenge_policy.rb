@@ -10,6 +10,6 @@ class ChallengePolicy < ApplicationPolicy
     @user.role == 'admin' || @record.user == @user
   end
   def create?
-    @user.role >= 'level1' 
+    @user.role == 'level1' || @user.role == 'level2' || @user.role == 'company' || @user.role == 'admin'
   end 
 end

@@ -10,9 +10,9 @@ class CommentPolicy < ApplicationPolicy
     @user.role == 'admin' || @record.user == @user
   end
   def create?
-    @user.role >= 'level2'
+    @user.role == 'level2' || @user.role == 'company'||@user.role == 'admin'
   end
   def edit?
-     (@record.user == @user && @user.role >= 'level1')
+     (@record.user == @user)
   end
 end
