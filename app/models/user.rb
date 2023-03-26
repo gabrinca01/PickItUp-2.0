@@ -6,7 +6,6 @@ class User < ApplicationRecord
   validates :username, presence: true, uniqueness: true
   validates :email,presence:true,uniqueness:true
   validates :num_tel, presence: true, uniqueness: true
-  after_create :set_role
   enum :role, [:level0,:level1, :level2 ,:company,:admin]
   
   devise :database_authenticatable, :registerable,
@@ -29,11 +28,6 @@ class User < ApplicationRecord
   def to_json(options={})
     options[:except] ||= [:verified]
     super(options)
-  end
-  def set_role
-    if self.role != :company 
-      self.role = :level0
-    end
   end
   
 

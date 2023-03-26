@@ -17,6 +17,8 @@ class Users::RegistrationsController < Devise::RegistrationsController
     build_resource(sign_up_params)
     if(params[:company] == 'on')
       resource.role = :company
+    else
+      resource.role = :level0
     end
     resource.save
     yield resource if block_given?
