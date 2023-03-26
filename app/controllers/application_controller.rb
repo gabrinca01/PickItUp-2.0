@@ -11,7 +11,7 @@ class ApplicationController < ActionController::Base
         Current.user = current_user
     end
 
-    
+
 
   protected
 
