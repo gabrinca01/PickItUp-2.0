@@ -2,6 +2,7 @@
     margin-left:auto;
     margin-right: auto;
     margin-top: 0;
+    background-color: white;
 }
 
 .postTitle{
@@ -13,10 +14,23 @@
 }
 
 #post_written_text{
-    width:700px;
+    width:1000px;
     min-height: 70px;
     height: fit-content;
+    border-color: white;
+    box-shadow: none;
 }
 #post_written_text:focus{
     border-color: green;
+    outline:none;
+}
+
+#new_post{
+    box-shadow: 0 2px 4px rgba(0, 0, 0, .5), 0 8px 16px rgba(0, 0, 0, .1);
+    width: 1000px;
+
+}
+
+#post-images{
+    background-color: red;
 }

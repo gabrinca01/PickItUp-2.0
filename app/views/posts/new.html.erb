@@ -10,18 +10,12 @@
 <% end %>
 
 
-<main class="container">
-  <%= link_to sanitize("&larr; Back to posts"), posts_path %>
-
-  <div class="header">
-    <h1>New post</h1>
-  </div>
-
-  <%= render "form", post: @post %>
- <button id="start-camera">Start Camera</button>
+<%= render "form", post: @post %>
+<div style="display:grid;grid-auto-flow:column;margin-left: inherit;margin-top: 20px;margin-right: 300px;">
+<button class="genButton" id="start-camera">Start Camera</button>
 <video id="video" width="320" height="240" autoplay></video>
-<button id="click-photo">Click Photo</button>
+<button class="genButton" id="click-photo">Click Photo</button>
 <canvas id="canvas" width="320" height="240"></canvas>
-<button id="upload">Upload</button>
-
+<button class="genButton" id="upload">Upload</button>
+</div>
  

@@ -2,7 +2,7 @@
 <div class="form-group msg-form">
   <%= form_with(model: [@challenge ,@message], remote: true, class: "d-flex" ) do |f| %>
     <%= f.text_field :msg_txt, id: 'chat-text', class: "form-control msg-content", autocomplete: 'off' %>
-    <%= f.submit  'Send',data: { disable_with: false }, class: "btn btn-primary" %>
+    <%= f.submit  'Send',data: { disable_with: false }, class: "genButton", style:"margin:7px" %>
   <% end %>
 </div>
 <%end%>

@@ -25,11 +25,11 @@
   </div>
 
   <div class="form-actions">
-    <%= f.submit "Update", class: 'mybutton'%>
+    <%= f.submit "Update", class: 'mybutton', style:"margin-left:330px;"%>
   </div>
 <% end %>
 
 
-<div class = "toolbox" style="margin-left:290px;">Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?", turbo_confirm: "Are you sure?" }, method: :delete, class: "genButton" %></div>
+<div class = "toolbox" style="margin-left:500px;">Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), style:"background-color:red;border-color:white;", data: { confirm: "Are you sure?", turbo_confirm: "Are you sure?" }, method: :delete, class: "genButton" %></div>
 
 <%= link_to "Back", :back %>

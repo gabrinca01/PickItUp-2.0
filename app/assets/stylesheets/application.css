@@ -107,23 +107,25 @@ turbo-frame {
 
 .toolbox{
   margin:auto;
+  margin-left:35%;
   display: grid;
   grid-auto-flow: column;
-  grid-template-columns: auto auto auto auto;
-  margin-left: 180px;
-  margin-right: 190px;
   margin-top: 30px;
+  align-self: center;
+  grid-gap: 10px;
+  width: 700px;
 }
 
 label{
   margin-left:20px;
   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  width:250px
 }
   
 .genButton{
   background-color: green;
   color: white;
-  font-size: 35px;
+  font-size: 20px;
   height: fit-content;
   width: auto;
   border-radius: 10px;
@@ -147,4 +149,20 @@ label{
 
 .genText:hover{
   color:green;
+}
+
+.genTitle{
+  background-color: green;
+  color: white;
+  padding:10px;
+  border-bottom-right-radius: 5px;
+  width:fit-content
+}
+
+.genTable{
+  margin:auto;
+  margin-left: 300px;
+  box-shadow: 0 2px 5px 0 rgb(0 0 0 / 16%), 0 2px 10px 0 rgb(0 0 0 / 12%);
+  border-color:green;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }

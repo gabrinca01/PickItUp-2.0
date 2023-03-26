@@ -1,5 +1,6 @@
-<div class = "loginContainer">
-<h2 class = "loginTitle" >Log in</h2><div class= "leftBlock" >
+
+<div class = "loginContainer" style="margin-left:22%">
+<h2 class = "loginTitle" >Log in</h2><div class= "leftBlock" style="width:750px" >
 <%= simple_form_for(resource, as: resource_name, url: new_user_session_path) do |f| %>
   <div class="form-inputs">
     <%= f.input :email,

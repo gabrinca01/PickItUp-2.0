@@ -1,13 +1,31 @@
 .msg-form {
     position: fixed;
     bottom: 0;
-    width: 90%
+    width: fit-content;
+    background-color: white;
+    box-shadow: 0 2px 5px 0 rgb(0 0 0 / 16%), 0 2px 10px 0 rgb(0 0 0 / 12%);
+    margin-left:300px;
+  }
+
+  turbo-frame{
+    border-style: none;
   }
 
   .col-md-10 {
-    height: 100vh;
+    height:500px;
     overflow: scroll;
   }
+
+  #chat-text{
+    width:600px;
+    margin-bottom: 15px;
+  }
+  
+#chat-text:focus{
+  border-color: green;
+  outline:none;
+}
+
 
   .msg-content {
     width: 80%;
@@ -20,5 +38,36 @@
   border-radius: 10px;
   margin-bottom: 10px;
   background-color: darkgreen ;
-  padding: 10px
+  padding: 10px;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+.myContainer{
+  box-shadow: 0 2px 4px rgba(0, 0, 0, .5), 0 8px 16px rgba(0, 0, 0, .1);
+  width: 1000px;
+  margin:auto;
+  padding-left:0;
+  background-color: white;
+}
+
+.challengeTitle{
+  
+  color: white;
+  background-color: green;
+  height: 45px;
+  width: fit-content;
+  border-bottom-right-radius: 10px;
+}
+
+
+#challenge_description{
+  width:1000px;
+  min-height: 70px;
+  height: fit-content;
+  border-color: white;
+  box-shadow: none;
+}
+#challenge_description:focus{
+  border-color: green;
+  outline:none;
 }

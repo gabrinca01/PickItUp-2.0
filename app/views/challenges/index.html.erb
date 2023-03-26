@@ -14,10 +14,14 @@
 <% if @challenge %>
 <% lat = @challenge.luogo.split(',')[0]%>
 <% lng = @challenge.luogo.split(',')[1]%>
-<h4 class="text-center" > <%= @challenge.description %>&nbsp&nbsp&nbsp&nbsp<%= link_to 'Set Date/Time/Duration',edit_challenge_path(@challenge,lat: lat,lng:lng) ,data: { turbo: false}%> 
-  
-        <%= link_to 'See challenge location', map_index_path(l: @l,id: @challenge.id) %></h4>
+<div style="margin-left:300px">
+<h2 class="genTitle" > <%= @challenge.description %><h2>
+&nbsp&nbsp&nbsp&nbsp
+<%= link_to 'Set Date/Time/Duration',edit_challenge_path(@challenge,lat: lat,lng:lng) ,data: { turbo: false}, class:"genText"%> 
+&nbsp&nbsp&nbsp&nbsp
+<%= link_to 'See challenge location', map_index_path(l: @l,id: @challenge.id), class:"genText" %></h4>
 <%= turbo_frame_tag "challenge" do %>
+</div>
 <div class="col-md-10 bg-dark text-light" style="flex: 7">
   
    
@@ -30,7 +34,4 @@
   <% end %>
 </div>
 <%end%>
-<main class="container" id="challenges" style="flex:2">
-  <%= render @joined_challenges %>
-</main>
 

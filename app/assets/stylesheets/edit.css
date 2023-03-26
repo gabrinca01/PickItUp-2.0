@@ -20,7 +20,9 @@ label{
     box-shadow: 0 0 0 0.2rem rgba(40, 167, 69, 0.25);
 } 
 .editTitle{
-    margin:0 300px;
+    margin-left: 600px;
+    margin-top:10px;
+    margin-bottom: 0;
     background-color: green;
     border-top-right-radius: 5px;
     border-top-left-radius: 5px;
@@ -62,4 +64,8 @@ label{
     border-color: green;
     background-color: white;
     color: green;
+}
+
+#edit_user{
+    width:1000px;
 }

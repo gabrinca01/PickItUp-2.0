@@ -6,15 +6,19 @@
     </div>
   <% end %>
 
-  <%= f.input :description, input_html: { autofocus: true } %>
+  <%= f.input :description, input_html: { autofocus: true }, label:false %>
+  <div style="margin:auto; display: grid; grid-auto-flow: column;">
+  <div>
   <%= f.input :temp_date, input_html: { autofocus: true } %>
   <%= f.input :temp_time, input_html: { autofocus: true } %>
+  </div>
   <%= f.hidden_field :user_id,:value => current_user.id %>
   <%= f.hidden_field :raggio,value: params['radius'].to_s %>
   <%= f.hidden_field :luogo,value:  params['coord'].to_s.tr('()','') %>
 
   
-  <%= f.submit class: "btn btn--secondary" %>
+  <%= f.submit class: "genButton", style:"margin-right:10px" %>
+  </div>
 <% end %>
 <div id="weather" style= "display:flex">
     <div  id = "rain" class= "rain_c" style="display: none;">
