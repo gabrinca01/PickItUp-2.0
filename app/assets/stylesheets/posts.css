@@ -1,0 +1,57 @@
+.post_footer{
+    display:grid;
+    grid-auto-flow: column ;
+}
+
+.like{
+    height: 40px;
+    width: 40px;
+    background-color: green;
+    background-image: url("like.png");
+    background-size: 25px;
+    background-position: center;
+    background-repeat: no-repeat;
+    margin-bottom:10px;
+    margin-top:10px;
+    padding:10px;
+    border-style: none;
+    border-radius: 100px;
+}
+
+.like:hover{
+    background-image: url("like_n.png");
+}
+
+.dislike{
+    height: 40px;
+    width: 40px;
+    background-color: rgb(214, 2, 2);
+    background-image: url("dislike.png");
+    background-size: 25px;
+    background-position: center;
+    background-repeat: no-repeat;
+    margin-bottom:10px;
+    margin-top:10px;
+    padding:10px;
+    border-style: none;
+    border-radius: 100px;
+}
+
+.likes{
+    display: grid;
+    grid-auto-flow: column;
+    width:300px;
+}
+
+
+.dislike:hover{
+    background-image: url("dislike_n.png");
+}
+
+.myContainer.post{
+    margin-bottom:20px;
+}
+
+.fb_iframe_widget{
+    width:847px;
+}

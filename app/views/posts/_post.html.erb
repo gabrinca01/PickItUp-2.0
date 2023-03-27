@@ -1,6 +1,6 @@
 <%= turbo_frame_tag "post" do %>
 
-<div class="post">
+<div class="myContainer post">
 <div class="post_header" style="display: inline-flex;">
   <%user =User.find(post.user_id) %>
 </div>
@@ -13,12 +13,12 @@
 </div>
 <div class= "post_footer">
   <div class="fb-share-button" data-href="https://developers.facebook.com/docs/plugins/" data-layout="" data-size=""><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">Condividi</a></div>
- <div id="<%= "#{dom_id(post)}_likes" %>">
+ <div id="<%= "#{dom_id(post)}_likes" %>" class="likes">
   <% pre_like = post.likes.find { |like| like.user_id == current_user.id} %>
 <% if pre_like %>
-  <%= button_to 'Unlike', post_like_path(post, pre_like), method: :delete %>
+  <%= button_to '', post_like_path(post, pre_like), method: :delete, class:"dislike" %>
 <% else %>
-  <%= button_to 'Like', post_likes_path(post), method: :post %>
+  <%= button_to '', post_likes_path(post), method: :post, class:"like" %>
 <% end %>
   <p><%= post.likes.count %> <%= (post.likes.count) == 1 ? 'Like' : 'Likes'%></p>
   <div>

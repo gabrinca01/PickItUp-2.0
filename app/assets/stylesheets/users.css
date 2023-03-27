@@ -5,12 +5,18 @@
 	display: inline-flex;
 	border-color: black;
 	background-color: whitesmoke;
-	margin-left: 0;
+	margin-left: 500px;
 	float:left;
+	margin-top:20px;
 	
 	box-shadow: 0 2px 5px 0 rgb(0 0 0 / 16%), 0 2px 10px 0 rgb(0 0 0 / 12%);
 
 }
-.user__actions{
 
+.stats{
+	margin-left: 400px;
+}
+
+#follow_form{
+	margin-left: 400px;
 }
