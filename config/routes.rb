@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   get 'leaderboard/index'
   get 'map/index'
   root 'home#index'
+  get 'companies/index'
   get "/home", to: "home#index"
   get "/home/search", to: "home#search"
   get "posts/to_verify", to: "posts#to_verify"
@@ -16,7 +17,7 @@ Rails.application.routes.draw do
   end
   resources :follows
   resources :posts do 
-    resources :comments, only: %i[create]
+    resources :comments
     resources :likes
   end
   resources :challenges do 
@@ -25,7 +26,7 @@ Rails.application.routes.draw do
   resources :awards
   resources :join_challenges
   resources :news
-  resources :companies
+  
   
   resources :relationships,only: [:create, :destroy]
 

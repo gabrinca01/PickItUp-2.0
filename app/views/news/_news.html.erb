@@ -4,25 +4,19 @@
   <%= link_to news.title, news_path(news), class:"genText", style:"width:800px" %>
  
   <div class="news__actions">
-<<<<<<< Updated upstream
-    <% if Pundit.policy(Current.user,news).destroy? %>
-      <%= button_to "Delete",
-                  news_path(news),
-                  method: :delete,
-                  class: "btn btn--light" %>
-    <% end %>
+
+   
     <div class="fb-share-button" data-href=<%= news.url %> data-layout="" data-size=""><a target=<%= news.url %> href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">Condividi</a></div>
-    
-    
-=======
-    <%= button_to "",
+    <% if Pundit.policy(Current.user,news).destroy? %>
+      <%= button_to "",
                   news_path(news),
                   method: :delete,
                   class: "btn btn--light delete" %>
-    <%= link_to "",
-                edit_news_path(news),
-                class: "btn btn--light edit" %>
->>>>>>> Stashed changes
+    <% end %>
+    
+
+    
+
     <br>
   </div>
 </div>

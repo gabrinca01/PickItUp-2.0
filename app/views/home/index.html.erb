@@ -27,13 +27,12 @@
 <% end %>
 <div id= "timeline">
 
-<<<<<<< Updated upstream
+
 <% if Pundit.policy(Current.user,@post).create? %>	
-	<%= simple_form_for @post, html: { class: "post form" },action: "/posts" do |f| %>
-=======
+	
 	
 	<%= simple_form_for @post, html: { class: "myContainer" },action: "/posts" do |f| %>
->>>>>>> Stashed changes
+
   <h2 class="postTitle">Write what you're thinking &nbsp;</h2>
   <%= f.input :written_text, input_html: { autofocus: true }, wrapper: false, label: false, class:"postText"%>
   <div style="margin:auto; display: grid; grid-auto-flow: column;">

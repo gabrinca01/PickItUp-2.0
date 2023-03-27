@@ -77,7 +77,8 @@ class PostsController < ApplicationController
     @user = User.find(@post.user_id)
     @user.points += @points
     @user.accumulated_points += @points
-    @user.save  
+    @user.save 
+    redirect_to verify_path 
   end
  
   private

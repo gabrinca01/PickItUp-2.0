@@ -6,7 +6,7 @@ class User < ApplicationRecord
   validates :username, presence: true, uniqueness: true
   validates :email,presence:true,uniqueness:true
   validates :num_tel, presence: true, uniqueness: true
-  enum :role, [:level0,:level1, :level2 ,:company,:admin]
+  enum :role ,{:level0 => 0,:level1=>1, :level2  => 2 ,:company => 3,:admin => 4}
   
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable,

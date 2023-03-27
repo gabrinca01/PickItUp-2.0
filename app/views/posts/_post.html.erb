@@ -45,7 +45,7 @@
                 class: "btn btn--light" %>
     <%end %>
     <% if post.verified == false %>
-      <%= button_to "Verify", action: "verify",method: :post,id: post.id %>
+      <%= button_to "Verify", posts_verify_path,method: :post,id: post.id %>
     <% end %>
   </div>
 </div>
