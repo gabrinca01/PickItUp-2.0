@@ -26,6 +26,7 @@
 <%= link_to 'See challenge location', map_index_path(l: @l,id: @challenge.id), class:"genText" %></h4>
 <%= turbo_frame_tag "challenge" do %>
 </div>
+<div class="chatContainer">
 <div class="col-md-10 bg-dark text-light" style="flex: 7">
   
    
@@ -38,4 +39,12 @@
   <% end %>
 </div>
 <%end%>
+
+<% if @challenge %>
+<div class="challenges column">
+<%else%>
+<div class="challenges grid">
+<%end%>
 <%=  render @joined_challenges %>
+</div>
+</div>

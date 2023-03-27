@@ -1,5 +1,5 @@
-<div class="challenge">
-  <%= link_to  challenge.description, challenge %>
+<div class="challengeField">
+  <%= link_to  challenge.description, challenge, class:"genText", style:"align:middle"%>
   <% if Pundit.policy(Current.user,challenge).destroy? %>
   <%= button_to "Delete",
                   challenges_path(challenge),
