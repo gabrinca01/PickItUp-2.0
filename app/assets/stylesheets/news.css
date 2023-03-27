@@ -4,5 +4,41 @@
     box-shadow: 0 2px 4px rgba(0, 0, 0, .5), 0 8px 16px rgba(0, 0, 0, .1);
     width: 1000px;
     margin: 10px;
-    padding-left:0;
+    margin-left:405px;
+    padding:10px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    background-color: white;
+
+}
+
+.news__actions{
+    margin-left: 100px;
+}
+
+.btn.btn--light.edit{
+    height: 40px;
+    width: 40px;
+    background-color: green;
+    background-image: url("edit.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+
+}
+
+.btn.btn--light.edit:hover{
+    background-image: url("edit_n.png");
+}
+
+.btn.btn--light.delete{
+    height: 40px;
+    width: 40px;
+    background-color: rgb(214, 2, 2);
+    background-image: url("delete.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    margin-bottom:10px;
+}
+
+.btn.btn--light.delete:hover{
+    background-image: url("delete_n.png");
 }

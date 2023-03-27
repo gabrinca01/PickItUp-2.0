@@ -46,6 +46,7 @@
   box-shadow: 0 2px 4px rgba(0, 0, 0, .5), 0 8px 16px rgba(0, 0, 0, .1);
   width: 1000px;
   margin:auto;
+  margin-left: 405px;
   padding-left:0;
   background-color: white;
 }

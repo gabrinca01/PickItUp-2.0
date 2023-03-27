@@ -20,18 +20,6 @@
         center: myLatlng,
         mapTypeId: 'terrain',
       });
-      const challenge_zone = new google.maps.Circle({
-          strokeColor: "red",
-          strokeOpacity: 0.8,
-          strokeWeight: 2,
-          fillColor: "blue",
-          fillOpacity: 0.35,
-          map:map,
-          radius: rad,
-          center: myLatlng,
-          editable : false,
-          draggable : false,
-        });
       var username = url.searchParams.get("username"); 
       const token = document.getElementsByName(
   "csrf-token"
