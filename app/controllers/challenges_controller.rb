@@ -53,7 +53,7 @@ class ChallengesController < ApplicationController
   def update
     durata = params[:challenge][:durata].to_i 
     @challenge.durata = durata
-      assign_points(@challenge)
+      @challenge.assign_points
       
       year=params[:challenge]['def_time(1i)'].to_i 
       
@@ -72,11 +72,7 @@ class ChallengesController < ApplicationController
       @challenge.send_messages
       redirect_to @challenge, notice: "You set the definite details successfully"
   end
-  def assign_points (challenge)
-      ratio  = challenge.raggio.to_f / challenge.num_partecipanti 
-      challenge.points = ratio
-      challenge.save
-   end 
+  
   
 
   def destroy

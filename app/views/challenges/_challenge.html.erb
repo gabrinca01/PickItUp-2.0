@@ -1,3 +1,9 @@
 <div class="challenge">
   <%= link_to  challenge.description, challenge %>
+  <% if Pundit.policy(Current.user,challenge).destroy? %>
+  <%= button_to "Delete",
+                  challenges_path(challenge),
+                  method: :delete,
+                  class: "btn btn--light" %>
+  <% end %>
 </div>

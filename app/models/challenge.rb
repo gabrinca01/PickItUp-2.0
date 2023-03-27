@@ -1,6 +1,6 @@
 class Challenge < ApplicationRecord
 	#has_and_belongs_to_many :join_challenges
-	has_one :user
+	belongs_to :user
 	has_many :join_challenges,dependent: :destroy
 	has_many :messages,dependent: :destroy
 	attr_accessor :date_time1
@@ -31,6 +31,10 @@ class Challenge < ApplicationRecord
 	handle_asynchronously :send_messages,:run_at => @date_time1
     handle_asynchronously :send_messages,:run_at => @date_time2
     handle_asynchronously :send_messages,:run_at => @date_time3
-
+    def assign_points
+      ratio  = self.raggio.to_f / self.num_partecipanti * self.durata
+      self.points = ratio
+      self.save
+   end 
  
 end

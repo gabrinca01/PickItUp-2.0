@@ -15,10 +15,14 @@ class JoinChallengesController < ApplicationController
 
   def create
     @join_challenge = JoinChallenge.new
-    @join_challenge.challenge_id = params[:join_challenge][:challenge_id]
+    @challenge_id = params[:join_challenge][:challenge_id]
+    @join_challenge.challenge_id = @challenge_id
     @join_challenge.user_id = current_user.id
+    @challenge = Challenge.find(@challenge_id)
+    @challenge.num_partecipanti += 1
+    @challenge.assign_points
     if @join_challenge.save
-      @post = Post.create(user_id: current_user.id,challenge_id: params[:join_challenge][:challenge_id] )
+      @post = Post.create(user_id: current_user.id,challenge_id: @challenge_id )
       if @post.persisted?
         redirect_to challenges_path,challenge_id: params[:id], notice: "You can chat with other Challenge memebers now"
       end

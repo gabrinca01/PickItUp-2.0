@@ -10,7 +10,7 @@
   justify-content: flex-end
   }
 </style>
-<h2>aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</h2>
+
 <% end %>
 <% if @challenge %>
 <% lat = @challenge.luogo.split(',')[0]%>
@@ -18,7 +18,7 @@
 <div style="margin-left:300px">
 <h2 class="genTitle" > <%= @challenge.description %><h2>
 &nbsp&nbsp&nbsp&nbsp
-<% if @challenge.user_id == current_user.id %>
+<% if @challenge.user_id == current_user.id && @challenge.durata == nil %>
       <%= link_to 'Set Date/Time/Duration',edit_challenge_path(@challenge,lat: lat,lng:lng) ,data: { turbo: false}, class:"genText"%> 
 <% end %>
 

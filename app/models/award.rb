@@ -1,4 +1,4 @@
 class Award < ApplicationRecord
-	belongs_to :company
+	belongs_to :user
 	has_one_attached :image
 end

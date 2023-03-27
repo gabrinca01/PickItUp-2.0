@@ -23,7 +23,7 @@
   <p><%= post.likes.count %> <%= (post.likes.count) == 1 ? 'Like' : 'Likes'%></p>
   <div>
 </div>
-<%if current_user.role >= 'level1' %>
+<%if current_user.role == 'level1' || current_user.role == 'level2' || current_user.role == 'company' || current_user.role == 'admin' %>
     <%= render partial: "comments/form", locals: { comment: Comment.new , post: post} %>
 <%end %>
   <%= turbo_stream_from post, :comments %>
