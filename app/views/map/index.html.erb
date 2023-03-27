@@ -24,6 +24,19 @@
       const token = document.getElementsByName(
   "csrf-token"
 )[0].content;
+const challenge_zone=new google.maps.Circle({
+        strokeColor: "red",
+        strokeOpacity: 1,
+        strokeWeight: 2,
+        fillColor: "blue",
+        fillOpacity: 0.35,
+        editable : false,
+        draggable:false,
+      });
+      
+      challenge_zone.setMap(map);
+      challenge_zone.setCenter(new google.maps.LatLng(lat,lng));
+      challenge_zone.setRadius(rad);
 <% if JoinChallenge.where(user_id: current_user.id,challenge_id: params[:id]).empty?%>
         challenge_zone.addListener('click', () => {
            const contentString ='<main class="container">'+
