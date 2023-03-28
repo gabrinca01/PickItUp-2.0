@@ -9,7 +9,7 @@ function get_suggestion(){
     const settings = {
         "async": true,
         "crossDomain": true,
-        "url": "https://you-chat-gpt.p.rapidapi.com/",
+        "url": "https://you-chat-gpt.p.rapidapi.com",
         "method": "POST",
         "headers": {
             "content-type": "application/json",
@@ -19,7 +19,7 @@ function get_suggestion(){
         "processData": false,
         "data": {
             "question": question,
-            "max_response_time": 30
+            "max_response_time": 10
         }
     };
     
