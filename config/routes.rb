@@ -8,6 +8,8 @@ Rails.application.routes.draw do
   get "/home/search", to: "home#search"
   get "posts/to_verify", to: "posts#to_verify"
   post "posts/verify",to: "posts#verify"
+  get 'signup'  => 'users#new'
+
   devise_scope :user do
      get 'verify', to: 'users/registrations#verify', as: 'verify'
      post 'verify', to: 'users/registrations#verify'
