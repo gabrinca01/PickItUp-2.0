@@ -1,4 +1,19 @@
-<main class="container" style="margin-left:0">
+<% content_for :head do %>
+  
+  <%= javascript_import_module_tag "suggestion" %>
+  
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
+<% end %>
+
+<main class="container" style="margin-left:8%">
+
+
+<div id="suggestion_box">
+  <button id="suggestion_b"  style = "position: absolute; top: 7%; width: 20%; margin-left: 38%"> Consigliami </button>
+  <div id="suggestion" , display= "block" style="margin-left:60%">  
+  </div>
+</div>
+
   <div class="header">
     <h2 class="newsTitle">News</h2>
     <%= link_to "New quote",
@@ -7,5 +22,7 @@
   </div>
 
 <%= render @news %>
+
+
   
 </main>
