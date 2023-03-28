@@ -1,13 +1,25 @@
-<style>
-a:hover{
-    color:green;
-}
+<%= stylesheet_link_tag "leaderboard" %>
 
-#profile_picture{
-    margin:10px
-}
-</style>
-<h2 class="genTitle" style="margin-left:300px;">Leaderboard</h2>
-<div class="genTable">
-    <%=render @leaderboard %>
+
+<div id ="leaderboard" style="margin-left: 50%">
+<table>
+  <thead>
+    <tr>
+      <th>Username</th>
+      <th>Points</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @leaderboard.each do |movie| %>
+    <!-- class adult to any table rows for movies rated other than G or PG -->
+      <tr class="leaderboard" style="margin-left: 200px">
+        <td><%= movie.username %></td>
+        <td><%= movie.points %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
 </div>
+
+<br>
