@@ -53,5 +53,62 @@
 }
 
 .fb_iframe_widget{
-    width:847px;
+    width:827px;
+    margin-left:20px;
+}
+
+.postUpload{
+    margin-left:404px;
+    display:grid;
+    grid-template-columns: auto auto auto;
+    grid-template-rows: auto auto;
+    grid-gap:10px;
+}
+.post_body{
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    margin-left:40px;
+    display:grid;
+    grid-auto-flow: row;
+}
+
+.post_header{
+    margin-left:20px;
+}
+
+.simple_form.post.form{
+    margin-left: 404px !important;
+
+}
+
+img{
+    border-radius:0% !important;
+    width:920px;
+}
+
+.commentText{
+    display: grid;
+    grid-auto-flow: row;
+}
+
+#comment_body{
+    width:960px;
+
+}
+
+.genButton.comments{
+    width:250px;
+    margin-left:auto;
+    margin-right:20px;
+}
+
+.post_actions{
+    display: grid;
+    grid-auto-flow: column;
+    margin-top: 15px;
+    width:400px;
+}
+
+.btn.btn--light.delete.comment_delete{
+    margin-top:0;
+    margin-left:10px;
 }

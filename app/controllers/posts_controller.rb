@@ -75,8 +75,16 @@ class PostsController < ApplicationController
     @post.save
     @points = Challenge.find(@post.challenge_id).points
     @user = User.find(@post.user_id)
-    @user.points += @points
-    @user.accumulated_points += @points
+    if @user.points 
+      @user.points += @points
+    else 
+      @user.points = @points
+    end
+    if @user.accumulated_points
+      @user.accumulated_points += @points
+    else
+      @user.accumulated_points = @points
+    end
     @user.save 
     redirect_to verify_path 
   end

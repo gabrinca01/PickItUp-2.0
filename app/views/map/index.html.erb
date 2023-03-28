@@ -120,6 +120,7 @@ const challenge_zone=new google.maps.Circle({
     const marker = new google.maps.Marker({
           map:map,
         });
+  <% if Pundit.policy(Current.user,@challenge).create? %>
     map.addListener('click', function(e) {
         challenge_zone.setMap(null);
         marker.setMap(null);
@@ -147,6 +148,7 @@ const challenge_zone=new google.maps.Circle({
         });
         
     });
+    <% end %>
     challenge_zone.addListener('radius_changed',() =>{
             radius=challenge_zone.getRadius();
         });
