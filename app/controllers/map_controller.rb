@@ -14,7 +14,7 @@ class MapController < ApplicationController
     @query=JoinChallenge.select(:challenge_id).where.not(user_id:current_user.id).distinct
     @to_join = Challenge.where('id in (?)',@query)
       @join_challenge = JoinChallenge.new
-
+    @challenge = Challenge.new
     
   end
 end

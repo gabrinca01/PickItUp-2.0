@@ -20,7 +20,9 @@ class JoinChallengesController < ApplicationController
     @join_challenge.user_id = current_user.id
     @challenge = Challenge.find(@challenge_id)
     @challenge.num_partecipanti += 1
-    @challenge.assign_points
+    if @challenge.durata != nil
+      @challenge.assign_points
+    end
     if @join_challenge.save
       @post = Post.create(user_id: current_user.id,challenge_id: @challenge_id )
       if @post.persisted?
