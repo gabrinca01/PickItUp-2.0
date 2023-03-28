@@ -1,5 +1,6 @@
 class PostsController < ApplicationController
   before_action :set_post, only: [:show, :edit, :update, :destroy,:verify]
+  before_action :authenticate_user!, only: [:create,:update]
   #before_action :set_challenge, only: [:verify]
   rescue_from Pundit::NotAuthorizedError do
     redirect_to root_path, alert: "You aren't allowed to do that"

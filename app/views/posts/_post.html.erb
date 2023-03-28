@@ -3,8 +3,10 @@
 <div class="myContainer post">
 <div class="post_header" style="display: inline-flex;">
   <%user =User.find(post.user_id) %>
+  <%= user.username%>
 </div>
 <div class="post_body">
+  <%= post.written_text%>
   <%if post.images.attached? %>
     <% post.images.each do |image| %>
         <%= image_tag(image) %>
@@ -24,6 +26,8 @@
   <p><%= post.likes.count %> <%= (post.likes.count) == 1 ? 'Like' : 'Likes'%></p>
   <div>
 </div>
+</div>
+</div>
 <%if current_user.role == 'level1' || current_user.role == 'level2' || current_user.role == 'company' || current_user.role == 'admin' %>
     <%= render partial: "comments/form", locals: { comment: Comment.new , post: post} %>
 <%end %>
@@ -31,22 +35,20 @@
 <div id="<%= "#{dom_id(post)}_comments" %>">
   <%= render post.comments.order(created_at: :desc) %>
 </div>
-</div>
-</div>
   <div class="post_actions">
     <% if Pundit.policy(Current.user,post).destroy? %>
-      <%= button_to "Delete",
+      <%= button_to "",
                   post_path(post),
                   method: :delete,
-                  class: "btn btn--light" %>
+                  class: "btn btn--light delete comment_delete" %>
     <% end %>
     <%if Pundit.policy(Current.user,post).edit? %>
-    <%= link_to "Edit",
+    <%= link_to "",
                 edit_post_path(post),
-                class: "btn btn--light" %>
+                class: "btn btn--light edit" %>
     <%end %>
     <% if post.verified == false %>
-      <%= button_to "Verify", posts_verify_path,method: :post,id: post.id %>
+      <%= button_to "Verify", posts_verify_path,method: :post,id: post.id , class:"genButton"%>
     <% end %>
   </div>
 </div>

@@ -15,6 +15,10 @@ gem 'jquery-rails'
 
 gem 'delayed_job_active_record'
 
+group :development, :test do
+  gem 'rspec-rails', ">= 3.9.0"
+end
+
 gem 'devise'
 gem "simple_form", "~> 5.1.0"
 gem 'pry-rails' 
