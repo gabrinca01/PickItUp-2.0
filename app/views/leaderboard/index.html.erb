@@ -1,21 +1,21 @@
 <%= stylesheet_link_tag "leaderboard" %>
 
 
-<div id ="leaderboard" style="margin-left: 50%">
+<div class ="leaderboard">
 <table>
   <thead>
     <tr>
-      <th>Username</th>
-      <th>Points</th>
+      <th style="width: 70%">Username </th>
+      <th>Points </th>
     </tr>
   </thead>
 
   <tbody>
     <% @leaderboard.each do |movie| %>
     <!-- class adult to any table rows for movies rated other than G or PG -->
-      <tr class="leaderboard" style="margin-left: 200px">
+      <tr>
         <td><%= movie.username %></td>
-        <td><%= movie.points %></td>
+        <td><%= movie.accumulated_points %></td>
       </tr>
     <% end %>
   </tbody>
