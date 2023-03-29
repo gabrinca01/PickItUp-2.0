@@ -45,3 +45,23 @@
     background-image: url("delete_n.png");
 }
 
+#suggestion_box{
+    display: grid;
+    grid-auto-flow: row;
+    margin-left:550px;
+    width:500px;
+    background-color: white;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, .5), 0 8px 16px rgba(0, 0, 0, .1);
+}
+
+#suggestion_b{
+    width:300px;
+    margin-left: 100px;
+    margin-top: 14px;
+    margin-bottom:14px;
+}
+
+#suggestion{
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    padding:4px;
+}

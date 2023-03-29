@@ -19,6 +19,8 @@
     height: fit-content;
     border-color: white;
     box-shadow: none;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: 20px;
 }
 #post_written_text:focus{
     border-color: green;

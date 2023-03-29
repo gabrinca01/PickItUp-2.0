@@ -1,6 +1,8 @@
 #map {
     height: 100%;
-    width: 100%;
+    width: 120%;
+    border-style: solid;
+    border-color:green;
   }
   html,
 body {
@@ -9,6 +11,14 @@ body {
   padding: 0;
 }
 
+#mapContainer{
+  display: grid;
+  grid-auto-flow: column;
+  width:100%;
+  height:100%;
+  grid-template-columns: 70% 30%;
+  grid-template-rows: 100%;
+}
 
   
   #create_challenge,#join_challenge {
@@ -30,3 +40,23 @@ body {
   a:hover{
     color: white;
   }
+
+#challenges_to_join{
+  margin-left:46.7%;
+  background-color: white;
+  border-bottom-style: solid;
+  border-right-style: solid;
+  border-top-style: solid;
+  border-color:green;
+}
+
+.genText.challenge{
+  margin:5px;
+}
+
+#challenge_to_join{
+  border-style: solid;
+  border-width: 1px;
+  border-top-style: none;
+  border-color: green;
+}

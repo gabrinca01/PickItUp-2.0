@@ -168,7 +168,7 @@ window.initMap = initMap;
   
   <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
 <% end %>
-
+  <div id="mapContainer">
 
     <div id="map"></div>
 
@@ -177,15 +177,17 @@ window.initMap = initMap;
       defer
     ></script>
 
-    <div id="challenges to join">
+    <div id="challenges_to_join">
       <% @to_join.each do |challenge| %>
-        <div class= "challenge to join">
-          CHALLENGE#<%=challenge.id %>
+      <div>
+        <div id= "challenge_to_join">
+          CHALLENGE  #<%=challenge.id %>
+          <br>
         <%lat = challenge.luogo.split(',')[0] %>
         <%long = challenge.luogo.split(',')[1] %>
         <% rad  =challenge.raggio.to_s %>
         <% @l =@lat+':'+@long+':'+@rad %> 
-        <%= link_to 'See challenge location', map_index_path(l: @l,id: challenge.id) %>
+        <%= link_to challenge.description, map_index_path(l: @l,id: challenge.id) , class:"genText challenge"%>
       </div>
       <% end %>
       
