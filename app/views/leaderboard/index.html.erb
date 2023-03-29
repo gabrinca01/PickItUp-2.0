@@ -11,11 +11,11 @@
   </thead>
 
   <tbody>
-    <% @leaderboard.each do |movie| %>
+    <% @leaderboard.each do |user| %>
     <!-- class adult to any table rows for movies rated other than G or PG -->
       <tr>
-        <td><%= movie.username %></td>
-        <td><%= movie.accumulated_points %></td>
+        <td><%= user.username %></td>
+        <td><%= user.accumulated_points %></td>
       </tr>
     <% end %>
   </tbody>

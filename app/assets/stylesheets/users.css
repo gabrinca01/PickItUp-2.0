@@ -14,7 +14,11 @@
 }
 
 .stats{
-	margin-left: 400px;
+	margin-left: 30%;
+	background-color: whitesmoke;
+	max-width: 20%;
+	border: 2px solid rgb(124, 124, 124);
+    border-spacing: 3px;
 }
 
 #follow_form{

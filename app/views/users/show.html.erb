@@ -2,16 +2,16 @@
 <div class="stats">
   <a>
     <strong id="following" class="stat">
-      <%= @user.following.count %>
+    Following:
+    <%= @user.following.count %>
     </strong>
-    following
   </a>
   <br>
   <a>
     <strong id="followers" class="stat">
-      <%= @user.followers.count %>
+    Followers:
+    <%= @user.followers.count %>
     </strong>
-    followers
   </a>
 </div>
 <% if current_user.id != @user.id %>

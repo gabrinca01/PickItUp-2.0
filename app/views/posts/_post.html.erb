@@ -1,6 +1,6 @@
 <%= turbo_frame_tag "post" do %>
 
-<div class="myContainer post">
+<div class="myContainer post" style= "margin-left:30%;">
 <div class="post_header" style="display: inline-flex;">
   <%user =User.find(post.user_id) %>
   <%= user.username%>
