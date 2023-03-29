@@ -14,7 +14,7 @@
     <% @leaderboard.each do |user| %>
     <!-- class adult to any table rows for movies rated other than G or PG -->
       <tr>
-        <td><%= user.username %></td>
+      <td><%= link_to  user.username, user, data:{turbo: false} , class:"genText", style:"align:middle; max-width: 80%"%></td>
         <td><%= user.accumulated_points %></td>
       </tr>
     <% end %>

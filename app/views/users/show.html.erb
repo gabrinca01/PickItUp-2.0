@@ -1,13 +1,19 @@
+<%= stylesheet_link_tag "users" %>
 
+<div class= "nametag"> 
+
+<p class="nome"> Pagina di <%= @user.username %></p>
+
+</div>
 <div class="stats">
-  <a>
+  <a style= "margin-left:5%;">
     <strong id="following" class="stat">
     Following:
     <%= @user.following.count %>
     </strong>
   </a>
   <br>
-  <a>
+  <a style= "margin-left:5%;">
     <strong id="followers" class="stat">
     Followers:
     <%= @user.followers.count %>

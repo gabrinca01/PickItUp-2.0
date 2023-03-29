@@ -14,7 +14,7 @@
     <% @companies.each do |company| %>
     <!-- class adult to any table rows for movies rated other than G or PG -->
       <tr>
-        <td><%= link_to  company.username, company, class:"genText", style:"align:middle; max-width: 80%"%></td>
+        <td><%= link_to  company.username, company, data:{turbo: false} , class:"genText", style:"align:middle; max-width: 80%"%></td>
         <td><%= company.accumulated_points %></td>
       </tr>
     <% end %>
