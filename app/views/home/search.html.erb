@@ -1,3 +1,20 @@
-<main>
-	<%= render @results %>
-</main>
+<div class ="leaderboard">
+<table>
+  <thead>
+    <tr>
+      <th style="width: 100%;">Risultati della ricerca</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @results.each do |user| %>
+    <!-- class adult to any table rows for movies rated other than G or PG -->
+      <tr>
+        <td><%= link_to  user.username, user, class:"genText", style:"align:middle; max-width: 80%"%></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+</div>
+
+<br>
