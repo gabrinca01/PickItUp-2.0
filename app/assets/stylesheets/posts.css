@@ -49,11 +49,13 @@
 }
 
 .myContainer.post{
-    margin-bottom:20px;
+    margin-bottom:10px;
+    margin-top:10px;
+
 }
 
 .fb_iframe_widget{
-    width:827px;
+    width:727px;
     margin-left:20px;
 }
 
@@ -111,4 +113,8 @@ img{
 .btn.btn--light.delete.comment_delete{
     margin-top:0;
     margin-left:10px;
+}
+
+.comment{
+    padding:10px;
 }

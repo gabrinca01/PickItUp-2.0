@@ -32,7 +32,7 @@
     <%= render partial: "comments/form", locals: { comment: Comment.new , post: post} %>
 <%end %>
   <%= turbo_stream_from post, :comments %>
-<div id="<%= "#{dom_id(post)}_comments" %>">
+<div id="<%= "#{dom_id(post)}_comments" %>", class="comment">
   <%= render post.comments.order(created_at: :desc) %>
 </div>
   <div class="post_actions">
