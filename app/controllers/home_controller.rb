@@ -4,7 +4,6 @@ class HomeController < ApplicationController
   protect_from_forgery prepend: true
   def index
     @post = Post.new 
-    @awards = Award.all
     @follows  = current_user.following.select(:followed_id)
     @timeline_posts = Post.where(verified: true).where("user_id in (?)", @follows)
   end
