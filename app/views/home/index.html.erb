@@ -26,7 +26,7 @@
 	
 	
 	<%= simple_form_for @post, html: { class: "myContainer" },action: "/posts" do |f| %>
-
+  
   <h2 class="postTitle">Write what you're thinking &nbsp;</h2>
   <%= f.input :written_text, input_html: { autofocus: true }, wrapper: false, label: false, class:"postText"%>
   <div style="margin:auto; display: grid; grid-auto-flow: column;">

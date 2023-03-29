@@ -1,7 +1,6 @@
-<div id="<%= dom_id(comment) %>">
+<div id="<%= dom_id(comment) %>" style="display:flex">
 
-  <%= comment.user.username %>
-  <%= comment.body %>
+  <p><%= comment.user.username %>: <%= comment.body %> </p>
   <% if Pundit.policy(Current.user,comment).edit?%>
   <%= link_to "Edit",
                 edit_post_comment_path(comment,id: comment.post.id),

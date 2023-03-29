@@ -2,15 +2,19 @@
 
 <div class="myContainer post" style= "margin-left:30%;">
 <div class="post_header" style="display: inline-flex;">
-  <%user =User.find(post.user_id) %>
+  <p style="margin-left:1%"><%user =User.find(post.user_id) %></p>
   <%= user.username%>
 </div>
 <div class="post_body">
   <%= post.written_text%>
+
   <%if post.images.attached? %>
+  <div class="carousel-slide">
     <% post.images.each do |image| %>
-        <%= image_tag(image) %>
+       <div class="corousel-item> <img><%= image_tag(image) %></img></div>
     <% end %>
+  </div>
+
   <% end%>
     <%@written_text%>
 </div>
