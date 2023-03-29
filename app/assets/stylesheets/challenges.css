@@ -75,12 +75,36 @@
   outline:none;
 }
 
-.challengeField{
+/* .challengeField{
   background-color: white;
   text-align: center;
+  margin-bottom: 5%;
+  display: flex;
+  width: 100%;
+}  */
+
+.challengeField{
+  display:flex;
+  grid-auto-flow: column;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, .5), 0 8px 16px rgba(0, 0, 0, .1);
+  width: 600px;
+  margin: 10px;
+  padding:10px;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  background-color: white;
+  margin-left: 40%;
+  
 }
 
-.challenges.grid{
+.descrizione{
+  width: 80%;
+  padding-top: 3%;
+}
+.delete_b{
+  height:100px;
+}
+
+challenges.grid{
 
   border:1px solid green;
   grid-gap:1px;
@@ -91,9 +115,9 @@
   box-shadow: 0 2px 5px 0 rgb(0 0 0 / 16%), 0 2px 10px 0 rgb(0 0 0 / 12%);
   width:fit-content;
   background-color: white;
-}
+} 
 
-.challenges.column{
+/* .challenges.column{
   border:1px solid green;
   grid-gap:1px;
   display: grid;
@@ -103,8 +127,13 @@
   background-color: white;
   margin-left: 910px;
 
-}
+}  */
 
 .chatContainer{
-  margin-left: 300px;
+  margin-left: 20%;
+}
+
+.delete_b{
+
+  margin-left: 5%;
 }
