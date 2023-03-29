@@ -1,4 +1,4 @@
-class AwardController < ApplicationController
+class AwardsController < ApplicationController
   before_action :set_award, only: [:show, :edit, :update, :destroy]
   rescue_from Pundit::NotAuthorizedError do
     redirect_to root_path, alert: "You aren't allowed to do that"

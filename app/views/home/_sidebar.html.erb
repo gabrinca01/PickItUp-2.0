@@ -35,6 +35,8 @@
             <%if current_user.role == 'admin' %>
             <i class="fas fa-globe fa-fw me-3"></i><%= link_to 'Verify',posts_to_verify_path,:method => :get, class: "list-group-item list-group-item-action py-2 ripple" %></br>
             <% end %>
+            <i class="fas fa-chart-bar fa-fw me-3"></i><%=link_to 'Awards',awards_path,:method => :get,class: "list-group-item list-group-item-action py-2 ripple"  %>
+            <br>
             <i class="fas fa-globe fa-fw me-3" ></i><%= link_to 'Logout',
                 destroy_user_session_path, method: :delete,class: "list-group-item list-group-item-action py-2 ripple"%>
             
