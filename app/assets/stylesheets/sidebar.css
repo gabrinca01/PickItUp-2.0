@@ -49,6 +49,7 @@
   }
   .list-group-item{
     transition: 0.3s;
+    text-align: center;
   }
   .list-group-item:hover{
     height: 90px;
