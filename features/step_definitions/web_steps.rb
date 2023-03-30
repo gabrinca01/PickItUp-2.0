@@ -32,17 +32,21 @@ end
 World(WithinHelpers)
 
 Given('a user with username {string}') do |string|
-  @user1 = User.create(username: string,email:"idbc@jjj.it",num_tel: "293878927")
+  if string == 'gabrinca01'
+    @user1 = User.new(id:1,username: string,num_tel: "293878927",created_at:23 ,updated_at: 23,verified: true)
+  else
+    @user2 = User.new(id:2,username: string,num_tel: "2938kjcbk78927",created_at:233 ,updated_at: 3,verified: true)
+  end
 end
 
 Given('a challenge called {string} with no definite setted date\/time\/duration and {string} as creator') do |string,string2|
-  @challenge = Challenge.create(user_id: @user1.id,description: string,durata: nil)
-  JoinChallenge.create(user_id:@user1.id,challenge_id:@challenge.id)
+  @challenge = Challenge.new(id: 1,user_id: @user1.id,description: string,durata: nil)
+  JoinChallenge.new(user_id:1,challenge_id:1)
 end
 
 Given('a user who joined the challenge called {string} with username {string}') do |string,string2|
-  @user2  = User.create(username: string2,email:"idbjhbc@jjj.it",num_tel: "2938878927")
-  JoinChallenge.create(user_id: @user2.id,challenge_id:@challenge.id)
+  @user2  = User.new(id:2 ,username: string2,email:"idbjhbc@jjj.it",num_tel: "2938878927",created_at:23 ,updated_at: 23)
+  JoinChallenge.new(user_id: 2,challenge_id:1)
 end
 
 Given('I am the user with username {string}') do |string|
@@ -54,7 +58,13 @@ Given('I am the user with username {string}') do |string|
 end
 
 Given /^(?:|I )am in (.+)$/ do |page_name|
-  visit path_to(page_name)
+  if page_name == "the profile page of gabrinca01"
+    visit path_to(page_name,@user1.id)
+  elsif page_name == "the home page"
+    visit path_to(page_name,1)
+  else
+    visit path_to(page_name,@challenge.id)
+  end
 end
 
 Then /^(?:|I )should be on (.+)$/ do |page_name|
@@ -75,5 +85,15 @@ When('I click on {string}') do |string|
 end
 
 Then('I should see the message {string} on the chat') do |string|
+  page.has_content?(string)
+end
+When ('I fill the search form with {string}') do |string|
+  fill_in('Search User',with: string)  
+end
+
+Then('I should see the link to user {string} on the page') do |string|
+  page.has_content?(string)
+end
+Then('I should see the link to {string} ') do |string|
   page.has_content?(string)
 end

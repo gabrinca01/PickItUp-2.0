@@ -1,6 +1,6 @@
 Feature: Set Definite Time/Date/Duration of Challenge
 	Only the creator of the challenge can set the definite time/date/duration
-	And he can do it only once  
+	And he can do it only once...whoever joined the challenge can chat in the challenge chat page  
 Background:
 	Given a user with username "gabrinca01" 
 	And a challenge called "Let's clean that park" with no definite setted date/time/duration and "gabrinca01" as creator

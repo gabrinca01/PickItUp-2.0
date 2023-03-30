@@ -9,16 +9,19 @@ module NavigationHelpers
   #   When /^I go to (.+)$/ do |page_name|
   #
   # step definition in web_steps.rb
-  #
-  def path_to(page_name)
+
+  
+  def path_to(page_name,id)
     case page_name
 
     when /^the home\s?page$/
       '/'
     when /^the chat page of the challenge Let's clean that park/
-      Challenge.find_by(description: "Let's clean that park")
+      challenge_path id
     when /^the update page of that challenge/
-      edit_challenge_path(Challenge.find_by(description: "Let's clean that park"))
+      edit_challenge_path id
+    when /^the profile page of gabrinca01/
+      user_path id
 
     # Add more mappings here.
     # Here is an example that pulls values out of the Regexp:

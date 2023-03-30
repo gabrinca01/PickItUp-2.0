@@ -10,17 +10,16 @@ gem 'dotenv-rails', groups: [:development, :test]
 gem 'shrine', '~> 3.3'
 gem "image_processing", ">= 1.2"
 gem 'twilio-ruby', '~> 5.46'
-
+gem 'faker'
 gem 'jquery-rails'
 
 gem 'delayed_job_active_record'
 
 gem 'rspec', '~> 3.5'
 group :development, :test do
-  gem 'rspec-rails', ">= 3.9.0"
-  gem 'cucumber-rails', require: false
-  gem 'database_cleaner'
-  gem 'cucumber-rails-training-wheels'
+  
+  gem "factory_bot_rails"
+  gem "faker"
 end
 
 gem 'devise'
@@ -109,6 +108,10 @@ group :test do
   gem "capybara"
   gem "selenium-webdriver"
   gem "webdrivers"
+  gem 'rspec-rails'
+  gem 'cucumber-rails', require: false
+  gem 'database_cleaner'
+  gem 'cucumber-rails-training-wheels'
 end
 
 gem "pundit", "~> 2.3"
