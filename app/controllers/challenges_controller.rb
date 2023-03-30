@@ -1,5 +1,5 @@
 class ChallengesController < ApplicationController
-  
+  before_action :authenticate_user!
   before_action :set_challenge, only: [:show, :edit, :update, :destroy]
   
   rescue_from Pundit::NotAuthorizedError do
@@ -34,7 +34,7 @@ class ChallengesController < ApplicationController
     @challenge.num_partecipanti = 1
     
     if @challenge.save 
-      @post = Post.create(user_id: current_user.id,challenge_id:@challenge.id)
+      @post = Post.create(user_id: current_user.id,challenge_id:@challenge.id,verified: false)
       @join_challenge=JoinChallenge.new
       @join_challenge.challenge_id = @challenge.id
       @join_challenge.user_id = @challenge.user_id

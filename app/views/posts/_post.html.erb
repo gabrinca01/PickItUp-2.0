@@ -11,12 +11,12 @@
   <%if post.images.attached? %>
   <div class="carousel-slide">
     <% post.images.each do |image| %>
-       <div class="corousel-item> <img><%= image_tag(image) %></img></div>
+       <div class="corousel-item"> <%= image_tag(image) %></div>
     <% end %>
   </div>
 
   <% end%>
-    <%@written_text%>
+    <%= @written_text %>
 </div>
 <div class= "post_footer">
   <div class="fb-share-button" data-href="https://developers.facebook.com/docs/plugins/" data-layout="" data-size=""><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">Condividi</a></div>
@@ -52,7 +52,7 @@
                 class: "btn btn--light edit" %>
     <%end %>
     <% if post.verified == false %>
-      <%= button_to "Verify", posts_verify_path,method: :post,id: post.id , class:"genButton"%>
+      <%= button_to "Verify", posts_verify_path(post.id),method: :post,id:post.id ,class:"genButton"%>
     <% end %>
   </div>
 </div>

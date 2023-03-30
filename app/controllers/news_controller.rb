@@ -1,5 +1,5 @@
 class NewsController < ApplicationController
-
+before_action :authenticate_user!
 before_action :set_news, only: [:show, :edit, :update, :destroy]
   rescue_from Pundit::NotAuthorizedError do
     redirect_to root_path, alert: "You aren't allowed to do that"

@@ -1,5 +1,7 @@
 class PostsController < ApplicationController
-  before_action :set_post, only: [:show, :edit, :update, :destroy,:verify]
+  before_action :set_post, only: [:show, :edit, :update, :destroy]
+  before_action :set_post_verify, only: [:verify]
+  before_action :authenticate_user!, only: [:edit,:new]
   #before_action :set_challenge, only: [:verify]
   rescue_from Pundit::NotAuthorizedError do
     redirect_to root_path, alert: "You aren't allowed to do that"
@@ -73,26 +75,34 @@ class PostsController < ApplicationController
   def verify
     @post.verified = true
     @post.save
-    @points = Challenge.find(@post.challenge_id).points
-    @user = User.find(@post.user_id)
-    if @user.points 
-      @user.points += @points
-    else 
-      @user.points = @points
+    
+    if @post.challenge_id
+      @points = Challenge.find(@post.challenge_id).points
+      @user = User.find(@post.user_id)
+      if @user.points 
+        @user.points += @points
+      else 
+        @user.points = @points
+      end
+      if @user.accumulated_points
+        @user.accumulated_points += @points
+      else
+        @user.accumulated_points = @points
+      end
+      @user.save 
     end
-    if @user.accumulated_points
-      @user.accumulated_points += @points
-    else
-      @user.accumulated_points = @points
-    end
-    @user.save 
-    redirect_to verify_path 
+    redirect_to posts_to_verify_path 
   end
  
   private
 
   def set_post
-    @post = Post.find(params[:id])
+    
+      @post = Post.find(params[:id])
+
+  end
+  def set_post_verify
+    @post = Post.find(params[:format])
   end
 
   def post_params

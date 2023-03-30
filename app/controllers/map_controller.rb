@@ -1,4 +1,5 @@
 class MapController < ApplicationController
+  before_action :authenticate_user!
   def index
     @query =Challenge.select(:luogo,:raggio)
     @other_challenges = Array.new
