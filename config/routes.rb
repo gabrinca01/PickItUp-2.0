@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   get "/home/search", to: "home#search"
   get "posts/to_verify", to: "posts#to_verify"
   post "posts/verify",to: "posts#verify"
+  post "awards/buy",to: "awards#buy"
   get 'signup'  => 'users#new'
 
   devise_scope :user do

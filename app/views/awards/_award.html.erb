@@ -1,5 +1,11 @@
 <div class="award">
-  <%= link_to award.description, award_path(award) %>
+  <%= award.description %>
+  <%= image_tag(award.image) %>
+  <div class="footer" style="display:inline-flex;">
+      <%= award.left %>
+      PRICE: <%= award.price %> points
+      <%= button_to "BUY", awards_buy_path(award.id),method: :post,id:award.id ,class:"genButton"%>
+  </div>
   <div class="award__actions">
     
     <% if Pundit.policy(Current.user,award).destroy? %>
