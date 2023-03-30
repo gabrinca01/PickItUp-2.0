@@ -1,9 +1,16 @@
+<%= stylesheet_link_tag "awards" %>
+
 <div class="award">
-  <%= award.description %>
-  <%= image_tag(award.image) %>
-  <div class="footer" style="display:inline-flex;">
-      <%= award.left %>
-      PRICE: <%= award.price %> points
+<div class="left">
+  <div class="titolo"> <p style="font-size:200%; margin-left:5%;"><%= award.description %></p> </div>
+  
+  <%= image_tag(award.image)%>
+</div>  
+
+<div style="max-width=25%">
+  <div class="footer" style="display:column-flex;">
+      <div><p> Quantity left:<%= award.left %></div>
+      <div>PRICE: <%= award.price %> points</div>
       <%= button_to "BUY", awards_buy_path(award.id),method: :post,id:award.id ,class:"genButton"%>
   </div>
   <div class="award__actions">
@@ -20,5 +27,6 @@
                  edit_award_path(award),
                 class: "btn btn--light" %>
     <% end %>
+  </div>
   </div>
 </div>

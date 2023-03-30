@@ -20,6 +20,7 @@ class AwardsController < ApplicationController
 
   def create
     @award = Award.new(award_params)
+    authorize @award
     @award.save
     redirect_to awards_path, notice: "award was successfully created."
   end

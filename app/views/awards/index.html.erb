@@ -1,4 +1,9 @@
 <main class="container">
+<%= stylesheet_link_tag "awards" %>
+<div class="int">
+<p style="font-size:200%; margin-left: 5%;"> Create new award </p>
+</div>
+<div class= "new_award">
   <%= simple_form_for @award, html: { class: "award form" } do |f| %>
   <% if @award.errors.any? %>
     <div class="error-message">
@@ -11,8 +16,12 @@
   <%= f.input :left, input_html: { autofocus: true } %>
   <%= f.input :image, input_html: { autofocus: true } %>
   <%= f.hidden_field :user_id, value: current_user.id %>
-  <%= f.submit class: "btn btn--secondary" %>
+  <%= f.submit class: "genButton"  %>
 <% end %>
+</div>
 
+<div class="int_list">
+<p style="font-size:200%; margin-left: 5%;"> Available awards</p>
+</div>
   <%= render @awards %>
 </main>
