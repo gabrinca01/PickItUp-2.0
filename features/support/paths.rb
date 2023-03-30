@@ -14,8 +14,8 @@ module NavigationHelpers
   def path_to(page_name,id)
     case page_name
 
-    when /^the home\s?page$/
-      '/'
+    when /^the home page/
+      root_path
     when /^the chat page of the challenge Let's clean that park/
       challenge_path id
     when /^the update page of that challenge/

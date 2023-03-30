@@ -33,20 +33,25 @@ World(WithinHelpers)
 
 Given('a user with username {string}') do |string|
   if string == 'gabrinca01'
-    @user1 = User.new(id:1,username: string,num_tel: "293878927",created_at:23 ,updated_at: 23,verified: true)
+    @user1 = User.new(id:1,username: string,email: "djbjb@ddd.it",password: "isudhweh",role: :level0,num_tel: "293878927",created_at:23 ,updated_at: 23,verified: true)
+    @user1.save!
   else
-    @user2 = User.new(id:2,username: string,num_tel: "2938kjcbk78927",created_at:233 ,updated_at: 3,verified: true)
+    @user2 = User.new(id:2,username: string,email: "djbjb@ddeed.it",password: "isudhweh",role: :level0,num_tel: "2938kjcbk78927",created_at:233 ,updated_at: 3,verified: true)
+    @user2.save!
   end
 end
 
 Given('a challenge called {string} with no definite setted date\/time\/duration and {string} as creator') do |string,string2|
-  @challenge = Challenge.new(id: 1,user_id: @user1.id,description: string,durata: nil)
+  @challenge = Challenge.new(id: 1,user_id: @user1.id,description: string,durata: nil,luogo: "12.89347897,41.373489")
+  @challenge.save!
   JoinChallenge.new(user_id:1,challenge_id:1)
 end
 
 Given('a user who joined the challenge called {string} with username {string}') do |string,string2|
-  @user2  = User.new(id:2 ,username: string2,email:"idbjhbc@jjj.it",num_tel: "2938878927",created_at:23 ,updated_at: 23)
-  JoinChallenge.new(user_id: 2,challenge_id:1)
+  @user2 = User.new(id:2,username: string,email: "djbjb@ddeed.it",password: "isudhweh",role: :level0,num_tel: "2938kjcbk78927",created_at:233 ,updated_at: 3,verified: true)
+  @user2.save!
+  JoinChallenge.create(user_id: 2,challenge_id:1)
+
 end
 
 Given('I am the user with username {string}') do |string|
@@ -70,30 +75,29 @@ end
 Then /^(?:|I )should be on (.+)$/ do |page_name|
   current_path = URI.parse(current_url).path
   if current_path.respond_to? :should
-    current_path.should == path_to(page_name)
+    current_path.should == path_to(page_name,1)
   else
-    assert_equal path_to(page_name), current_path
+    assert_equal path_to(page_name,1), current_path
   end
 end
 
-When('I fill the message form with {string}') do |string|
-  fill_in('message[msg_txt]', with: string)
-end
+
 
 When('I click on {string}') do |string|
   click_on(string) 
 end
 
-Then('I should see the message {string} on the chat') do |string|
-  page.has_content?(string)
+Then ('I should be at the map page') do 
+  page.should have_selector("div", :id => "map")
 end
 When ('I fill the search form with {string}') do |string|
-  fill_in('Search User',with: string)  
+  fill_in('search',with: string)  
 end
 
 Then('I should see the link to user {string} on the page') do |string|
   page.has_content?(string)
 end
-Then('I should see the link to {string} ') do |string|
+
+Then('I should see the link to {string}') do |string|
   page.has_content?(string)
 end

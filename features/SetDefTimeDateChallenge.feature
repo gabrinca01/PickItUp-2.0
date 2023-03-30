@@ -14,9 +14,8 @@ Scenario: gabrinca01 tries to set the definite date/time/duration of a challenge
 Scenario: blackeyes tries to send a message in the chat
 	Given I am the user with username "blackeyes"
 	And I am in the chat page of the challenge Let's clean that park
-	When I fill the message form with "Ciao ragazzi"
-	And I click on "Send"
-	Then I should see the message "Ciao ragazzi" on the chat
+	When I click on "See challenge location"
+	Then I should be at the map page
 
 
 

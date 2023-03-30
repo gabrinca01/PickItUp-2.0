@@ -9,6 +9,6 @@
     <h2 class="genTitle">New post</h2>
   </div>
   <%= f.input :written_text, input_html: { autofocus: true }, label:false %>
-  <%= f.hidden_field :images, multiple: true ,value: @post.images,required: true %>
+  <%= f.hidden_field :images, input_html: {multiple: true } ,value: @post.images,required: true %>
   <%= f.submit 'Create Post',class: "genButton" , style:"margin-left:420px; margin-bottom:15px"%>
 <% end %>
