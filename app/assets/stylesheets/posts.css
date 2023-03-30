@@ -17,6 +17,14 @@
     background-image: url("like_n.png");
 }
 
+.awardTitle{
+    background-color: green;
+    border-bottom-right-radius: 7px;
+    width: fit-content;
+    color: white;
+    padding: 5px 15px;
+}
+
 .dislike{
     height: 40px;
     width: 40px;

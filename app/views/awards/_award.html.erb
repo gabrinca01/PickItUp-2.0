@@ -2,24 +2,27 @@
 
 <div class="award">
 <div class="left">
-  <div class="titolo"> <p style="font-size:200%; margin-left:5%;"><%= award.description %></p> </div>
-  
+  <h2 class="awardTitle"><%= award.description %> </h2>
+  <%if award.image.attached?%>
   <%= image_tag(award.image)%>
+  <%else%>
+  <div class= "filler"></div>
+  <%end%>
 </div>  
 
 <div style="max-width=25%">
   <div class="footer" style="display:column-flex;">
       <div><p> Quantity left:<%= award.left %></div>
       <div>PRICE: <%= award.price %> points</div>
-      <%= button_to "BUY", awards_buy_path(award.id),method: :post,id:award.id ,class:"genButton"%>
   </div>
   <div class="award__actions">
     
+      <%= button_to "BUY", awards_buy_path(award.id),method: :post,id:award.id ,class:"genButton", style:"height:40px;width:40px;border-radius:.25rem"%>
     <% if Pundit.policy(Current.user,award).destroy? %>
-      <%= button_to "Delete",
+      <%= button_to "",
                   award_path(award),
                   method: :delete,
-                  class: "btn btn--light" %>
+                  class: "btn btn--light delete", style:"margin-top:0" %>
     <% end %>
     
     <% if Pundit.policy(Current.user,award).update? %>

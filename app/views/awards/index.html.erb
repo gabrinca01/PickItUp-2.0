@@ -1,9 +1,5 @@
-<main class="container">
-<%= stylesheet_link_tag "awards" %>
-<div class="int">
-<p style="font-size:200%; margin-left: 5%;"> Create new award </p>
-</div>
-<div class= "new_award">
+ <h2 class = "genTitle" style="margin-left:300px;border-top-right-radius:5px;margin-bottom:50px" >New award</h2>
+<main class="containerAwards">
   <%= simple_form_for @award, html: { class: "award form" } do |f| %>
   <% if @award.errors.any? %>
     <div class="error-message">
@@ -16,12 +12,11 @@
   <%= f.input :left, input_html: { autofocus: true } %>
   <%= f.input :image, input_html: { autofocus: true } %>
   <%= f.hidden_field :user_id, value: current_user.id %>
-  <%= f.submit class: "genButton"  %>
+  <%= f.submit class: "genButton", style:"
+  margin-left: 130px;
+  margin-bottom: 30px;
+  font-size: 40px;" %>
 <% end %>
-</div>
-
-<div class="int_list">
-<p style="font-size:200%; margin-left: 5%;"> Available awards</p>
-</div>
+</main> 
+<h2 class = "genTitle" style="margin-left:300px;border-top-right-radius:5px;margin-bottom:50px;margin-top:30px" >Awards</h2>
   <%= render @awards %>
-</main>
