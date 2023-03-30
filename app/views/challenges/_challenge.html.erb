@@ -6,10 +6,10 @@
   <% if Pundit.policy(Current.user,challenge).destroy? %>
 </div>
 
-  <div class="delete_b"><%= button_to "Delete",
+  <div class="delete_b", style="height:auto"><%= button_to "",
                   challenge_path(challenge),
                   method: :delete,
-                  class: "btn btn--light" %>
+                  class: "btn btn--light delete" %>
                   <% end %>
   </div>
 </div>

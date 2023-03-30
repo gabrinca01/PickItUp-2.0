@@ -1,5 +1,19 @@
 <% content_for :head do %>
-  
+
+<style>
+.btn--secondary{
+  margin: 0;
+  padding: 0;
+  font-family:Square peg;
+  width: 200px;
+  font-size:30px;
+  height:50px;
+}
+
+.btn--secondary:hover{
+  color:white;
+}
+</style>
   <%= stylesheet_link_tag 'map' %>
  <script type="text/javascript">
   
@@ -40,10 +54,10 @@ const challenge_zone=new google.maps.Circle({
 <% if JoinChallenge.where(user_id: current_user.id,challenge_id: params[:id]).empty?%>
         challenge_zone.addListener('click', () => {
            const contentString ='<main class="container">'+
-  '<form class="simple_form join_challenge form" id="new_join_challenge" novalidate="novalidate" action="/join_challenges" accept-charset="UTF-8" method="post"><input type="hidden" name="authenticity_token" value="'+ token+'" autocomplete="off" />'+
+  '<form class="simple_form join_challenge form" id="create_challenge" style="padding:0" novalidate="novalidate" action="/join_challenges" accept-charset="UTF-8" method="post"><input type="hidden" name="authenticity_token" value="'+ token+'" autocomplete="off" />'+
 
-  '<input autocomplete="off" type="hidden" name="join_challenge[challenge_id]" id="join_challenge_challenge_id" value="<%=params[:id] %>" />'+
-  '<input type="submit" name="commit" value="Create Join challenge" class="btn btn--secondary" data-disable-with="Create Join challenge" />'+
+  '<input autocomplete="off" class="genButton" type="hidden" name="join_challenge[challenge_id]" id="join_challenge_challenge_id" value="<%=params[:id] %>" />'+
+  '<input type="submit" name="commit" value="Join challenge" class="btn btn--secondary" data-disable-with="Create Join challenge" />'+
 '</form></main>';
         
           const infowindow = new google.maps.InfoWindow({

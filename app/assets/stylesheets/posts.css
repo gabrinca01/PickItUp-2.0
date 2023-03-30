@@ -1,8 +1,3 @@
-.post_footer{
-    display:grid;
-    grid-auto-flow: column ;
-}
-
 .like{
     height: 40px;
     width: 40px;
@@ -41,6 +36,7 @@
     display: grid;
     grid-auto-flow: column;
     width:300px;
+    grid-auto-columns: 50px auto;
 }
 
 
@@ -51,6 +47,7 @@
 .myContainer.post{
     margin-bottom:10px;
     margin-top:10px;
+    margin-left: 405px;
 
 }
 
@@ -68,7 +65,7 @@
 }
 .post_body{
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-    margin-left:2%;
+    margin-left:4%;
     display:grid;
     grid-auto-flow: row;
 }
@@ -119,4 +116,13 @@ img{
 
 .comment{
     padding:10px;
+}
+
+.post_footer{
+    display:grid;
+    grid-auto-flow: column ;
+    grid-auto-columns: 100px 700px 200px;
+    margin:4%;
+    margin-top:1%;
+    margin-bottom:1%;
 }

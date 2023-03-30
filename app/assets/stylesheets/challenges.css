@@ -14,7 +14,7 @@
   .col-md-10 {
     height:500px;
     overflow: scroll;
-    width: 800px;
+    width: 70%;
     float:left;
   }
 
@@ -87,13 +87,12 @@
   display:flex;
   grid-auto-flow: column;
   box-shadow: 0 2px 4px rgba(0, 0, 0, .5), 0 8px 16px rgba(0, 0, 0, .1);
-  width: 600px;
+  width: 25%;
   margin: 10px;
   padding:10px;
   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
   background-color: white;
   margin-left: 40%;
-  
 }
 
 .descrizione{

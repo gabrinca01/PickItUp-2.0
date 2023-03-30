@@ -1,10 +1,10 @@
 <div class="join_challenge">
   <%= link_to join_challenge.body, join_challenge_path(join_challenge) %>
   <div class="join_challenge__actions">
-    <%= button_to "Delete",
+    <%= button_to "",
                   join_challenge_path(join_challenge),
                   method: :delete,
-                  class: "btn btn--light" %>
+                  class: "btn btn--light delete" %>
     <%= link_to "Edit",
                 edit_join_challenge_path(join_challenge),
                 class: "btn btn--light" %>

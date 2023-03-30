@@ -12,8 +12,18 @@
 }
 
 .news__actions{
-    margin-left: 100px;
     height:100px;
+}
+
+.fb-xfbml-parse-ignore{
+    text-decoration: none;
+    color:black;
+}
+
+
+.fb-xfbml-parse-ignore:hover{
+    text-decoration: none;
+    color:green;
 }
 
 .btn.btn--light.edit{
