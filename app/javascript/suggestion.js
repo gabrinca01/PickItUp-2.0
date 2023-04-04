@@ -3,7 +3,7 @@ $('#suggestion_b').on('click', get_suggestion)
 
 function get_suggestion(){
 
-    const questions = ["What is the distance between the earth and the sun in apples","roll a d20"]
+    const questions = ["How much the maximum temperature changed compared to last year?","What we can do in everyday life to be as ecologically friendly as possible?","Tell me one of the most dangerous habits for the environment","Tell me one way pollution affects the human body","Tell me one of the most valuable discoveries in the fight against pollution"]
     var question = questions[Math.floor(Math.random()*questions.lenght)]
 
     const settings = {

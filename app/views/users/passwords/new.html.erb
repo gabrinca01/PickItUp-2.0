@@ -1,8 +1,30 @@
-<h2>Forgot your password?</h2>
+<style>
+  
+.genButton{
+  background-color: green;
+  color: white;
+  font-size: 20px;
+  height: fit-content;
+  width: auto;
+  border-radius: 10px;
+  border-style: solid;
+  font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  padding: 2px;
+  border-color:green;
+}
+
+.genButton:hover{
+  border-style: solid;
+  border-color: green;
+  background-color: white;
+  color: green;
+}
+</style>
+<h2 class="genTitle" style="border-top-right-radius:5px;">Forgot your password?</h2>
 
 <%= simple_form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
   <%= f.error_notification %>
-
+<div  class="myContainer">
   <div class="form-inputs">
     <%= f.input :email,
                 required: true,
@@ -11,8 +33,11 @@
   </div>
 
   <div class="form-actions">
-    <%= f.button :submit, "Send me reset password instructions" %>
+    <%= f.button :submit, "Send me reset password instructions", class:"genButton", style:"margin-left:290px;margin-bottom:30px;" %>
   </div>
+</div>
 <% end %>
 
 <%= render "users/shared/links" %>
+
+

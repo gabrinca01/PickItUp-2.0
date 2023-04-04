@@ -1,9 +1,4 @@
 <div id="<%= dom_id(comment) %>" style="display:flex">
 
   <p><%= comment.user.username %>: <%= comment.body %> </p>
-  <% if Pundit.policy(Current.user,comment).edit?%>
-  <%= link_to "Edit",
-                edit_post_comment_path(comment,id: comment.post.id),
-                class: "btn btn--light" %>
-  <%end %>
 </div>

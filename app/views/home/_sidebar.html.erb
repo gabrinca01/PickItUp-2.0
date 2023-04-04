@@ -6,6 +6,7 @@
         <%if current_user.image.attached? %>
         <%= image_tag(current_user.image)%>
         <% end%>
+      <%= link_to current_user.username, current_user, class: "genText" %>
       </div>
       <div id="logo">
           <i class="fas fa-chart-bar fa-fw me-3"></i><%=link_to 'PickItUp',root_path,:method => :get,class: "title" %>

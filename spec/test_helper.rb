@@ -3,7 +3,8 @@ require_relative "../config/environment"
 require "rails/test_help"
 require 'support/devise'
 require 'capybara/rails'
-require 'capybara/cucumber'
+include Capybara::DSL
+
 class ActiveSupport::TestCase
   # Run tests in parallel with specified workers
   parallelize(workers: :number_of_processors, with: :threads)

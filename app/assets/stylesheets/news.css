@@ -10,10 +10,26 @@
     background-color: white;
 
 }
+.btn.btn--light.ban{
+    height: 40px;
+    width: 40px;
+    background-color: rgb(214, 2, 2);
+    background-image: url("ban_b.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    margin-bottom:10px;
+    margin-top:10px;
+}
+
+.btn.btn--light.ban:hover{
+    background-image: url("ban.png");
+}
 
 .news__actions{
     height:100px;
 }
+
+
 
 .fb-xfbml-parse-ignore{
     text-decoration: none;

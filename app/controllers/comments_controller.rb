@@ -38,12 +38,7 @@ class CommentsController < ApplicationController
 
   def update
     @comment = Comment.find(params[:id])
-    authorize @comment
-    if @comment.update(comment_params)
-      redirect_to comments_path, notice: "comment was successfully updated."
-    else
-      render :edit
-    end
+    @comment.update(comment_params)   
   end
 
   def destroy

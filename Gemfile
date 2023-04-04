@@ -15,7 +15,7 @@ gem 'jquery-rails'
 
 gem 'delayed_job_active_record'
 
-gem 'rspec', '~> 3.5'
+gem 'rspec'
 group :development, :test do
   
   gem "factory_bot_rails"
@@ -96,8 +96,8 @@ group :development do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
   # VS-code debugging
-  gem "ruby-debug-ide", require: false
-  gem "debase", '0.2.5.beta2', require: false
+  gem "ruby-debug-ide"
+  gem "debase"
  
 
 

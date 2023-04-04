@@ -1,5 +1,6 @@
  <h2 class = "genTitle" style="margin-left:300px;border-top-right-radius:5px;margin-bottom:50px" >New award</h2>
 <main class="containerAwards">
+<% if Pundit.policy(Current.user,@award).create? %>
   <%= simple_form_for @award, html: { class: "award form" } do |f| %>
   <% if @award.errors.any? %>
     <div class="error-message">
@@ -16,6 +17,7 @@
   margin-left: 130px;
   margin-bottom: 30px;
   font-size: 40px;" %>
+<% end %>
 <% end %>
 </main> 
 <h2 class = "genTitle" style="margin-left:300px;border-top-right-radius:5px;margin-bottom:50px;margin-top:30px" >Awards</h2>

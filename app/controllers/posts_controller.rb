@@ -20,16 +20,15 @@ class PostsController < ApplicationController
   def create
     @post = Post.new(post_params)
     @post.user_id = current_user.id
-    
-    if params['commit'] != 'Post'
-      @pictures = params['post']['images']
-      @pictures.each do |picture|
-        PictureAttachmentService.attach(@post,picture)
-      end
+    @pictures = Array.new
+    if params['commit'] != 'Post'       
+      PictureAttachmentService.attach(@post, params['post']['images'])
       @post.verified = false
     else
       @post.verified = true
       @post.images.attach(params['post']['images'])
+      #@post.images.attach(io: File.open('app/assets/images/download (9).jpg'), filename: 'download (9).jpg')
+      #@post.images.attach(io: File.open('app/assets/images/download (11).jpg'), filename: 'download (11).jpg')
     end
     respond_to do |format|
     if @post.save

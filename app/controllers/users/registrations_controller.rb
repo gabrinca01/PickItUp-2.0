@@ -20,13 +20,15 @@ class Users::RegistrationsController < Devise::RegistrationsController
     else
       resource.role = :level0
     end
+    resource.points = 0
+    resource.accumulated_points = 0
     resource.save
     yield resource if block_given?
     if resource.persisted?
       if resource.active_for_authentication?
         set_flash_message! :notice, :signed_up
         sign_up(resource_name, resource)
-        start_verification(resource.num_tel, params[:channel])
+        start_verification(resource.num_tel)
         redirect_to verify_path
       else
         set_flash_message! :notice, :"signed_up_but_#{resource.inactive_message}"

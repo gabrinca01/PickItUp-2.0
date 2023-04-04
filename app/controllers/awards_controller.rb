@@ -6,7 +6,7 @@ class AwardsController < ApplicationController
     redirect_to root_path, alert: "You aren't allowed to do that"
   end
   def index
-    @awards = Award.all
+    @awards = Award.all.order(created_at: :desc)
     @award = Award.new
   end
 

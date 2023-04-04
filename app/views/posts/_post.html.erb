@@ -2,8 +2,8 @@
 
 <div class="myContainer post" >
 <div class="post_header" style="display: inline-flex;">
-  <p style="margin-left:1%"><%user =User.find(post.user_id) %></p>
-  <%= user.username%>
+  <p style="margin-left:1%"><%= link_to post.user.username, post.user %></p>  
+  
 </div>
 <div class="post_body">
   <%= post.written_text%>

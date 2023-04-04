@@ -5,7 +5,7 @@ class HomeController < ApplicationController
   def index
     @post = Post.new 
     @follows  = current_user.following.select(:followed_id)
-    @timeline_posts = Post.where(verified: true).where("user_id in (?)", @follows)
+    @timeline_posts = Post.where(verified: true).where("user_id in (?)", @follows).order(created_at: :desc)
   end
   def search
     if params[:search].blank?

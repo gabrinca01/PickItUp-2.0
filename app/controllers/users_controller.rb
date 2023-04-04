@@ -9,7 +9,7 @@ class UsersController < ApplicationController
   end
 
   def show
-    @posts = Post.where(user_id: @user.id, verified: true)
+    @posts = Post.where(user_id: @user.id, verified: true).order(created_at: :desc)
   end
 
   def new
@@ -41,7 +41,7 @@ class UsersController < ApplicationController
         
         if @user.destroy
           flash[:notice] = "\"#{@user.id}\" was successfully deleted."
-          redirect_to users_path,notice: "user was successfully destroyed."
+          redirect_to home_path,notice: "user was successfully destroyed."
         else
           flash.now[:alert] = "There was an error deleting the user."
           render :show

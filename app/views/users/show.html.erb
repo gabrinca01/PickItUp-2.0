@@ -4,6 +4,9 @@
 
 <p class="nome"> Pagina di <%= @user.username %></p>
 
+<div class="user_actions">
+    </div>
+
 </div>
 <div class="stats">
   <a style= "margin-left:5%;">
@@ -21,12 +24,18 @@
   </a>
 </div>
 <% if current_user.id != @user.id %>
-  <div id="follow_form">
+  <div id="follow_form" style="display:grid;grid-auto-flow:column;width:20%;padding-left:30px;">
   <% if current_user.following?(@user) %>
     <%= render 'unfollow'%>
   <% else %>
     <%= render 'follow' %>
   <% end %>
+    <% if Pundit.policy(Current.user,@user).destroy? %>
+      <%= button_to "",
+                 user_path(@user),
+                  method: :delete,
+                  class: "btn btn--light ban" %>
+    <%end%>
   </div>
 <% end %>
 <%= render @posts %>
